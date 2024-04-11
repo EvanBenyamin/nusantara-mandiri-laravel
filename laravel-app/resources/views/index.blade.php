@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Nusantara Mandiri</title>
+        <title>Nusantara Mandiri | {{ $title }}</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta

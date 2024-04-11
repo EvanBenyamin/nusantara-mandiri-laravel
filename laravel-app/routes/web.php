@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        "title" => "welcome"
+    ]);
 });
 Route::get('/home', function () {
-    return view('index');
+    return view('index', [
+        "title" => "Home"
+    ]);
 });

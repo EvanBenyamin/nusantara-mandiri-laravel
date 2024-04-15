@@ -55,8 +55,8 @@
                             Lainnya
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Simulasi Cicilan</a></li>
-                            <li><a class="dropdown-item" href="#">Ajukan Pinjaman</a></li>
+                            <li><a class="dropdown-item" href="/simulasi">Simulasi Cicilan</a></li>
+                            <li><a class="dropdown-item" href="/pengajuan">Ajukan Pinjaman</a></li>
                             <li><a class="dropdown-item" href="#">Cabang Koperasi</a></li>
                             <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
                           </ul>
@@ -160,7 +160,7 @@
                                         di sini! klik tombol dibawah untuk
                                         mendapatkan informasi lebih lanjut.
                                       </p>
-                                      <a href="" class="btn btn-outline-success btn-sm">Lakukan Simulasi</a>
+                                      <a href="/simulasi" class="btn btn-outline-success btn-sm">Lakukan Simulasi</a>
                                   </div>
                               </div>
                           </div>
@@ -174,7 +174,7 @@
                                         mengisi formulir data diri anda, dan jumlah pinjaman 
                                         setelah itu anda akan dievaluasi untuk melakukan pinjaman
                                       </p>
-                                      <a href="" class="btn btn-outline-success btn-sm">Ajukan Pinjaman Sekarang</a>
+                                      <a href="/pengajuan" class="btn btn-outline-success btn-sm">Ajukan Pinjaman Sekarang</a>
                                      </div>
                               </div>
                           </div>

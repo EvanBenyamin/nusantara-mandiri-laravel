@@ -26,28 +26,37 @@
             <!-- place navbar here -->
         </header>
         <main>
+            <div class="container">
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">Alasan</th>
                     <th scope="col">Pekerjaan</th>
-                    <th scope="col">Gaji</th>
+                    <th scope="col">Pendapatan</th>
+                    <th scope="col">Lama Angsuran</th>
+                    <th scope="col">Kelengkapan Berkas</th>
+                    <th scope="col">Jumlah Pinjaman</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($nasabah as $n)
+                @foreach ($customer as $c)
                 <tr>
-                    <td>{{ $n ["id"] }}</td>
-                    <td>{{ $n ["nama"] }} </td>
-                    <td>{{ $n ["pekerjaan"] }}</td>
-                    <td>{{ $n ["pinjaman"] }}</td>
+                    <td>{{ $c ["id"] }}</td>
+                    <td>{{ $c ["nama"] }} </td>
+                    <td>{{ $c ["alasan"] }}</td>
+                    <td>{{ $c ["status_kepegawaian"] }}</td>
+                    <td>Rp. {{ $c ["pendapatan"] }}</td>
+                    <td class="" >{{ $c ["lama_angsuran"] }} Bulan</td>
+                    <td class="text-center">{{ $c ["kelengkapan_berkas"] }}</td>
+                    <td class="text-center">Rp. {{ $c ["pinjaman"] }}</td>
                 </tr>
                 @endforeach
                 
                
                 </tbody>
-             
+            </div>
         </main>
         <footer>
             <!-- place footer here -->

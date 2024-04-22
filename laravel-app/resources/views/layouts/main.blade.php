@@ -45,7 +45,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2">
                       <li class="nav-item"> 
-                        <a class="nav-link active" aria-current="page" id="home" href="home">Beranda</a>
+                        <a class="nav-link" aria-current="page" id="home" href="home">Beranda</a>
                       </li>
                       <li class="nav-item">
                         <a id="layanan" class="nav-link" href="/home#services">Layanan Kami</a>

@@ -197,6 +197,12 @@
                   </div>
               </div>
         </section>
+        <section>
+            <div class="container">
+              <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+              <div class="elfsight-app-fc7e5f3f-8b63-49a8-a098-31f1d9e51bc0" data-elfsight-app-lazy></div>
+            </div>
+        </section>
 
 
         <section aria-label="Our Location">

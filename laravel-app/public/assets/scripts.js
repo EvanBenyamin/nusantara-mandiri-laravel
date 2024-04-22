@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 
-	$("button").click(function() {
+	$("#button").click(function() {
 		$('html, body').animate({
 			scrollTop: $("#icons").offset().top
 		}, 2000);

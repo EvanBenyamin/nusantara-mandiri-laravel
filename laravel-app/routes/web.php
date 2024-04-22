@@ -6,8 +6,8 @@ use app\Models\Nasabah;
 
 
 Route::get('/', function () {
-    return view('welcome', [
-        "title" => "welcome"
+    return view('index', [
+        "title" => "Home"
     ]);
 });
 Route::get('/home', function () {

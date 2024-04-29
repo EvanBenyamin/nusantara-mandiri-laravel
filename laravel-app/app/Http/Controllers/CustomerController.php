@@ -14,4 +14,11 @@ class CustomerController extends Controller
             "customer" => Customer::all()
         ]);
     }
+    public function profile (Customer $customer)
+    {
+        return view ('user',[
+            "title" => "Profile",
+            "customer" => $customer
+        ]);
+    }
 }

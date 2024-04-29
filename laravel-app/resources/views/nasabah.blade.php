@@ -32,7 +32,7 @@
                   <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Alasan</th>
+                    <th scope="col">Kebutuhan Pinjaman</th>
                     <th scope="col">Pekerjaan</th>
                     <th scope="col">Pendapatan</th>
                     <th scope="col">Lama Angsuran</th>
@@ -44,7 +44,7 @@
                 @foreach ($customer as $c)
                 <tr>
                     <td>{{ $c ["id"] }}</td>
-                    <td>{{ $c ["nama"] }} </td>
+                    <td href="google.co.id" >{{ $c ["nama"] }} </td>
                     <td>{{ $c ["alasan"] }}</td>
                     <td>{{ $c ["status_kepegawaian"] }}</td>
                     <td>Rp. {{ $c ["pendapatan"] }}</td>

@@ -29,3 +29,4 @@ Route::get('/simulasi', function () {
 
 
 Route::get('/nasabah', [CustomerController::class,'index']);
+Route::get('/nasabah/{customer:user_id}',[CustomerController::class, 'profile']);

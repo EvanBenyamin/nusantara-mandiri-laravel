@@ -122,7 +122,7 @@
                 <div class="icon-wrapper">
                   <i class="fas fa-users fa-6x"id="green"></i>
                    <div class="counter" data-count="2000">0</div>
-                  <p>Telah Melayani dan dipercaya oleh lebih dari 2000 nasabah selama 10 tahun</p>
+                  <p>Telah melayani dan dipercaya oleh lebih dari 2000 nasabah selama 10 tahun</p>
                 </div>
               </div>
               <div class="col-lg-4 col-md-12">
@@ -136,7 +136,7 @@
                 <div class="icon-wrapper hidden">
                   <i class="fa-solid fa-location-dot fa-6x" id="green"></i>
                   <div class="counter" data-count="3">0</div>
-                  <p>Memiliki 3 cabang aktif di daerah kabupaten bandung</p>
+                  <p>Memiliki 3 cabang aktif di daerah Kabupaten Bandung</p>
                 </div>
               </div>
             </div>
@@ -182,12 +182,11 @@
                               <div class="card">
                                   <img src="/assets/images/FGD.png" alt="" class="card-img-top">
                                   <div class="card-body">
-                                      <h5 class="card-title">Daftar untuk Menjadi Nasabah</h5>
+                                      <h5 class="card-title">Login Sebagai Nasabah</h5>
                                       <p class="card-text">
-                                        Jadilah nasabah kami dan dapatkan informasi 
-                                        terbaru dan terkini terkait penawaran kami, berita
-                                        terkini tentang keuangan dan ekonomi dari beberapa 
-                                        sumber yang terpercaya.  
+                                        Daftar menjadi nasabah kami dan anda dapat menggunakan fitur dashboard
+                                        dan lakukan <i>Re-Order</i> dengan mudah, tanpa harus melakukan proses
+                                        administrasi secara ulang sekarang.  
                                       </p>
                                       <a href="" class="btn btn-outline-success btn-sm">Masuk ke Forum</a>
                                   </div>
@@ -195,7 +194,7 @@
                           </div>
                       </div>
                   </div>
-              </div>
+                </div>
         </section>
         <section>
             <div class="container">

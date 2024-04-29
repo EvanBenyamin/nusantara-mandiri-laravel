@@ -4,7 +4,7 @@
     <h2 class="text-center" style="margin-top:7rem; font-family: 'Quicksand', sans-serif;">Formulir Pengajuan Pinjaman</h2>
 
     <div class="container hidden">
-        <form class="mt-5">
+        <form action="" method="post" class="mt-5">
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
               <div class="col">
@@ -78,7 +78,7 @@
             </div>
             <div class="d-grid gap-2 hidden">
             <!-- Submit button -->
-            <button data-mdb-ripple-init type="button" class="btn btn-success btn-block mb-4 ">Ajukan Pinjaman</button>
+            <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mb-4 ">Ajukan Pinjaman</button>
             </div>
           </form>
     </div>

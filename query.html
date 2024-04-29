@@ -1,0 +1,14 @@
+
+Customer::create([
+    'user_id' => 'nurwanti-sophia',
+    'nama' => 'Nurwanti Sophia',
+    'alasan' => 'Pendidikan',
+    'status_kepegawaian' => 'Operator',
+    'pendapatan' => ' Rp3000000',
+    'lama_angsuran' => '4',
+    'kelengkapan_berkas' =>'5',
+    'pinjaman' => '2000000'
+])
+
+//UPDATE
+Customer::where('user_id','fahjar-febriansyah')->update([ 'user_id => 'fajar-febriansyah' ])

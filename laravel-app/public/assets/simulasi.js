@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
         
 
-    	$("#simulasi").click(function() {
+    	$("#simulasi-cicilan").click(function() {
             let plafondDrop = document.getElementById('plafond')
             let plafond = parseFloat(plafondDrop.value)
     
@@ -11,19 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let neatSimulasi = neatnumber(simulasi);
            
-            document.getElementById("result").innerText = "Cicilan Anda sebanyak: Rp." + neatSimulasi + "/Bulan";
+            document.getElementById("result").innerText = "Cicilan Anda sebanyak: Rp " +neatSimulasi+ "/Bulan";
 	});
         function neatnumber(number) {
-                // Convert number to string
                 let numStr = String(number);
-            
-                if (numStr.length < 7) {
-                    // Insert dots at appropriate positions for millions
+                if (numStr.length < 7) {       
                     numStr = numStr.slice(0, -3) + '.'+ numStr.slice(-3) ;
                 } else {
                     numStr = numStr.slice(0, -6) + '.' + numStr.slice(-6);
                 }
-            
                 return numStr;
             }
+    
 })

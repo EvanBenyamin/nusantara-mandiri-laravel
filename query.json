@@ -7,7 +7,8 @@ Customer::create([
     'pendapatan' => ' Rp3000000',
     'lama_angsuran' => '4',
     'kelengkapan_berkas' =>'5',
-    'pinjaman' => '2000000'
+    'pinjaman' => '2000000',
+    'alamat' => 'Jalan ABCD'
 ])
 
 //UPDATE

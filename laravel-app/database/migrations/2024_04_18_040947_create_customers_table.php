@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('lama_angsuran');
             $table->string('kelengkapan_berkas');
             $table->string('pinjaman');
+            $table->string('alamat');
             $table->timestamp('published_at')->nullable() ;
             $table->timestamps();
         });

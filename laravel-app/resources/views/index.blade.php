@@ -182,7 +182,7 @@
                               <div class="card">
                                   <img src="/assets/images/FGD.png" alt="" class="card-img-top">
                                   <div class="card-body">
-                                      <h5 class="card-title">Login Sebagai Nasabah</h5>
+                                      <h5 class="card-title">Fitur Dashboard untuk Nasabah</h5>
                                       <p class="card-text">
                                         Daftar menjadi nasabah kami dan anda dapat menggunakan fitur dashboard
                                         dan lakukan <i>Re-Order</i> dengan mudah, tanpa harus melakukan proses

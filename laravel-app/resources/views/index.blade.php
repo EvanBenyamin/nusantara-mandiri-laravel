@@ -50,6 +50,9 @@
                       <li class="nav-item">
                         <a id="layanan" class="nav-link" href="#services">Layanan Kami</a>
                       </li>
+                      <li class="nav-item">
+                        <a id="layanan" class="nav-link" href="admin/login">Login</a>
+                      </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Lainnya
@@ -153,12 +156,12 @@
                               <div class="card">
                                   <img src="/assets/images/Calculate.png" class="card-img-top">
                                   <div class="card-body">
-                                      <h5 class="card-title">Simulasi Cicilan</h5>
+                                      <h5 class="card-title">Simulasi Pinjaman</h5>
                                       <p class="card-text">
-                                        Silahkan tentukan jumlah pinjaman yang Anda 
-                                        inginkan serta tingkat bunga yang telah ditetapkan
-                                        di sini! klik tombol dibawah untuk
-                                        mendapatkan informasi lebih lanjut.
+                                        Lakukan simulasi untuk kelayakan pinjaman 
+                                        dan perhitungkan juga jumlah pinjaman dan
+                                        cicilan yang harus dibayar perbulannya 
+                                        menggunakan fitur simulasi pinjaman kami
                                       </p>
                                       <a href="/simulasi" class="btn btn-outline-success btn-sm">Lakukan Simulasi</a>
                                   </div>
@@ -188,7 +191,7 @@
                                         dan lakukan <i>Re-Order</i> dengan mudah, tanpa harus melakukan proses
                                         administrasi secara ulang sekarang.  
                                       </p>
-                                      <a href="" class="btn btn-outline-success btn-sm">Masuk ke Forum</a>
+                                      <a href="" class="btn btn-outline-success btn-sm">Login Sebagai Nasabah</a>
                                   </div>
                               </div>
                           </div>

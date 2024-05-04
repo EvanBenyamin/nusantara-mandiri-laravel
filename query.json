@@ -13,3 +13,10 @@ Customer::create([
 
 //UPDATE
 Customer::where('user_id','fahjar-febriansyah')->update([ 'user_id => 'fajar-febriansyah' ])
+
+User::create([
+    'username'=>'ade-irma',
+    'email' => 'adeirma@gmail.com',
+    'password' => bcrypt('12345'),
+    'is_admin' => '0'
+])

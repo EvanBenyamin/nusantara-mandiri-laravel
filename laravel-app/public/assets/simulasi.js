@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var angsur = parseInt(angsuran.value)
             
 
-        if (earn + angsur >= pinjaman.value){
+        if (earn * angsur >= pinjaman.value){
             console.log (`Hasil Perhitungan adalah ${scoring()}`)
             var link = document.createElement('a');
             link.href = '/pengajuan'

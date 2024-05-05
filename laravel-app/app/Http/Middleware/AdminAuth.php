@@ -10,13 +10,14 @@ class AdminAuth
 {
     /**
      * Handle an incoming request.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if(!auth()->user()->is_admin){
+            if(!auth()->user()){ // check is admin?
                 return redirect()->route('getLogin')->with('error','You have to be admin user to access this page');
             }
         }else{
@@ -25,3 +26,4 @@ class AdminAuth
         return $next($request);
     }
 }
+

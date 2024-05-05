@@ -12,11 +12,11 @@ Route::get('/admin/dashboard',[ProfileController::class,'dashboard']) -> name('d
 
 Route::get('/admin/logout',[ProfileController::class,'logout'])->name('logout');
 
-// Route::group(['middleware'=>['admin_auth']],function(){
+Route::group(['middleware'=>['admin_auth']],function(){
      
-//     Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
-//     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
-// });
+    Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
+    Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
+});
 
 Route::get('/', function () {
     return view('index', [

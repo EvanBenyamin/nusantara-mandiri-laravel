@@ -176,6 +176,7 @@
                                         Lakukan pengajuan pinjaman anda secara online dengan cara
                                         mengisi formulir data diri anda, dan jumlah pinjaman 
                                         setelah itu anda akan dievaluasi untuk melakukan pinjaman
+                                        semua proses dijalankan secara online
                                       </p>
                                       <a href="/pengajuan" class="btn btn-outline-success btn-sm">Ajukan Pinjaman Sekarang</a>
                                      </div>
@@ -189,9 +190,9 @@
                                       <p class="card-text">
                                         Daftar menjadi nasabah kami dan anda dapat menggunakan fitur dashboard
                                         dan lakukan <i>Re-Order</i> dengan mudah, tanpa harus melakukan proses
-                                        administrasi secara ulang sekarang.  
+                                        administrasi secara ulang.  
                                       </p>
-                                      <a href="" class="btn btn-outline-success btn-sm">Login Sebagai Nasabah</a>
+                                      <a href="/admin/dashboard" class="btn btn-outline-success btn-sm">Akses Dashboard Nasabah</a>
                                   </div>
                               </div>
                           </div>

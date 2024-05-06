@@ -57,13 +57,37 @@
 </nav>
 <!-- /.content-header -->
 @endsection
+
 @section('body')
     <!-- Main row -->
     <div class="row">
         <div class="container-fluid">
             Users List
         </div>
-         
+        <div class="container">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id.</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach ($customer as $c)
+                <tr>
+                    <td>{{ $c ["id"] }}</td>
+                    <td>{{ $c ["username"] }} </td>
+                    <td>{{ $c ["email"] }}</td>
+                    <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
+                </tr>
+                @endforeach
+                
+               
+                </tbody>
+            </div>
+        
     </div>
     <!-- /.row (main row) -->
-@endsection
+    @endsection

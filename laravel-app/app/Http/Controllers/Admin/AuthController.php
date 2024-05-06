@@ -17,6 +17,11 @@ class AuthController extends Controller
             'email'=>'required|email:dns',
             'password'=>'required'
         ]); 
+        $validated_admin=auth()->attempt([
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'is_admin' => '1'
+        ],$request->password);
  
         $validated=auth()->attempt([
             'email'=>$request->email,

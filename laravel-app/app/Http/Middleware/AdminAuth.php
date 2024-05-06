@@ -17,7 +17,7 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if(!auth()->user()){ // check is admin?
+            if(!auth()->user()){ //->is_admin
                 return redirect()->route('getLogin')->with('error','You have to be admin user to access this page');
             }
         }else{

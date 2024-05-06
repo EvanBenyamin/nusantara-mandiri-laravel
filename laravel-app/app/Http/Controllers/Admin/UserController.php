@@ -17,8 +17,13 @@ class UserController extends Controller
     public function users ()
     {
         return view('admin.users.index',[
-            "title" => "nasabah",
-            "customer" => User::all()
+            "title" => "Users",
+            "user" => User::all()
+        ]);
+    }
+    public function Home(){
+        return view('/',[
+            "title" => "Home",
         ]);
     }
 }

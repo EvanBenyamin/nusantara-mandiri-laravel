@@ -72,15 +72,17 @@
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">Status User</th>
+                    <th scope="col">Pendapatan</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($customer as $c)
+                @foreach ($user as $c)
                 <tr>
                     <td>{{ $c ["id"] }}</td>
                     <td>{{ $c ["username"] }} </td>
                     <td>{{ $c ["email"] }}</td>
                     <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
+                    <td>{{ $c -> customer -> pendapatan }}</td>
                 </tr>
                 @endforeach
                 

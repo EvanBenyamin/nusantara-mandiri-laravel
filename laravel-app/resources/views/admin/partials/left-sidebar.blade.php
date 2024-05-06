@@ -32,12 +32,16 @@ User Management
 </div>
 
 <li class="nav-item">
-<a href="{{route('users.index')}}" class="nav-link {{$current_route=='users.index'?'active':''}}">
+  <a href="/" class="nav-link {{$current_route=='users.index'?'active':''}}">
+    <i class="fas fa-fw fa-home"></i>
+    <span>Home</span></a>
+<a href="{{route('users.list')}}" class="nav-link {{$current_route=='users.index'?'active':''}}">
       <i class="fas fa-fw fa-table"></i>
       <span>Users</span></a>
-      <div class="container">
-
 </li>
+<div class="container">
+      
+
 
 
 </ul>

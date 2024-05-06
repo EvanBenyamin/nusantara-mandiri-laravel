@@ -17,8 +17,10 @@ Route::group(['middleware'=>['admin_auth']],function(){
      
     Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
-    Route::get('/admin/users',[UserController::class,'users'])->name('users.index');;
+    Route::get('/admin/users',[UserController::class,'users'])->name('users.list');;
 });
+
+Route::get('/',[UserController::class,'Home'])->name('goHome');
 
 Route::get('/', function () {
     return view('index', [

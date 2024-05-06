@@ -1,22 +1,39 @@
 
 Customer::create([
-    'user_id' => 'nurwanti-sophia',
-    'nama' => 'Nurwanti Sophia',
-    'alasan' => 'Pendidikan',
-    'status_kepegawaian' => 'Operator',
-    'pendapatan' => ' Rp3000000',
-    'lama_angsuran' => '4',
-    'kelengkapan_berkas' =>'5',
-    'pinjaman' => '2000000',
-    'alamat' => 'Jalan ABCD'
+    'user_id' => '2',
+    'nama' => 'Ade Irma',
+    'alasan' => 'Usaha',
+    'status_kepegawaian' => 'Sales Asisten',
+    'pendapatan' => '6000000',
+    'lama_angsuran' => '3',
+    'kelengkapan_berkas' =>'4',
+    'pinjaman' => '4000000',
+    'alamat' => 'jl. ABCD'
 ])
 
 //UPDATE
-Customer::where('user_id','fahjar-febriansyah')->update([ 'user_id => 'fajar-febriansyah' ])
+Customer::where('nama','Nurwanti Sophia')->update([ 'nama' => 'Ade Irma' ])
 
 User::create([
     'username'=>'ade-irma',
     'email' => 'adeirma@gmail.com',
     'password' => bcrypt('12345'),
     'is_admin' => '0'
+])
+
+Submission::create([
+    'nama' => 'Haryanto',
+    'jenis_kelamin' => '1',
+    'alamat' => 'Jl. BCDE',
+    'keperluan_meminjam' => 'Rumah',
+    'status_kepegawaian' => 'Operator',
+    'pendapatan' => '5000000',
+    'lama_angsuran' =>'5',
+    'kelengkapan_berkas' => '4',
+    'jumlah_pinjaman' => '4000000'
+])
+
+Validation::create([
+    'submission_id' => '1',
+    'hasil_pengajuan' => '1'
 ])

@@ -1,4 +1,4 @@
-@extends('admin.main-layout')
+@extends('admin.customers.main-layout')
  
 @section('content-header')
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -62,31 +62,18 @@
     <!-- Main row -->
     <div class="row">
         <div class="container-fluid">
-            Users List
+            Users Status
         </div>
         <div class="container">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Id.</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status User</th>
-                    <th scope="col">Date Created</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach ($user as $c)
-                <tr>
-                    <td>{{ $c ["id"] }}</td>
-                    <td>{{ $c ["username"] }} </td>
-                    <td>{{ $c ["email"] }}</td>
-                    <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
-                    <td>{{ $c['created_at']}}</td>
-                </tr>
-                @endforeach
-                </tbody>
+            <div class="row">
+            <h2 class="h2 mt-3">{{ auth() -> user() -> username }}</h2>
             </div>
+            <ul class="list-unstyled">
+                <li>Nama: {{ auth() -> user() -> customer -> nama }}</li>
+                <li>Status Kepegawaian: {{ auth() -> user() -> customer -> status_kepegawaian }}</li>
+                <li>Jumlah Pinjaman: {{ auth()->user()->customer->pinjaman }}</li>
+            </ul>
+        </div>
         
     </div>
     <!-- /.row (main row) -->

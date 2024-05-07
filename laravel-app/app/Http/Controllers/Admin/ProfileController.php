@@ -13,6 +13,12 @@ class ProfileController extends Controller
         ];
         return view('admin.dashboard',$data);
     }
+    public function customer(){
+        $data=[
+            'title'=>'Dashboard'
+        ];
+        return view('admin.customers.customer',$data);
+    }
  
     public function logout(){
         auth()->logout();

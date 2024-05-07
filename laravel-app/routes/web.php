@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use app\Models\Nasabah;
 use App\Http\Controllers\Admin\{AuthController, ProfileController, UserController};
 use App\Models\User;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 Route::get('/admin/login',[AuthController::class,'getLogin'])->name('getLogin');
 Route::post('/admin/login',[AuthController::class,'postLogin'])->name('postLogin');
@@ -16,11 +17,12 @@ Route::get('/admin/logout',[ProfileController::class,'logout'])->name('logout');
 Route::group(['middleware'=>['admin_auth']],function(){
      
     Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
+    Route::get('/customer/dashboard',[ProfileController::class,'customer'])->name('customer');
+    Route::get('customer/status',[UserController::class,'status'])->name('user.status');
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
-    Route::get('/admin/users',[UserController::class,'users'])->name('users.list');;
+    Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
 });
 
-Route::get('/',[UserController::class,'Home'])->name('goHome');
 
 Route::get('/', function () {
     return view('index', [

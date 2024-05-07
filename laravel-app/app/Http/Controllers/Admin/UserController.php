@@ -21,9 +21,9 @@ class UserController extends Controller
             "user" => User::all()
         ]);
     }
-    public function Home(){
-        return view('/',[
-            "title" => "Home",
+    public function status (){
+        return view ('admin.customers.index',[
+            "title" => "status",
         ]);
     }
 }

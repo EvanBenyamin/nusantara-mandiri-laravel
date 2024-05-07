@@ -1,22 +1,23 @@
 
 Customer::create([
-    'user_id' => '2',
-    'nama' => 'Ade Irma',
+    'user_id' => '3',
+    'nama' => 'Gita Herwati',
     'alasan' => 'Usaha',
-    'status_kepegawaian' => 'Sales Asisten',
-    'pendapatan' => '6000000',
-    'lama_angsuran' => '3',
+    'status_kepegawaian' => 'Operator',
+    'pendapatan' => '4000000',
+    'lama_angsuran' => '2',
     'kelengkapan_berkas' =>'4',
-    'pinjaman' => '4000000',
-    'alamat' => 'jl. ABCD'
+    'pinjaman' => '2000000',
+    'alamat' => 'Jl.BCDE'
 ])
 
 //UPDATE
 Customer::where('nama','Nurwanti Sophia')->update([ 'nama' => 'Ade Irma' ])
 
 User::create([
-    'username'=>'ade-irma',
-    'email' => 'adeirma@gmail.com',
+    'username'=>'gita-herwati',
+    'customer_id'=>'3',
+    'email' => 'gitaherwati@gmail.com',
     'password' => bcrypt('12345'),
     'is_admin' => '0'
 ])

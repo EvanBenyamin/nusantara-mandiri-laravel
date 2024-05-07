@@ -16,14 +16,23 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check()){
-            if(!auth()->user()){ //->is_admin
-                return redirect()->route('getLogin')->with('error','You have to be admin user to access this page');
+        if (auth()->check()) {
+            if (!auth()->user()->is_admin) { 
+                    switch ($request->route()->getName()) {
+                        case 'customer':
+                        case 'user.status':
+                            return $next($request);
+                        default:
+                            return redirect()->route('customer')->with('error', 'You have to be an admin user to access this page');
+                    }
+                
             }
-        }else{
-            return redirect()->route('getLogin')->with('error','You have to be logged in to access this page');
+        }else {
+            // Check if the user is already on the 'getLogin' route to prevent infinite redirection loop
+            if ($request->route()->getName() !== 'getLogin') {
+                return redirect()->route('getLogin')->with('error', 'You have to be logged in to access this page');
+            }
         }
         return $next($request);
     }
-}
-
+}    

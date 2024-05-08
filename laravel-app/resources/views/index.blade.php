@@ -156,7 +156,7 @@
                               <div class="card">
                                   <img src="/assets/images/Calculate.png" class="card-img-top">
                                   <div class="card-body">
-                                      <h5 class="card-title">Simulasi Pinjaman</h5>
+                                      <h5 class="card-title">Simulasi</h5>
                                       <p class="card-text">
                                         Lakukan simulasi untuk kelayakan pinjaman 
                                         dan perhitungkan juga jumlah pinjaman dan

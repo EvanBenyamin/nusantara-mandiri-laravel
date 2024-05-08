@@ -74,10 +74,10 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                            <a class="small" href="/">Kembali ke Beranda</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.html">Create an Account!</a>
+                                            <a class="small" href="register.html">Lupa Password</a>
                                         </div>
                                     </div>
                                 </div>

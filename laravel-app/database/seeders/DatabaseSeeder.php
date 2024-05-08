@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Customer;
+use App\Models\Submission;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +18,43 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::create([
+            'username'=>'benja',
+            'customer_id'=>'1',
+            'email' => 'benja@gmail.com',
+            'password' => bcrypt('benjaplus'),
+            'is_admin' => '1'
         ]);
+
+        User::create([
+            'username'=>'ade-irma',
+            'customer_id'=>'2',
+            'email' => 'adeirma@gmail.com',
+            'password' => ('12345'),
+            'is_admin' => '0'
+        ]);
+
+        Customer::create([
+            'user_id' => '1',
+            'nama' => 'Benjamin',
+            'alasan' => '-',
+            'status_kepegawaian' => '-',
+            'pendapatan' => '-',
+            'lama_angsuran' => '-',
+            'kelengkapan_berkas' =>'-',
+            'pinjaman' => '-',
+            'alamat' => '-'
+        ]);  
+        Customer::create([
+            'user_id' => '2',
+            'nama' => 'Ade Irma',
+            'alasan' => 'Rumah',
+            'status_kepegawaian' => 'Operator',
+            'pendapatan' => '4000000',
+            'lama_angsuran' => '2',
+            'kelengkapan_berkas' =>'3',
+            'pinjaman' => '5000000',
+            'alamat' => 'Jl. ABCD'
+        ]);  
     }
 }

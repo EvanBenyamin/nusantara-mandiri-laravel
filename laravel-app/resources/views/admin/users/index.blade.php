@@ -73,16 +73,19 @@
                     <th scope="col">Email</th>
                     <th scope="col">Status User</th>
                     <th scope="col">Date Created</th>
+                    <th scope="col">Date Updated</th>
                   </tr>
                 </thead>
                 <tbody>
                 @foreach ($user as $c)
                 <tr>
                     <td>{{ $c ["id"] }}</td>
-                    <td>{{ $c ["username"] }} </td>
+                    <td><a href="/profile/{{ $c->username }}" 
+                    class="text-decoration-none">{{ $c ["username"] }} </a> </td>
                     <td>{{ $c ["email"] }}</td>
                     <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
                     <td>{{ $c['created_at']}}</td>
+                    <td>{{ $c['updated_at']}}</td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	$(window).scroll(function(){
 		$('nav').toggleClass('scrolled',$(this).scrollTop()>50);
 	});
-
+	$(function () {
+		$('.selectpicker').selectpicker();
+	});
 
 	$("#button").click(function() {
 		$('html, body').animate({

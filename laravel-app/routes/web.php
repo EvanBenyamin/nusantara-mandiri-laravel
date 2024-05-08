@@ -4,11 +4,14 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use app\Models\Nasabah;
 use App\Http\Controllers\Admin\{AuthController, ProfileController, UserController};
+use App\Http\Controllers\SubmissionController;
 use App\Models\User;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 Route::get('/admin/login',[AuthController::class,'getLogin'])->name('getLogin');
 Route::post('/admin/login',[AuthController::class,'postLogin'])->name('postLogin');
+
+Route::post('/pengajuan',[SubmissionController::class,'postLogin'])->name('submission');
 
 Route::get('/admin/dashboard',[ProfileController::class,'dashboard']) -> name('dashboard');
 

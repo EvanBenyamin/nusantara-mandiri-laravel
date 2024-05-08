@@ -81,13 +81,13 @@
                     <option value="5">Rp. 4.500.000</option>
                     <option value="5">Rp. 5.000.000</option>
                     <option value="6">Rp. 5.500.000</option>
-                    <option value="7">Rp. 6.000.000</option>
+                    <option value="6">Rp. 6.000.000</option>
                     <option value="7">Rp. 6.500.000</option>
-                    <option value="8">Rp. 7.000.000</option>
+                    <option value="7">Rp. 7.000.000</option>
                     <option value="8">Rp. 7.500.000</option>
-                    <option value="9">Rp. 8.000.000</option>
+                    <option value="8">Rp. 8.000.000</option>
                     <option value="9">Rp. 8.500.000</option>
-                    <option value="10">Rp. 9.000.000</option>
+                    <option value="9">Rp. 9.000.000</option>
                     <option value="10">Rp. 9.500.000</option>
                     <option value="10">Rp. 10.000.000</option>
                   </select>

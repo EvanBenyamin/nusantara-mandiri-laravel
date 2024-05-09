@@ -54,7 +54,6 @@
         width: 80vw;
         height: 100vh;
         padding-bottom: 2rem;
-   
     }
     .vector-container {
         margin-top: 5rem;
@@ -86,6 +85,12 @@
     .navbar {
         padding: 10px 0; 
         width: 100vw;
+    }
+    .navbar-end{
+        margin-inline-end: 7rem;
+    }
+    .img-profile{
+        width: 100px;
     }
     
     .navbar-brand {
@@ -211,6 +216,7 @@
             z-index: +1;
             
         }
+ 
        
 
     /*CAROUSELS*/

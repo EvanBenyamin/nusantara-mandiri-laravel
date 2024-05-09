@@ -34,6 +34,14 @@ class DatabaseSeeder extends Seeder
             'is_admin' => '0'
         ]);
 
+        User::create([
+            'username'=>'gita-herwati',
+            'customer_id'=>'3',
+            'email' => 'gitaherewati@gmail.com',
+            'password' => ('12345'),
+            'is_admin' => '0'
+        ]);
+
         Customer::create([
             'user_id' => '1',
             'nama' => 'Benjamin',
@@ -55,6 +63,17 @@ class DatabaseSeeder extends Seeder
             'kelengkapan_berkas' =>'3',
             'pinjaman' => '5000000',
             'alamat' => 'Jl. ABCD'
+        ]);  
+        Customer::create([
+            'user_id' => '3',
+            'nama' => 'Gita Herwati',
+            'alasan' => 'Usaha',
+            'status_kepegawaian' => 'Sales Asisten',
+            'pendapatan' => '5500000',
+            'lama_angsuran' => '3',
+            'kelengkapan_berkas' =>'2',
+            'pinjaman' => '6000000',
+            'alamat' => 'Jl. BCDE'
         ]);  
     }
 }

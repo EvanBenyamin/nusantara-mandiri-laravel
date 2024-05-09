@@ -8,12 +8,10 @@ use App\Http\Controllers\SubmissionController;
 use App\Models\User;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
-Route::get('/admin/login',[AuthController::class,'getLogin'])->name('getLogin');
+Route::get('/admin/login',[AuthController::class,'getLogin'])->middleware('guest')->name('getLogin');
 Route::post('/admin/login',[AuthController::class,'postLogin'])->name('postLogin');
 
-Route::post('/pengajuan',[SubmissionController::class,'postLogin'])->name('submission');
-
-Route::get('/admin/dashboard',[ProfileController::class,'dashboard']) -> name('dashboard');
+Route::post('/pengajuan',[SubmissionController::class,'submission'])->name('submission');
 
 Route::get('/admin/logout',[ProfileController::class,'logout'])->name('logout');
 

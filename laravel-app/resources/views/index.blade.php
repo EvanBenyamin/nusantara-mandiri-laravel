@@ -50,9 +50,6 @@
                       <li class="nav-item">
                         <a id="layanan" class="nav-link" href="#services">Layanan Kami</a>
                       </li>
-                      <li class="nav-item">
-                        <a id="layanan" class="nav-link" href="admin/login">Login</a>
-                      </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Lainnya
@@ -61,12 +58,50 @@
                             <li><a class="dropdown-item" href="/simulasi">Simulasi Cicilan</a></li>
                             <li><a class="dropdown-item" href="/pengajuan">Ajukan Pinjaman</a></li>
                             <li><a class="dropdown-item" href="#">Cabang Koperasi</a></li>
-                            <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
+                            <li><a class="dropdown-item" href="#">Hubungi Admin</a></li>
                           </ul>
                         </li>
                       </ul>
-                    </div>
-                  </div>
+
+
+            @auth
+                    <ul class="navbar-nav" style="margin-right: 2rem;">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="d-none d-lg-inline text-gray-900 medium">{{ auth()->user()->customer->nama }}</span>
+                              <img class="img-profile rounded-circle" style="width:40px"
+                              src="{{asset('admin_assets/img/undraw_profile.svg')}}">
+                            </a>
+                    <!-- Dropdown - User Information -->
+                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                      aria-labelledby="userDropdown">
+                      <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Profile
+                      </a>
+                      <a class="dropdown-item" href="/admin/dashboard">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Dashboard
+                        <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{route('logout')}}"">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                          </a>
+                      </div>
+                    </li>
+              </ul>
+            @else
+            <ul class="navbar-nav" style="margin-right: 4rem;">
+              <li class="nav-item " >
+              
+                  <a id="layanan" class="nav-link text-gray-900 medium" href="admin/login">Login   <i class="fa-solid fa-right-to-bracket"> </i>
+                  </a> 
+                
+              </li>
+            </ul> 
+            @endauth    
                 </nav>
         </header>
         <main class="bg-light" bg-light>

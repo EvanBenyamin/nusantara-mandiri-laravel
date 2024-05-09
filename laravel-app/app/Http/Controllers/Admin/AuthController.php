@@ -30,10 +30,13 @@ class AuthController extends Controller
         ],$request->password);
  
         if($validated_admin){
+            $request->session()->regenerate();
             return redirect()->route('dashboard')->with('success','Login Successfull');
         }elseif($validated){
+            $request->session()->regenerate();
             return redirect()->route('customer')->with('success','Login Successfull');
         }else{
+            $request->session()->regenerate();
             return redirect()->back()->with('error','Invalid credentials');
         }
     }

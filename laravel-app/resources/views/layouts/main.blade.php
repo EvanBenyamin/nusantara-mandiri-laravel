@@ -31,11 +31,11 @@
     
       </head>
 
-    <body>
+      <body>
         <header>
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark custom-bg-color">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/home">
+                    <a class="navbar-brand" href="#">
                         <img src="/assets/images/bg-koperasi.png" alt="" width="50" height="36"class="d-inline-block align-text-top rounded-circle" 
                          border> Nusantara Mandiri
                     </a>
@@ -45,13 +45,10 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2">
                       <li class="nav-item"> 
-                        <a class="nav-link" aria-current="page" id="home" href="home">Beranda</a>
+                        <a class="nav-link active" aria-current="page" id="home" href="#jumbotron">Beranda</a>
                       </li>
                       <li class="nav-item">
-                        <a id="layanan" class="nav-link" href="/home#services">Layanan Kami</a>
-                      </li>
-                      <li class="nav-item">
-                        <a id="layanan" class="nav-link" href="/admin/login">Login</a>
+                        <a id="layanan" class="nav-link" href="/#services">Layanan Kami</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,14 +58,52 @@
                             <li><a class="dropdown-item" href="/simulasi">Simulasi Cicilan</a></li>
                             <li><a class="dropdown-item" href="/pengajuan">Ajukan Pinjaman</a></li>
                             <li><a class="dropdown-item" href="#">Cabang Koperasi</a></li>
-                            <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
+                            <li><a class="dropdown-item" href="#">Hubungi Admin</a></li>
                           </ul>
                         </li>
                       </ul>
-                    </div>
-                  </div>
+
+
+            @auth
+                    <ul class="navbar-nav" style="margin-right: 2rem;">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="d-none d-lg-inline text-gray-900 medium">{{ auth()->user()->customer->nama }}</span>
+                              <img class="img-profile rounded-circle" style="width:40px"
+                              src="{{asset('admin_assets/img/undraw_profile.svg')}}">
+                            </a>
+                    <!-- Dropdown - User Information -->
+                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                      aria-labelledby="userDropdown">
+                      <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Profile
+                      </a>
+                      <a class="dropdown-item" href="/admin/dashboard">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                          Dashboard
+                        <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{route('logout')}}"">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                          </a>
+                      </div>
+                    </li>
+              </ul>
+            @else
+            <ul class="navbar-nav" style="margin-right: 4rem;">
+              <li class="nav-item " >
+              
+                  <a id="layanan" class="nav-link text-gray-900 medium" href="admin/login">Login   <i class="fa-solid fa-right-to-bracket"> </i>
+                  </a> 
+                
+              </li>
+            </ul> 
+            @endauth    
                 </nav>
-        </header> 
+        </header>
         <main>
           <body>
             @yield('body')

@@ -5753,14 +5753,18 @@ a.close.disabled {
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  display: none !important;
 }
+
 
 .modal-backdrop.fade {
   opacity: 0;
+  display: none !important;
 }
 
 .modal-backdrop.show {
   opacity: 0.5;
+  display: none !important;
 }
 
 .modal-header {

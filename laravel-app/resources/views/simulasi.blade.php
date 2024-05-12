@@ -148,9 +148,9 @@
     </div>
 
     <div id="cicilan" class="col">
-        <h2 class="text-center" style="margin-top:7rem; font-family: 'Quicksand', sans-serif;">Simulasi Cicilan Pinjaman</h2>
+        <h2 class="text-center" style="margin-top:1rem; font-family: 'Quicksand', sans-serif;">Simulasi Cicilan Pinjaman</h2>
         <div class="container">
-            <form class="mt-5">
+            <form class="mt-3">
         <label class="form-label mb-1" for="">Pilih Plafond</label>
         <div data-mdb-input-init class="form-outline">
             <select id="plafond" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">

@@ -16,12 +16,19 @@ Route::post('/pengajuan',[SubmissionController::class,'submission'])->name('subm
 Route::get('/admin/logout',[ProfileController::class,'logout'])->name('logout');
 
 Route::group(['middleware'=>['admin_auth']],function(){
-     
     Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/customer/dashboard',[ProfileController::class,'customer'])->name('customer');
+
+
     Route::get('customer/status',[UserController::class,'status'])->name('user.status');
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
+
+    //CRUD SUBMISSION
+    Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');
+    Route::patch('/admin/validasi/{submission}/toggle', [UserController::class, 'toggleStatus'])->name('toggleStatus');
+    Route::patch('/admin/validasi/{submission}/return', [UserController::class, 'toggleReturn'])->name('toggleReturn');
+    Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy');
 });
 
 

@@ -41,7 +41,7 @@
             <!-- End of Main Content -->
  
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white fixed-bottom"style="z-index: -1;>
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright © Koperasi Nusantara Mandiri 2024</span>
@@ -97,5 +97,6 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('admin_assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin_assets/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

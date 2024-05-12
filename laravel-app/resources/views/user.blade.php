@@ -24,7 +24,7 @@
         </header>
         <main>
             <div class="container mt-5">
-            <h2  class="h2">Username:<a href="google.co.id" {{$customer ->user_id}}></a></h2>
+            <h2  class="h2">Username:{{$customer ->user->username}}</h2>
             <h2 class="h2">Nama: {{$customer ->nama }}</h2>
             <h2 class="h2">Kebutuhan Meminjam: {{$customer ->alasan }}</h2>
             <h2 class="h2">Pinjaman: Rp. {{$customer ->pinjaman }}</h2>

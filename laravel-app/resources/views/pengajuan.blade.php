@@ -11,13 +11,19 @@
               <div class="col">
                 <label class="form-label" for="">Nama Lengkap</label>
                 <div data-mdb-input-init class="form-outline">
-                  <input type="text" id="nama" name="nama" class="form-control mt-2" />
+                  <input type="text" id="nama" name="nama" class="form-control mt-2" required value="{{ old('nama') }}"/>
                 </div>
+                @error('nama')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>    
+                @enderror
               </div>
               <div class="col">
                 <label class="form-label" name="jenis_kelamin" for="">Jenis Kelamin</label>
                 <div data-mdb-input-init class="form-outline">
-                  <select id="jenis_kelamin" name="jenis_kelamin" class="form-select form-select-lg" aria-label=".form-select-lg example">
+                  <select id="jenis_kelamin" name="jenis_kelamin" class="form-select form-select-lg"
+                   aria-label=".form-select-lg example value="{{ old('jenis_kelamin') }}">
                       <option selected value="Laki-Laki">Laki-Laki </option>
                       <option value="Perempuan"> Perempuan </option>
                   </select>
@@ -25,15 +31,33 @@
             </div>
 
               <!-- Text input -->
-              <div data-mdb-input-init class="form-outline mt-3">
+            <div class="row">
+              <div data-mdb-input-init class=" col-lg-6 md-12 form-outline mt-3">
                 <label class="form-label" for="form6Example4">Alamat Lengkap</label>
-                <input type="text" id="nama" name="alamat" class="form-control mt-2" />
+                <input type="text" id="nama" name="alamat" class="form-control mt-2"
+                 required value="{{ old('alamat') }}" />
               </div>
 
-              <div class="col mt-3">
+              <div data-mdb-input-init class="col-lg-6 md-12 form-outline mt-3">
+                <label class="form-label" for="form6Example4">Email</label>
+                <input type="text" id="nama" name="email" class="form-control mt-2" required
+                value="{{ old('email') }}" />
+                @error('email')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>    
+                @enderror
+              </div>
+
+            </div>  
+    
+
+              <div class="col mt-1">
                 <label class="form-label" for="form1">Keperluan Meminjam</label>
                   <div data-mdb-input-init class="form-outline">
-                    <select name="keperluan_meminjam" id="keperluan" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                    <select name="keperluan_meminjam" id="keperluan" 
+                    class="form-select form-select-lg mb-1" aria-label=".form-select-lg example" 
+                    value="{{ old('keperluan_meminjam') }}">
                         <option value="Medis">Medis</option>
                         <option value="Pendidikan">Pendidikan</option>
                         <option value="Rekreasi">Rekreasi</option>
@@ -48,16 +72,23 @@
                 <label class="form-label" for="">Nomor Telepon</label>
                 <div class="input-group">
                   <span class="input-group-text">+62</span>
-                  <input type="number" class="form-control" id="phone" name="telepon" placeholder="Enter phone number" >
+                  <input type="number" class="form-control" id="phone" name="telepon"
+                  value="{{ old('telepon') }}" placeholder="Enter phone number" required >
                 </div>
                   <small id="nomor_telepon" class="form-text text-muted">Format: +62 813XXXXX</small>
+                  @error('telepon')
+                  <div class="alert alert-danger row col-6">
+                    {{ $message }}
+                  </div>    
+                  @enderror
+                  
               </div>
-      
             <!-- Selection Input -->
             <div class="col-lg-6">
                 <div data-mdb-input-init class="form-outline">
                   <label class="form-label" for="form6Example2">Status Kepegawaian</label>
-                  <select id="stat_kepegawaian" name="status_kepegawaian" class="form-select form-select-lg mb-1" aria-label=".form-select-lg ">
+                  <select id="stat_kepegawaian" name="status_kepegawaian" class="form-select 
+                  form-select-lg mb-1" aria-label=".form-select-lg value="{{ old('status_kepegawaian') }}"">
                     <option value="2">Kontrak</option>
                     <option value="4">Pegawai</option>
                     <option value="5">Sales Asisten</option>
@@ -78,26 +109,28 @@
               <div class="col mt-3">
                 <label class="form-label" for="form1">Pendapatan per Bulan</label>
                   <div data-mdb-input-init class="form-outline">
-                    <select id="pendapatan" name="pendapatan" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                        <option selected value = "1"> < Rp. 2.000.000</option>
-                        <option value="2"> Rp 2.000.000 - 3.000.000 </option>
-                        <option value="3"> Rp 3.000.000 - 4.000.000 </option>
-                        <option value="4"> Rp 4.000.000 - 5.000.000</option>
-                        <option value="5"> Rp 5.000.000 - 6.000.000 </option>
-                        <option value="6"> Rp 7.500.000 - 8.000.000 </option>
-                        <option value="7"> Rp 8.000.000 - 9.000.000 </option>
-                        <option value="8"> Rp 9.000.000 - 10.000.000 </option>
-                        <option value="9"> > Rp 10.000.000 </option>
+                    <select id="pendapatan" name="pendapatan" class="form-select form-select-lg mb-1" 
+                    aria-label=".form-select-lg example" value="{{ old('pendapatan') }}">
+                      <option selected value = "<2000000"> < Rp. 2.000.000</option>
+                      <option value="2000000 - 3000000"> Rp 2.000.000 - 3.000.000 </option>
+                      <option value="3000000 - 4000000"> Rp 3.000.000 - 4.000.000 </option>
+                      <option value="4000000 - 5000000"> Rp 4.000.000 - 5.000.000</option>
+                      <option value="5000000 - 6000000"> Rp 5.000.000 - 6.000.000 </option>
+                      <option value="7000000 - 8000000"> Rp 7.000.000 - 8.000.000 </option>
+                      <option value="8000000 - 9000000"> Rp 8.000.000 - 9.000.000 </option>
+                      <option value="9000000 - 10000000"> Rp 9.000.000 - 10.000.000 </option>
+                      <option value=">10000000"> > Rp 10.000.000 </option>
                     </select>
                   </div>
                 </div>
             </div>
           
             <!-- Message input -->
-            <div class="col-6 mt-2">
+            <div class="col-lg-6 md-12 mt-2">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form1">Jumlah Angsuran</label>
-                <select id="lama-angsuran" name="angsuran" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                <select id="lama-angsuran" name="lama_angsuran" class="form-select form-select-lg mb-1" 
+                aria-label=".form-select-lg example value="{{ old('angsuran[]') }}"">
                   <option value="1">1 Bulan</option>
                   <option value="2">2 Bulan</option>
                   <option value="3">3 Bulan</option>
@@ -109,10 +142,11 @@
                 </select>
               </div>
             </div>
-              <div class="col mt-2">
+              <div class="col-lg-6 md-12 mt-2">
                 <div data-mdb-input-init class="form-outline">
                   <label class="form-label" for="form1">Jumlah Pinjaman</label>
-                  <select id="jmlh-pinjaman" name="pinjaman" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                  <select id="jmlh-pinjaman" name="jumlah_pinjaman" class="form-select form-select-lg mb-1" 
+                  aria-label=".form-select-lg example value="{{ old('pinjaman') }}"">
                     <option value="500000">Rp. 500.000</option>
                     <option value="1000000">Rp. 1.000.000</option>
                     <option value="1500000">Rp. 1.500.000</option>
@@ -138,7 +172,8 @@
               </div>
             <div class="mt-3 mb-3">
               <label class="form-label" for="form1">Jaminan</label>
-            <select class="selectpicker col-lg-12" name="jaminan[]" multiple id="jaminan" data-placeholder="Choose anything" multiple>
+            <select class="selectpicker col-lg-12" name="kelengkapan_berkas[]" multiple id="jaminan" 
+            data-placeholder="Choose anything" multiple required value="{{ old('kelengkapan_berkas[]') }}">
                 <option>KTP</option>
                 <option>Kartu Keluarga</option>
                 <option>Ijazah</option>

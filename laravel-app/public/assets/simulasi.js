@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (earn * angsur >= pinjaman.value && scoring() >= 6.35){
-            // console.log (`Hasil Perhitungan adalah ${scoring()}`)
+            console.log (`Hasil Perhitungan adalah ${scoring()}`)
             var link = document.createElement('a');
             link.href = '/pengajuan'
             link.innerText = 'Pengajuan Pinjaman'

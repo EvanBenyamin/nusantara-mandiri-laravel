@@ -45,10 +45,10 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2">
                       <li class="nav-item"> 
-                        <a class="nav-link active" aria-current="page" id="home" href="#jumbotron">Beranda</a>
+                        <a class="nav-link {{ url('/') ? 'active' : '' }}" aria-current="page" id="home" href"/">Beranda</a>
                       </li>
                       <li class="nav-item">
-                        <a id="layanan" class="nav-link" href="#services">Layanan Kami</a>
+                        <a id="layanan" class="nav-link {{ url('/#services') ? '' : '' }}" href="#services">Layanan Kami</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

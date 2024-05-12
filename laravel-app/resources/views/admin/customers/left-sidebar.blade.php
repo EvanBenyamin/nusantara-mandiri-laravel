@@ -17,8 +17,8 @@ $current_route=request()->route()->getName();
 <hr class="sidebar-divider my-0">
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-  <a href="{{route('customer')}}" class="nav-link {{$current_route=='customer'?'active':''}}">
+<li class="nav-item  {{$current_route=='customer'?'active':''}}">
+  <a href="{{route('customer')}}" class="nav-link {{$current_route=='customer'?'':''}}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
 </li>
@@ -31,10 +31,11 @@ $current_route=request()->route()->getName();
 User Management
 </div>
 
-<li class="nav-item">
-  <a href="/" class="nav-link {{$current_route=='users.index'?'active':''}}">
+<li class="nav-item {{$current_route=='home'?'active':''}} ">
+  <a href="/" class="nav-link {{$current_route=='home'?'active':''}}">
     <i class="fas fa-fw fa-home"></i>
     <span>Home</span></a>
+<li class="nav-item {{$current_route=='user.status'?'active':''}} ">
 <a href="{{route('user.status')}}" class="nav-link {{$current_route=='user.status'?'active':''}}">
       <i class="fas fa-fw fa-table"></i>
       <span>Status Pengguna</span></a>

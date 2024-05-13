@@ -35,7 +35,7 @@
         <header>
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark custom-bg-color">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <img src="/assets/images/bg-koperasi.png" alt="" width="50" height="36"class="d-inline-block align-text-top rounded-circle" 
                          border> Nusantara Mandiri
                     </a>
@@ -49,6 +49,9 @@
                       </li>
                       <li class="nav-item">
                         <a id="layanan" class="nav-link" href="/#services">Layanan Kami</a>
+                      </li>
+                      <li class="nav-item"> 
+                        <a class="nav-link {{request()->is('simulasi') ? 'active' : ''}}" aria-current="page" id="simulasi" href="/simulasi">Simulasi</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

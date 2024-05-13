@@ -64,8 +64,8 @@
         <div class="container-fluid ">
            <h4 class="h4 mt-3">Data Pengajuan Pinjaman</h4>
         </div>
-        <div class="container mt-3">
-            <table class="table">
+        <div class="container table-responsive mt-3">
+            <table  id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th scope="col">Id.</th>
@@ -110,7 +110,6 @@
                         </button>
                     </form>
                 </tr>
-                    
                 @endforeach
             </tbody>
         </table>
@@ -119,8 +118,8 @@
 </div>
 <div class="container">
     <h4 class="h4 mt-3">Data Tervalidasi</h4>
-    <div class="mt-3">
-        <table class="table">
+    <div class="table-responsive mt-3">
+        <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th scope="col">Nama</th>

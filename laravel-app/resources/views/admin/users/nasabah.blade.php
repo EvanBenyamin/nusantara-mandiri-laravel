@@ -55,41 +55,38 @@
                         </li>
     </ul>
 </nav>
-<!-- /.content-header -->
 @endsection
-
 @section('body')
-    <!-- Main row -->
-    <div class="row">
-        <div class="container-fluid">
-            Users List
-        </div>
-        <div class="container">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Id.</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status User</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Date Updated</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach ($user as $c)
+<div class="row">
+    <div class="container-fluid">
+        Users List
+    </div>
+    <div class="container table-responsive">
+        <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id.</th>
+                    <th>Nama</th>
+                    <th>No.Telepon</th>
+                    <th>Pinjaman</th>
+                    <th>Kelengkapan Berkas</th>
+                    <th>Lama Angsuran</th>
+                    <th>Status Pembayaran</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($customer as $c)
                 <tr>
                     <td>{{ $c ["id"] }}</td>
-                    <td>{{ $c ["username"] }} </a> </td>
-                    <td>{{ $c ["email"] }}</td>
-                    <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
-                    <td>{{ $c['created_at']}}</td>
-                    <td>{{ $c['updated_at']}}</td>
+                    <td>{{ $c ["nama"] }}</td>
+                    <td>{{ $c ["telepon"] }}</td>
+                    <td>{{ $c ["pinjaman"] }}</td>
+                    <td>{{ $c ["kelengkapan_berkas"] }}</td>
+                    <td>{{ $c ["lama_angsuran"] }} Bulan</td>    
+                    <td>{{ $c['status_pembayaran'] ? 'lancar' : 'macet' }}</td>
                 </tr>
-                @endforeach
-                </tbody>
-            </div>
-        
-    </div>
-    <!-- /.row (main row) -->
-    @endsection
+            @endforeach
+            </tbody>
+        </div> 
+</div>
+@endsection

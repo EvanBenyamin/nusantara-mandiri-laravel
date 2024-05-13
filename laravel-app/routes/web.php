@@ -26,6 +26,7 @@ Route::group(['middleware'=>['admin_auth']],function(){
     //VIEW Route -ADMIN
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
+    Route::get('/admin/customers',[UserController::class,'customers'])->name('customers');
 
     //CRUD SUBMISSION
     Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');
@@ -34,8 +35,8 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy');
 
     //CRUD CUSTOMER
+    Route::get('admin/registrasi',[UserController::class,'customerRegistration'])->name('registration');
     
-
 });
 
 

@@ -50,6 +50,9 @@
                       <li class="nav-item">
                         <a id="layanan" class="nav-link {{ url('/#services') ? '' : '' }}" href="#services">Layanan Kami</a>
                       </li>
+                      <li class="nav-item"> 
+                        <a class="nav-link {{request()->is('simulasi') ? 'active' : ''}}" aria-current="page" id="simulasi" href="/simulasi">Simulasi</a>
+                      </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Lainnya
@@ -82,7 +85,7 @@
                           Profile
                       </a>
                       <a class="dropdown-item" href="/admin/dashboard">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <i class="fas fa-gauge fa-sm fa-fw mr-2 text-gray-400"></i>
                           Dashboard
                         <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{route('logout')}}"">

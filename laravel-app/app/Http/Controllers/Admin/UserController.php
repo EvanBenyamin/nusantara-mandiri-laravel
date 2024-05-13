@@ -6,7 +6,8 @@ use App\Models\User;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
- 
+use App\Models\Customer;
+
 class UserController extends Controller
 {
     public function index(){
@@ -22,12 +23,25 @@ class UserController extends Controller
             "user" => User::all()
         ]);
     }
+    public function customers (){
+        return view('admin.users.nasabah',[
+            "title" => "Nasabah",
+            "customer" => Customer::all()
+        ]);
+    }
     public function status (User $user){
         return view ('admin.customers.index',[
             "title" => "status",
             "user" => User::all()
         ]);
     }
+    public function customerRegistration(Request $request){
+        return view ('admin.users.registrasi',[
+            "title" => "registrasi"
+        ]);
+
+    }
+
     public function validasi (){
         return view ('admin.users.validasi',[
             "submission" => Submission::orderByDesc('skor')->where('status_pengajuan', '=', false)->get(),

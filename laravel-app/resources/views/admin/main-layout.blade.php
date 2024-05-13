@@ -14,6 +14,7 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('admin_assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css">
 </head>
  
 <body id="page-top">
@@ -97,6 +98,9 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('admin_assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin_assets/js/demo/chart-pie-demo.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+    <script src="/assets/script.js"></script>
 </body>
 </html>

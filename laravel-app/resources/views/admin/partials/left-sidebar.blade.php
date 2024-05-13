@@ -31,8 +31,8 @@ $current_route=request()->route()->getName();
 User Management
 </div>
 
-<li class="nav-item {{$current_route=='home'?'active':''}}">
-  <a href="/" class="nav-link {{$current_route=='users.index'?'active':''}}">
+<li class="nav-item {{$current_route=='customers'?'active':''}}">
+  <a href="{{ route('customers') }}" class="nav-link {{$current_route=='users.index'?'active':''}}">
     <i class="fas fa-fw fa-list"></i>
     <span>Customers</span></a>
 <li class="nav-item {{$current_route=='users.list'?'active':''}}">
@@ -44,6 +44,11 @@ User Management
 <a href="{{route('validasi')}}" class="nav-link {{$current_route=='validasi'?'active':''}}">
       <i class="fas fa-fw fa-table"></i>
       <span>Pengajuan</span></a>
+</li>
+<li class="nav-item {{$current_route=='registration'?'active':''}}">
+<a href="{{route('registration')}}" class="nav-link {{$current_route=='registration'?'active':''}}">
+      <i class="fas fa-fw fa-book"></i>
+      <span>Registrasi</span></a>
 </li>
 <div class="container">
       

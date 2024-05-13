@@ -55,41 +55,7 @@
                         </li>
     </ul>
 </nav>
-<!-- /.content-header -->
 @endsection
-
 @section('body')
-    <!-- Main row -->
-    <div class="row">
-        <div class="container-fluid">
-            Users List
-        </div>
-        <div class="container">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Id.</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status User</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Date Updated</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach ($user as $c)
-                <tr>
-                    <td>{{ $c ["id"] }}</td>
-                    <td>{{ $c ["username"] }} </a> </td>
-                    <td>{{ $c ["email"] }}</td>
-                    <td>{{ $c['is_admin'] ? 'admin' : 'user' }}</td>
-                    <td>{{ $c['created_at']}}</td>
-                    <td>{{ $c['updated_at']}}</td>
-                </tr>
-                @endforeach
-                </tbody>
-            </div>
-        
-    </div>
-    <!-- /.row (main row) -->
-    @endsection
+<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Formulir Pengajuan Pinjaman</h2>
+@endsection

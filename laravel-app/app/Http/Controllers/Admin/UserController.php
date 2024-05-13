@@ -30,7 +30,7 @@ class UserController extends Controller
     }
     public function validasi (){
         return view ('admin.users.validasi',[
-            "submission" => Submission::orderByDesc('id')->where('status_pengajuan', '=', false)->get(),
+            "submission" => Submission::orderByDesc('skor')->where('status_pengajuan', '=', false)->get(),
             "validated" => Submission::orderByDesc('id')->where('status_pengajuan', '=', true)->get()
         ]);
     }

@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('validations', function (Blueprint $table) {
+        Schema::create('employments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('submission_id');
-            $table->boolean('hasil_pengajuan')->nullable();
+            $table->string('status_kepegawaian');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('validations');
+        Schema::dropIfExists('employments');
     }
 };

@@ -6,7 +6,7 @@ $current_route=request()->route()->getName();
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" >
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://laravel-app.test/admin/dashboard">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
   <div class="sidebar-brand-icon" >
     <img src="/assets/images/bg-koperasi.png" style="width: 60px; height: 50px;" alt="">
   </div>
@@ -33,11 +33,11 @@ User Management
 
 <li class="nav-item {{$current_route=='home'?'active':''}}">
   <a href="/" class="nav-link {{$current_route=='users.index'?'active':''}}">
-    <i class="fas fa-fw fa-home"></i>
-    <span>Home</span></a>
+    <i class="fas fa-fw fa-list"></i>
+    <span>Customers</span></a>
 <li class="nav-item {{$current_route=='users.list'?'active':''}}">
 <a href="{{route('users.list')}}" class="nav-link {{$current_route=='users.index'?'active':''}}">
-      <i class="fas fa-fw fa-table"></i>
+      <i class="fas fa-fw fa-user"></i>
       <span>Users</span></a>
 </li>
 <li class="nav-item {{$current_route=='validasi'?'active':''}}">

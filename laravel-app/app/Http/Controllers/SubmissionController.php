@@ -126,11 +126,11 @@ class SubmissionController extends Controller
         $submission ->save();
     } else {
         dd('Mohon maaf. Anda belum layak untuk mengjukan pinjaman');
-        $submission = new Submission;
-        $submission->fill($data);
-        $submission ->skor = $skor;
-        $submission ->kelengkapan_berkas = $berkas;
-        $submission ->save();   
+        // $submission = new Submission;
+        // $submission->fill($data);
+        // $submission ->skor = $skor;
+        // $submission ->kelengkapan_berkas = $berkas;
+        // $submission ->save();   
     } 
 
 

@@ -19,8 +19,11 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('/admin/dashboard',[ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/customer/dashboard',[ProfileController::class,'customer'])->name('customer');
 
-
+    //VIEW Route -CUSTOMER
     Route::get('customer/status',[UserController::class,'status'])->name('user.status');
+
+
+    //VIEW Route -ADMIN
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
 
@@ -29,6 +32,10 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::patch('/admin/validasi/{submission}/toggle', [UserController::class, 'toggleStatus'])->name('toggleStatus');
     Route::patch('/admin/validasi/{submission}/return', [UserController::class, 'toggleReturn'])->name('toggleReturn');
     Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy');
+
+    //CRUD CUSTOMER
+    
+
 });
 
 
@@ -51,6 +58,11 @@ Route::get('/pengajuan', function () {
 Route::get('/simulasi', function () {
     return view('simulasi', [
         "title" => "simulasi"
+    ]);
+});
+Route::get('/kontak', function () {
+    return view('kontak', [
+        "title" => "Kontak"
     ]);
 });
 

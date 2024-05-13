@@ -15,14 +15,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('nama');
+            $table->string('jenis_kelamin');
+            $table->string('alamat');
             $table->string('alasan');
-            $table->string('status_kepegawaian');
+            $table->string('telepon');
+            $table->foreignId('id_kepegawaian');
             $table->string('pendapatan');
             $table->string('lama_angsuran');
-            $table->string('kelengkapan_berkas');
             $table->string('pinjaman');
-            $table->string('alamat');
-            $table->timestamp('published_at')->nullable() ;
+            $table->string('kelengkapan_berkas');
+            $table->float('skor')->nullable();
+            $table->string('status_pembayaran')->default(true);
             $table->timestamps();
         });
     }

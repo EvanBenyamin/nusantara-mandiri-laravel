@@ -45,35 +45,44 @@ class DatabaseSeeder extends Seeder
         Customer::create([
             'user_id' => '1',
             'nama' => 'Benjamin',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'jl.Kebenaran',
             'alasan' => '-',
-            'status_kepegawaian' => '-',
+            'telepon' => '81317893996',
+            'id_kepegawaian' => '7',
             'pendapatan' => '-',
             'lama_angsuran' => '-',
-            'kelengkapan_berkas' =>'-',
             'pinjaman' => '-',
-            'alamat' => '-'
+            'kelengkapan_berkas' =>'-',
+        
         ]);  
         Customer::create([
             'user_id' => '2',
             'nama' => 'Ade Irma',
+            'jenis_kelamin' => 'Perempuan',
+            'alamat' => 'jl.Irmanatasawari II blok P.3',
             'alasan' => 'Rumah',
-            'status_kepegawaian' => 'Operator',
+            'telepon' => '856123781232',
+            'id_kepegawaian' => '4',
             'pendapatan' => '4000000',
-            'lama_angsuran' => '2',
-            'kelengkapan_berkas' =>'3',
-            'pinjaman' => '5000000',
-            'alamat' => 'Jl. ABCD'
+            'lama_angsuran' => '4',
+            'pinjaman' => '8000000',
+            'kelengkapan_berkas' =>'2',
+            
         ]);  
         Customer::create([
             'user_id' => '3',
             'nama' => 'Gita Herwati',
+            'jenis_kelamin' => 'Perempuan',
+            'alamat' => 'jl.Herwatimulya No.7',
             'alasan' => 'Usaha',
-            'status_kepegawaian' => 'Sales Asisten',
+            'telepon' => '8571209232',
+            'id_kepegawaian' => '3',
             'pendapatan' => '5500000',
-            'lama_angsuran' => '3',
-            'kelengkapan_berkas' =>'2',
-            'pinjaman' => '6000000',
-            'alamat' => 'Jl. BCDE'
+            'lama_angsuran' => '2',
+            'pinjaman' => '4000000',
+            'kelengkapan_berkas' =>'3',
+        
         ]);  
     }
 }

@@ -58,7 +58,7 @@
                             <li><a class="dropdown-item" href="/simulasi">Simulasi Cicilan</a></li>
                             <li><a class="dropdown-item" href="/pengajuan">Ajukan Pinjaman</a></li>
                             <li><a class="dropdown-item" href="#">Cabang Koperasi</a></li>
-                            <li><a class="dropdown-item" href="#">Hubungi Admin</a></li>
+                            <li><a class="dropdown-item" href="/kontak">Hubungi Kami</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -137,10 +137,7 @@
                 <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
               </li>
             </ul>
           </div>

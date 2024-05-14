@@ -37,7 +37,6 @@
                 <input type="text" id="nama" name="alamat" class="form-control mt-2"
                  required value="{{ old('alamat') }}" />
               </div>
-
               <div data-mdb-input-init class="col-lg-6 md-12 form-outline mt-3">
                 <label class="form-label" for="form6Example4">Email</label>
                 <input type="text" id="nama" name="email" class="form-control mt-2" required
@@ -90,12 +89,12 @@
                   <select id="stat_kepegawaian" name="status_kepegawaian" class="form-select 
                   form-select-lg mb-1" aria-label=".form-select-lg value="{{ old('status_kepegawaian') }}"">
                     <option value="2">Kontrak</option>
+                    <option value="3">Satpam</option>
                     <option value="4">Pegawai</option>
-                    <option value="5">Sales Asisten</option>
-                    <option value="6">Operator</option>
-                    <option value="6">Satpam</option>
+                    <option value="5">Operator</option>
+                    <option value="6">Sales Asisten</option>
+                    <option value="7">Staff</option>
                     <option value="8">Kepala Regu</option>
-                    <option value="8">Staff</option>
                     <option value="9">Manajer</option>  
                 </select>
                 </div>

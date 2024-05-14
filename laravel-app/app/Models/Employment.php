@@ -10,9 +10,7 @@ class Employment extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
     public function Customer(){
-        $this->belongsTo(Customer::class);
+        $this->hasMany(Customer::class);
     }
 }

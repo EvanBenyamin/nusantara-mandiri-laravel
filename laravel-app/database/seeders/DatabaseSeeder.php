@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
+use App\Models\Employment;
 use App\Models\Submission;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'jl.Kebenaran',
             'alasan' => '-',
             'telepon' => '81317893996',
-            'id_kepegawaian' => '7',
+            'employment_id' => '7',
             'pendapatan' => '-',
             'lama_angsuran' => '-',
             'pinjaman' => '-',
@@ -63,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'jl.Irmanatasawari II blok P.3',
             'alasan' => 'Rumah',
             'telepon' => '856123781232',
-            'id_kepegawaian' => '4',
+            'employment_id' => '4',
             'pendapatan' => '4000000',
             'lama_angsuran' => '4',
             'pinjaman' => '8000000',
@@ -77,12 +78,44 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'jl.Herwatimulya No.7',
             'alasan' => 'Usaha',
             'telepon' => '8571209232',
-            'id_kepegawaian' => '3',
+            'employment_id' => '3',
             'pendapatan' => '5500000',
             'lama_angsuran' => '2',
             'pinjaman' => '4000000',
             'kelengkapan_berkas' =>'3',
         
         ]);  
+        Employment::create([
+            'id' => '2',
+            'status_kepegawaian'=> 'Kontrak'
+        ]);
+        Employment::create([
+            'id' => '3',
+            'status_kepegawaian'=> 'Satpam'
+        ]);
+        Employment::create([
+            'id' => '4',
+            'status_kepegawaian'=> 'Pegawai'
+        ]);
+        Employment::create([
+            'id' => '5',
+            'status_kepegawaian'=> 'Operator'
+        ]);
+        Employment::create([
+            'id' => '6',
+            'status_kepegawaian'=> 'Sales Asisten'
+        ]);
+        Employment::create([
+            'id' => '7',
+            'status_kepegawaian'=> 'Staff'
+        ]);
+        Employment::create([
+            'id' => '8',
+            'status_kepegawaian'=> 'Kepala Regu'
+        ]);
+        Employment::create([
+            'id' => '9',
+            'status_kepegawaian'=> 'Manajer'
+        ]);
     }
 }

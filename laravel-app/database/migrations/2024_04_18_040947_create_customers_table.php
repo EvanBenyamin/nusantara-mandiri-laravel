@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('alasan');
             $table->string('telepon');
-            $table->foreignId('id_kepegawaian');
+            $table->foreignId('employment_id');
             $table->string('pendapatan');
             $table->string('lama_angsuran');
             $table->string('pinjaman');

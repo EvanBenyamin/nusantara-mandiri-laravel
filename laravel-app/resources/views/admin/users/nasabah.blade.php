@@ -67,6 +67,7 @@
                 <tr>
                     <th>Id.</th>
                     <th>Nama</th>
+                    <th>Status Kepegawaian</th>
                     <th>No.Telepon</th>
                     <th>Pinjaman</th>
                     <th>Kelengkapan Berkas</th>
@@ -79,6 +80,7 @@
                 <tr>
                     <td>{{ $c ["id"] }}</td>
                     <td>{{ $c ["nama"] }}</td>
+                    <td>{{ $c -> employment -> status_kepegawaian ?? 'Unknown'}}</td>
                     <td>{{ $c ["telepon"] }}</td>
                     <td>{{ $c ["pinjaman"] }}</td>
                     <td>{{ $c ["kelengkapan_berkas"] }}</td>

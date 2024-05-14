@@ -62,4 +62,9 @@ class UserController extends Controller
         Submission::destroy($submission->id);
         return redirect ('admin/validasi')->with('success','submission telah dihapus');
     }
+
+    
+
+
+
 }

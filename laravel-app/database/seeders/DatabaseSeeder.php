@@ -85,6 +85,52 @@ class DatabaseSeeder extends Seeder
             'kelengkapan_berkas' =>'3',
         
         ]);  
+        Submission::create([
+            'nama' => 'Benjamin',
+            'jenis_kelamin' => 'Laki-Laki',
+            'alamat' => 'Jl.Kebenaran',
+            'email' => 'benja@gmail.com',
+            'keperluan_meminjam' => '-',
+            'telepon' => '-',
+            'status_kepegawaian' => '-',
+            'pendapatan' => '-',
+            'lama_angsuran' => '-',
+            'jumlah_pinjaman' => '0',
+            'kelengkapan_berkas' => '-',
+            'skor' => '10'
+        ]);
+        Submission::create([
+            'nama' => 'Ade Irma',
+            'jenis_kelamin' => 'Perempuan',
+            'alamat' => 'Jl.Kesetiaan',
+            'email' => 'adeirma@gmail.com',
+            'keperluan_meminjam' => 'Pendidikan',
+            'telepon' => '812931284',
+            'status_kepegawaian' => '5',
+            'pendapatan' => '5000000 - 6000000',
+            'lama_angsuran' => '5',
+            'jumlah_pinjaman' => '4000000',
+            'kelengkapan_berkas' => 'BPKB, Buku Nikah',
+            'skor' => '6.542243287246'
+        ]);
+        Submission::create([
+            'nama' => 'Gita Herwati',
+            'jenis_kelamin' => 'Perempuan',
+            'alamat' => 'Jl.Kelemahlembutan',
+            'email' => 'gita@gmail.com',
+            'keperluan_meminjam' => 'Rekreasi',
+            'telepon' => '8572382612',
+            'status_kepegawaian' => '6',
+            'pendapatan' => '5000000 - 6000000',
+            'lama_angsuran' => '4',
+            'jumlah_pinjaman' => '3000000',
+            'kelengkapan_berkas' => 'KTP, Kartu Keluarga',
+            'skor' => '6.742243287246'
+        ]);
+
+
+
+
         Employment::create([
             'id' => '2',
             'status_kepegawaian'=> 'Kontrak'

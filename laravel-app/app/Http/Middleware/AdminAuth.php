@@ -21,6 +21,7 @@ class AdminAuth
                     switch ($request->route()->getName()) {
                         case 'customer':
                         case 'user.status':
+                        //MUST LIST CUSTOMER'S PAGE ABOVE
                             return $next($request);
                         default:
                             return redirect()->route('customer')->with('error', 'You have to be an admin user to access this page');

@@ -60,15 +60,14 @@
 <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Formulir Registrasi Customer</h2>
 
 <div class="container hidden">
-    <form class="user mt-5" action="{{ route('registration.send',$submission->id) }}" method="post">
+    <form class="user mt-5" action="{{ route('registration') }}" method="post">
       @csrf
-      @method('POST') 
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <div class="row mb-4">
             <div class="col">
               <label class="form-label" for="">Nama Lengkap</label>
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="nama" name="nama" class="form-control mt-2" required value="{{  old('nama',$submission->nama) }}"/>
+                <input type="text" id="nama" name="nama" class="form-control mt-2" required value="{{ old('nama') }}"/>
               </div>
               @error('nama')
               <div class="alert alert-danger">
@@ -80,9 +79,9 @@
                 <label class="form-label" name="jenis_kelamin" for="">Jenis Kelamin</label>
                 <div data-mdb-input-init class="form-outline">
                   <select id="jenis_kelamin" name="jenis_kelamin" class="form-select form-select-lg"
-                   aria-label=".form-select-lg example value="{{  old('jenis_kelamin') }}">
-                      <option selected value="Laki-Laki"{{ old('jenis_kelamin', $submission->jenis_kelamin) == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki </option>
-                      <option value="Perempuan"{{ old('jenis_kelamin', $submission->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}> Perempuan </option>
+                   aria-label=".form-select-lg example value="{{ old('jenis_kelamin') }}">
+                      <option selected value="Laki-Laki">Laki-Laki </option>
+                      <option value="Perempuan"> Perempuan </option>
                   </select>
               </div>
             </div>
@@ -91,19 +90,19 @@
                             <div data-mdb-input-init class=" col-lg-6 md-12 form-outline mt-3">
                               <label class="form-label" for="form6Example4">Alamat Lengkap</label>
                               <input type="text" id="nama" name="alamat" class="form-control mt-2"
-                               required value="{{ old('alamat',$submission->alamat) }}" />
+                               required value="{{ old('alamat') }}" />
                             </div>
                             <div class="col-lg-6 mt-3">
                                 <label class="form-label" for="form1">Keperluan Meminjam</label>
                                   <div data-mdb-input-init class="form-outline">
                                     <select name="keperluan_meminjam" id="keperluan" 
                                     class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                                        <option value="Medis"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Medis' ? 'selected' : '' }}>Medis</option>
-                                        <option value="Pendidikan"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Pendidikan' ? 'selected' : '' }}>Pendidikan</option>
-                                        <option value="Rekreasi"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Rekreasi' ? 'selected' : '' }}>Rekreasi</option>
-                                        <option value="Rumah"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Rumah' ? 'selected' : '' }}>Rumah</option>
-                                        <option value="Usaha"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Usaha' ? 'selected' : '' }}>Usaha</option>
-                                        <option value="Lainnya"{{ old('keperluan_meminjam', $submission->keperluan_meminjam) == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+                                        <option value="Medis">Medis</option>
+                                        <option value="Pendidikan">Pendidikan</option>
+                                        <option value="Rekreasi">Rekreasi</option>
+                                        <option value="Rumah">Rumah</option>
+                                        <option value="Usaha">Usaha</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                   </div>
                             </div>  
@@ -115,7 +114,7 @@
                               <div class="input-group">
                                 <span class="input-group-text">+62</span>
                                 <input type="number" class="form-control" id="phone" name="telepon"
-                                value="{{ old('telepon',$submission->telepon) }}" placeholder="Enter phone number" required >
+                                value="{{ old('telepon') }}" placeholder="Enter phone number" required >
                               </div>
                                 <small id="nomor_telepon" class="form-text text-muted">Format: +62 813XXXXX</small>
                                 @error('telepon')
@@ -129,16 +128,16 @@
                           <div class="col-lg-6">
                               <div data-mdb-input-init class="form-outline">
                                 <label class="form-label" for="form6Example2">Status Kepegawaian</label>
-                                <select id="stat_kepegawaian" name="id_kepegawaian" class="form-select 
+                                <select id="stat_kepegawaian" name="status_kepegawaian" class="form-select 
                                 form-select-lg mb-1" aria-label=".form-select-lg">
-                                  <option value="2"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '2' ? 'selected' : '' }}>Kontrak</option>
-                                  <option value="3"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '3' ? 'selected' : '' }}>Satpam</option>
-                                  <option value="4"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '4' ? 'selected' : '' }}>Pegawai</option>
-                                  <option value="5"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '5' ? 'selected' : '' }}>Operator</option>
-                                  <option value="6"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '6' ? 'selected' : '' }}>Sales Asisten</option>
-                                  <option value="7"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '7' ? 'selected' : '' }}>Staff</option>
-                                  <option value="8"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '8' ? 'selected' : '' }}>Kepala Regu</option>
-                                  <option value="9"{{ old('status_kepegawaian', $submission->status_kepegawaian) == '9' ? 'selected' : '' }}>Manajer</option>  
+                                  <option value="2">Kontrak</option>
+                                  <option value="3">Satpam</option>
+                                  <option value="4">Pegawai</option>
+                                  <option value="5">Operator</option>
+                                  <option value="6">Sales Asisten</option>
+                                  <option value="7">Staff</option>
+                                  <option value="8">Kepala Regu</option>
+                                  <option value="9">Manajer</option>  
                               </select>
                               </div>
                             </div>
@@ -153,15 +152,15 @@
                                 <div data-mdb-input-init class="form-outline">
                                   <select id="pendapatan" name="pendapatan" class="form-select form-select-lg mb-1" 
                                   aria-label=".form-select-lg example" value="{{ old('pendapatan') }}">
-                                    <option selected value = "<2000000"{{ old('pendapatan', $submission->pendapatan) == '<2000000' ? 'selected' : '' }}>< Rp. 2.000.000</option>
-                                    <option value="2000000 - 3000000"{{ old('pendapatan', $submission->pendapatan) == '2000000 - 3000000' ? 'selected' : '' }}> Rp 2.000.000 - 3.000.000 </option>
-                                    <option value="3000000 - 4000000"{{ old('pendapatan', $submission->pendapatan) == '3000000 - 4000000' ? 'selected' : ''}}> Rp 3.000.000 - 4.000.000 </option>
-                                    <option value="4000000 - 5000000"{{ old('pendapatan', $submission->pendapatan) == '4000000 - 5000000' ? 'selected' : ''}}> Rp 4.000.000 - 5.000.000</option>
-                                    <option value="5000000 - 6000000"{{ old('pendapatan', $submission->pendapatan) == '5000000 - 6000000' ? 'selected' : ''}}> Rp 5.000.000 - 6.000.000 </option>
-                                    <option value="7000000 - 8000000"{{ old('pendapatan', $submission->pendapatan) == '7000000 - 8000000' ? 'selected' : ''}}> Rp 7.000.000 - 8.000.000 </option>
-                                    <option value="8000000 - 9000000"{{ old('pendapatan', $submission->pendapatan) == '8000000 - 9000000' ? 'selected' : ''}}> Rp 8.000.000 - 9.000.000 </option>
-                                    <option value="9000000 - 10000000"{{ old('pendapatan', $submission->pendapatan) == '9000000 - 10000000' ? 'selected' : ''}}> Rp 9.000.000 - 10.000.000 </option>
-                                    <option value=">10000000"{{ old('pendapatan', $submission->pendapatan) == '>10000000' ? 'selected' : ''}}> > Rp 10.000.000 </option>
+                                    <option selected value = "<2000000">< Rp. 2.000.000</option>
+                                    <option value="2000000 - 3000000"> Rp 2.000.000 - 3.000.000 </option>
+                                    <option value="3000000 - 4000000"> Rp 3.000.000 - 4.000.000 </option>
+                                    <option value="4000000 - 5000000"> Rp 4.000.000 - 5.000.000</option>
+                                    <option value="5000000 - 6000000"> Rp 5.000.000 - 6.000.000 </option>
+                                    <option value="7000000 - 8000000"> Rp 7.000.000 - 8.000.000 </option>
+                                    <option value="8000000 - 9000000"> Rp 8.000.000 - 9.000.000 </option>
+                                    <option value="9000000 - 10000000"> Rp 9.000.000 - 10.000.000 </option>
+                                    <option value=">10000000"> > Rp 10.000.000 </option>
                                   </select>
                                 </div>
                               </div>
@@ -173,14 +172,14 @@
                               <label class="form-label" for="form1">Jumlah Angsuran</label>
                               <select id="lama-angsuran" name="lama_angsuran" class="form-select form-select-lg mb-1" 
                               aria-label=".form-select-lg example">
-                                <option value="1"{{ old('angsuran', $submission->lama_angsuran) == '1' ? 'selected' : '' }}>1 Bulan</option>
-                                <option value="2"{{ old('angsuran', $submission->lama_angsuran) == '2' ? 'selected' : '' }}>2 Bulan</option>
-                                <option value="3"{{ old('angsuran', $submission->lama_angsuran) == '3' ? 'selected' : '' }}>3 Bulan</option>
-                                <option value="4"{{ old('angsuran', $submission->lama_angsuran) == '4' ? 'selected' : '' }}>4 Bulan</option>
-                                <option value="5"{{ old('angsuran', $submission->lama_angsuran) == '5' ? 'selected' : '' }}>5 Bulan</option>
-                                <option value="6"{{ old('angsuran', $submission->lama_angsuran) == '6' ? 'selected' : '' }}>6 Bulan</option>
-                                <option value="7"{{ old('angsuran', $submission->lama_angsuran) == '7' ? 'selected' : '' }}>7 Bulan</option>
-                                <option value="8"{{ old('angsuran', $submission->lama_angsuran) == '8' ? 'selected' : '' }}>8 Bulan</option>
+                                <option value="1">1 Bulan</option>
+                                <option value="2">2 Bulan</option>
+                                <option value="3">3 Bulan</option>
+                                <option value="4">4 Bulan</option>
+                                <option value="5">5 Bulan</option>
+                                <option value="6">6 Bulan</option>
+                                <option value="7">7 Bulan</option>
+                                <option value="8">8 Bulan</option>
                               </select>
                             </div>
                           </div>
@@ -189,26 +188,26 @@
                                 <label class="form-label" for="form1">Jumlah Pinjaman</label>
                                 <select id="jmlh-pinjaman" name="jumlah_pinjaman" class="form-select form-select-lg mb-1" 
                                 aria-label=".form-select-lg example value="{{ old('pinjaman') }}"">
-                                  <option value="500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '500000' ? 'selected' : '' }}>Rp. 500.000</option>
-                                  <option value="1000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp. 1.000.000</option>
-                                  <option value="1500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1500000' ? 'selected' : '' }}>Rp. 1.500.000</option>
-                                  <option value="2000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2000000' ? 'selected' : '' }}>Rp. 2.000.000</option>
-                                  <option value="2500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2500000' ? 'selected' : '' }}>Rp. 2.500.000</option>
-                                  <option value="3000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3000000' ? 'selected' : '' }}>Rp. 3.000.000</option>
-                                  <option value="3500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3500000' ? 'selected' : '' }}>Rp. 3.500.000</option>
-                                  <option value="4000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4000000' ? 'selected' : '' }}>Rp. 4.000.000</option>
-                                  <option value="4500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4500000' ? 'selected' : '' }}>Rp. 4.500.000</option>
-                                  <option value="5000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5000000' ? 'selected' : '' }}>Rp. 5.000.000</option>
-                                  <option value="5500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5500000' ? 'selected' : '' }}>Rp. 5.500.000</option>
-                                  <option value="6000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6000000' ? 'selected' : '' }}>Rp. 6.000.000</option>
-                                  <option value="6500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6500000' ? 'selected' : '' }}>Rp. 6.500.000</option>
-                                  <option value="7000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7000000' ? 'selected' : '' }}>Rp. 7.000.000</option>
-                                  <option value="7500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7500000' ? 'selected' : '' }}>Rp. 7.500.000</option>
-                                  <option value="8000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8000000' ? 'selected' : '' }}>Rp. 8.000.000</option>
-                                  <option value="8500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8500000' ? 'selected' : '' }}>Rp. 8.500.000</option>
-                                  <option value="9000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9000000' ? 'selected' : '' }}>Rp. 9.000.000</option>
-                                  <option value="9500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9500000' ? 'selected' : '' }}>Rp. 9.500.000</option>
-                                  <option value="10000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp. 10.000.000</option>
+                                  <option value="500000">Rp. 500.000</option>
+                                  <option value="1000000">Rp. 1.000.000</option>
+                                  <option value="1500000">Rp. 1.500.000</option>
+                                  <option value="2000000">Rp. 2.000.000</option>
+                                  <option value="2500000">Rp. 2.500.000</option>
+                                  <option value="3000000">Rp. 3.000.000</option>
+                                  <option value="3500000">Rp. 3.500.000</option>
+                                  <option value="4000000">Rp. 4.000.000</option>
+                                  <option value="4500000">Rp. 4.500.000</option>
+                                  <option value="5000000">Rp. 5.000.000</option>
+                                  <option value="5500000">Rp. 5.500.000</option>
+                                  <option value="6000000">Rp. 6.000.000</option>
+                                  <option value="6500000">Rp. 6.500.000</option>
+                                  <option value="7000000">Rp. 7.000.000</option>
+                                  <option value="7500000">Rp. 7.500.000</option>
+                                  <option value="8000000">Rp. 8.000.000</option>
+                                  <option value="8500000">Rp. 8.500.000</option>
+                                  <option value="9000000">Rp. 9.000.000</option>
+                                  <option value="9500000">Rp. 9.500.000</option>
+                                  <option value="10000000">Rp. 10.000.000</option>
                                 </select>
                               </div>
                             </div>
@@ -236,7 +235,7 @@
                         <div data-mdb-input-init class="col-lg-6 md-12 form-outline mt-1">
                             <label class="form-label" for="form6Example4">Email</label>
                             <input type="text" id="nama" name="email" class="form-control" required
-                            value="{{ old('email',$submission->email) }}" />
+                            value="{{ old('email') }}" />
                             @error('email')
                             <div class="alert alert-danger">
                               {{ $message }}
@@ -254,7 +253,7 @@
                         </div>
                     </div>
                         <!-- Submit button -->
-                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Registrasi Customer</button>
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Ajukan Pinjaman</button>
                     </div>
                 </form>
             </div>

@@ -46,7 +46,7 @@ User Management
       <span>Pengajuan</span></a>
 </li>
 <li class="nav-item {{$current_route=='registration'?'active':''}}">
-<a href="{{route('registration')}}" class="nav-link {{$current_route=='registration'?'active':''}}">
+<a href="/admin/registrasi" class="nav-link {{$current_route=='registration'?'active':''}}">
       <i class="fas fa-fw fa-book"></i>
       <span>Registrasi</span></a>
 </li>

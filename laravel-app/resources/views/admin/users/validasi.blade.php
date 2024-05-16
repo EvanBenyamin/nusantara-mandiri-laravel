@@ -68,9 +68,8 @@
             <table  id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th scope="col">Id.</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">No. Telepon</th>
+                    <th scope="col">Keperluan Meminjam</th>
                     <th scope="col">Status Kepegawaian</th>
                     <th scope="col">Pendapatan</th>
                     <th scope="col">Jumlah Pinjaman</th>
@@ -83,9 +82,8 @@
                 <tbody>
                 @foreach ($submission as $c)
                 <tr>
-                    <td>{{ $c ["id"] }}</td> 
                     <td>{{ $c ["nama"] }}</td>
-                    <td>{{ $c ["telepon"] }}</td>
+                    <td>{{ $c ["keperluan_meminjam"] }}</td>
                     <td class="text-center">{{ $c ["status_kepegawaian"] }}</td>
                     <td>{{ $c['pendapatan'] }}</td>
                     <td>{{ $c['jumlah_pinjaman'] }}</td>
@@ -124,11 +122,10 @@
               <tr>
                 <th scope="col">Nama</th>
                 <th scope="col">No. Telepon</th>
-                <th scope="col">Status Kepegawaian</th>
-                <th scope="col">Pendapatan</th>
                 <th scope="col">Jumlah Pinjaman</th>
-                <th scope="col">Angsuran</th>
-                <th scope="col">Skor </th>
+                <th scope="col">Lama Angsuran</th>
+                <th scope="col">Jaminan</th>
+                <th scope="col">Skor</th>
                 <th scope="col">Tindakan</th>
               </tr>
             </thead>
@@ -137,11 +134,10 @@
             <tr>
                 <td>{{ $a ["nama"] }}</td>
                 <td>{{ $a ["telepon"] }}</td>
-                <td class="text-center">{{ $a ["status_kepegawaian"] }}</td>
-                <td>{{ $a['pendapatan'] }}</td>
                 <td>{{ $a['jumlah_pinjaman'] }}</td>
                 <td>{{ $a['lama_angsuran'] }} Bulan</td>
-                <td>{{ $a['skor']}}</td>
+                <td>{{ $a['kelengkapan_berkas'] }} </td>
+                <td>{{ $a['skor'] }}</td>
                 <td>
                 <form action="{{ route('destroy', $a) }}" method="post" class="d-inline">
                         @method('delete')
@@ -157,16 +153,16 @@
                 @csrf
                 @method('patch')
                 <button class="btn btn-warning btn-circle btn-sm"
-                 onclick="return confirm ('Validasi data pengajuan?')">
+                 onclick="return confirm ('Kembalikan status pengajuan?')">
                     <i class="fas fa-backward"></i>
                 </button>
             </form>        
 
-            <form action="{{ route('toggleReturn', $a->id) }}" method="post" class="d-inline">
+            <form action="{{ route('registration.post', $a->id) }}" method="post" class="d-inline">
                 @csrf
-                @method('patch')
+                @method('POST') 
                 <button class="btn btn-success btn-circle btn-sm mt-1"
-                 onclick="return confirm ('Validasi data pengajuan?')">
+                 onclick="return confirm ('Lakukan Registrasi Nasabah?')">
                     <i class="fas fa-edit"></i>
                 </button>
             </form>                

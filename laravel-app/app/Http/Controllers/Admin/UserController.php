@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
  
 use App\Models\User;
+use App\Models\Customer;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -35,13 +37,7 @@ class UserController extends Controller
             "user" => User::all()
         ]);
     }
-    public function customerRegistration(Request $request){
-        return view ('admin.users.registrasi',[
-            "title" => "registrasi"
-        ]);
-
-    }
-
+    
     public function validasi (){
         return view ('admin.users.validasi',[
             "submission" => Submission::orderByDesc('skor')->where('status_pengajuan', '=', false)->get(),
@@ -62,9 +58,289 @@ class UserController extends Controller
         Submission::destroy($submission->id);
         return redirect ('admin/validasi')->with('success','submission telah dihapus');
     }
+    
+    public function customerRegistration(Request $request){
+        $data = $request->validate([
+            'nama' => 'required|max:255',
+            'jenis_kelamin'=>'required',
+            'alamat' => 'required|max:255',
+            'email'=> 'required|email:dns|unique:submissions',
+            'keperluan_meminjam' => 'required',
+            'telepon'=> 'required|numeric|unique:submissions',
+            'status_kepegawaian' => 'required',
+            'pendapatan' => 'required',
+            'lama_angsuran' => 'required',
+            'jumlah_pinjaman' => 'required',
+            'username' => 'required'
+        ]);  
+        dd($data);
+    }  
+
+    public function customerRegistrationPost($id){
+        $submission = Submission::findOrFail($id);
+            return view('admin.users.registrasi', [
+            "title" => "Registrasi",
+            "submission" => $submission
+        ]);
+    }
+    
+    public function customerRegisterationSend(Request $request ,$id){
+        $data = $request->validate([
+            'nama' => 'required|max:255',
+            'jenis_kelamin'=>'required',
+            'alamat' => 'required|max:255',
+            'keperluan_meminjam' => 'required',
+            'telepon'=> 'required|numeric',
+            'id_kepegawaian' => 'required',
+            'pendapatan' => 'required',
+            'lama_angsuran' => 'required',
+            'jumlah_pinjaman' => 'required',
+            'username'=>'required',
+            'email'=> 'required|email:dns',
+            'password'=>'required'
+        ]);  
+        // $data['password'] = Hash::make($data['password']);
+        $skor = $this->scoring($request);
+        $pendapatan = $request->pendapatan;
+        $pinjaman = $request->jumlah_pinjaman;
+        $berkas = implode(', ',$request->kelengkapan_berkas);
+        $username = $request->username;
+        $password = Hash::make($request->password);
+        $email = $request->email;
+        // return request()->all();
+
+        switch($pendapatan){
+            case "<2000000":
+            $pendapatan_calc = 1;
+            break;
+    
+            case "2000000 - 3000000":
+            $pendapatan_calc = 2;
+            break;
+         
+            case "3000000 - 4000000":
+            $pendapatan_calc = 3;
+           break;
+         
+            case "4000000 - 5000000":
+            $pendapatan_calc = 4;
+            break;
+     
+            case "5000000 - 6000000":
+            $pendapatan_calc = 5;
+            break;
+          
+            case "6000000 - 7000000":
+            $pendapatan_calc = 6;
+            break;
+       
+            case "7000000 - 8000000":
+            $pendapatan_calc = 7;
+            break;
+        
+            case "8000000 - 9000000":
+            $pendapatan_calc = 8;
+           break;
+        
+            case "9000000 - 10000000":
+            $pendapatan_calc = 9;
+            break;
+        
+            case ">10000000":
+            $pendapatan_calc = 10;
+            break;
+    
+            default:
+            $pendapatan_calc = 0;
+        }
+            //convert pinjaman ke score
+               if ($pinjaman <= 1000000){
+                $pinjaman_calc=1;
+    
+            } else if ($pinjaman <= 2000000){
+                $pinjaman_calc = 2;
+            }
+             else if ($pinjaman <= 3000000){
+                $pinjaman_calc = 3;
+            }
+            else if ($pinjaman <= 4000000){
+                $pinjaman_calc = 4;
+            }
+             else if ($pinjaman <= 5000000){
+                $pinjaman_calc = 5;
+            }
+             else if ($pinjaman <= 6000000){
+                $pinjaman_calc = 6;
+            }
+             else if ($pinjaman <= 7000000){
+                $pinjaman_calc = 7;
+            }
+             else if ($pinjaman <= 8000000){
+                $pinjaman_calc = 8;
+            }
+             else if ($pinjaman <= 9000000){
+                $pinjaman_calc = 9;
+            }
+             else if ($pinjaman <= 10000000){
+                $pinjaman_calc = 10;
+            } else {
+                $pinjaman_calc = 10;
+            } 
+
+    //____________________FORM SUBMISSION_____________________________        
+
+        $identifier = Submission::findOrFail($id);
+        if ($pendapatan_calc*$request->lama_angsuran >= $pinjaman_calc
+        && $this -> scoring($request) >= 6.35 ){
+        $customer = new Customer;
+        $customer->fill($data);
+        $customer ->skor = $skor;
+        $customer ->kelengkapan_berkas = $berkas;
+        $customer -> alasan = $request -> keperluan_meminjam;
+        $customer -> employment_id = $request->id_kepegawaian;
+        $customer -> pinjaman = $pinjaman;
+        $customer -> user_id = $identifier->id;
+        $customer ->save();
+
+        $user = new User;
+        $user -> username = $username;
+        $user -> customer_id = $identifier->id;
+        $user->email = $email;
+        $user -> password = $password;
+        $user -> save();
+        dd($skor);
+    } else {
+        dd('submit failed');
+        // $submission = new Submission;
+        // $submission->fill($data);
+        // $submission ->skor = $skor;
+        // $submission ->kelengkapan_berkas = $berkas;
+        // $submission ->save();   
+    } 
+
+
+    //______________ENDOF SUBMISSION_______________________
+}
+
+    //METODE MPE 
+    public function scoring (Request $request){
+        $status= (integer)$request->input('id_kepegawaian');
+        $jaminan = (count($request->input('kelengkapan_berkas')));
+        $pendapatan = (string)$request->input('pendapatan');
+        $angsuran = (integer)$request->input('lama_angsuran');
+        $pinjaman = (integer)$request->input('jumlah_pinjaman');
+        $keperluan = (string)$request->input('keperluan_meminjam');
+
+        //convert pinjaman ke score
+        if ($pinjaman <= 1000000){
+            $pinjaman_calc=1;
+
+        } else if ($pinjaman <= 2000000){
+            $pinjaman_calc = 2;
+        }
+         else if ($pinjaman <= 3000000){
+            $pinjaman_calc = 3;
+        }
+        else if ($pinjaman <= 4000000){
+            $pinjaman_calc = 4;
+        }
+         else if ($pinjaman <= 5000000){
+            $pinjaman_calc = 5;
+        }
+         else if ($pinjaman <= 6000000){
+            $pinjaman_calc = 6;
+        }
+         else if ($pinjaman <= 7000000){
+            $pinjaman_calc = 7;
+        }
+         else if ($pinjaman <= 8000000){
+            $pinjaman_calc = 8;
+        }
+         else if ($pinjaman <= 9000000){
+            $pinjaman_calc = 9;
+        }
+         else if ($pinjaman <= 10000000){
+            $pinjaman_calc = 10;
+        } else {
+            $pinjaman_calc = 10;
+        }
+
+    //convert pendapatan ke score 
+
+       switch($pendapatan){
+        case "<2000000":
+        $pendapatan_calc = 1;
+        break;
+
+        case "2000000 - 3000000":
+        $pendapatan_calc = 2;
+        break;
+     
+        case "3000000 - 4000000":
+        $pendapatan_calc = 3;
+       break;
+     
+        case "4000000 - 5000000":
+        $pendapatan_calc = 4;
+        break;
+ 
+        case "5000000 - 6000000":
+        $pendapatan_calc = 5;
+        break;
+      
+        case "6000000 - 7000000":
+        $pendapatan_calc = 6;
+        break;
+   
+        case "7000000 - 8000000":
+        $pendapatan_calc = 7;
+        break;
+    
+        case "8000000 - 9000000":
+        $pendapatan_calc = 8;
+       break;
+    
+        case "9000000 - 10000000":
+        $pendapatan_calc = 9;
+        break;
+    
+        case ">10000000":
+        $pendapatan_calc = 10;
+        break;
+
+        default:
+        $pendapatan_calc = 0;
+    }
+      
+    //convert keperluan ke score
+
+        switch($keperluan){
+
+            case "Medis":
+            $keperluan_calc = 9;
+            break;
+            case "Pendidikan":
+            $keperluan_calc  = 7;
+            break;
+            case "Rekreasi":
+            $keperluan_calc  = 6;
+            break;
+            case "Rumah":
+            $keperluan_calc  = 8;
+            break;
+            case "Usaha":
+            $keperluan_calc  = 10;
+            break;
+            default:
+            $keperluan_calc = 2;
+        }
+
+        $mpe = pow($status,0.20) + pow($jaminan,0.05) +
+                 pow($pendapatan_calc,0.20)+pow($angsuran,0.20)+
+                 pow($pinjaman_calc,-0.3)+pow($keperluan_calc,0.05); 
 
     
-
-
-
-}
+        return $mpe;
+    }
+}    
+    

@@ -35,7 +35,14 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy');
 
     //CRUD CUSTOMER
-    Route::get('admin/registrasi',[UserController::class,'customerRegistration'])->name('registration');
+    Route::get('/admin/registrasi', function () {
+        return view('admin.users.draft', [
+            "title" => "Registrasi"
+        ]);
+    });
+    Route::post('admin/registrasi', [UserController::class, 'customerRegistration'])->name('registration');
+    Route::post('admin/registrasi/{id}', [UserController::class, 'customerRegistrationPost'])->name('registration.post');
+    Route::post('admin/registrasi/{id}/send', [UserController::class, 'customerRegisterationSend'])->name('registration.send');
     
 });
 

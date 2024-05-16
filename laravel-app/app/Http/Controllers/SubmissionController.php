@@ -24,7 +24,7 @@ class SubmissionController extends Controller
             'alamat' => 'required|max:255',
             'email'=> 'required|email:dns|unique:submissions',
             'keperluan_meminjam' => 'required',
-            'telepon'=> 'required|numeric',
+            'telepon'=> 'required|numeric|unique:submissions',
             'status_kepegawaian' => 'required',
             'pendapatan' => 'required',
             'lama_angsuran' => 'required',
@@ -143,7 +143,7 @@ class SubmissionController extends Controller
         $jaminan = (count($request->input('kelengkapan_berkas')));
         $pendapatan = (string)$request->input('pendapatan');
         $angsuran = (integer)$request->input('lama_angsuran');
-        $pinjaman = (integer)$request->input('pinjaman');
+        $pinjaman = (integer)$request->input('jumlah_pinjaman');
         $keperluan = (string)$request->input('keperluan_meminjam');
 
         //convert pinjaman ke score

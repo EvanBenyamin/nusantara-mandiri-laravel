@@ -124,8 +124,16 @@ class SubmissionController extends Controller
         $submission ->skor = $skor;
         $submission ->kelengkapan_berkas = $berkas;
         $submission ->save();
+        return view('success',[
+            "title" => 'Pengajuan',
+            ])->with('success','data anda tersimpan') ;
     } else {
-        dd('Mohon maaf. Anda belum layak untuk mengjukan pinjaman');
+        
+        return view('result',[
+        "title" => 'Pengajuan',
+        ])->with('error','ERROR!') ;
+        
+
         // $submission = new Submission;
         // $submission->fill($data);
         // $submission ->skor = $skor;

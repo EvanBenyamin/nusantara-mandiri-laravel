@@ -6,6 +6,7 @@ use app\Models\Nasabah;
 use App\Http\Controllers\Admin\{AuthController, ProfileController, UserController};
 use App\Http\Controllers\SubmissionController;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 Route::get('/admin/login',[AuthController::class,'getLogin'])->middleware('guest')->name('getLogin');
@@ -27,6 +28,11 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
     Route::get('/admin/customers',[UserController::class,'customers'])->name('customers');
+    Route::get('/admin/transaksi',function(){
+        return view('admin.users.pinjaman',[
+            "title" => "Daftar Pinjaman"
+        ]);
+    });
 
     //CRUD SUBMISSION
     Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');

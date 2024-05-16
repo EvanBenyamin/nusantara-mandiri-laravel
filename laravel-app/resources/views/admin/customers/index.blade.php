@@ -70,7 +70,7 @@
             </div>
             <ul class="list-unstyled">
                 <li>Nama: {{ auth() -> user() -> customer -> nama }}</li>
-                <li>Status Kepegawaian: {{ auth() -> user() -> customer -> status_kepegawaian }}</li>
+                <li>Status Kepegawaian: {{ auth() -> user() -> customer -> employment -> status_kepegawaian }}</li>
                 <li>Jumlah Pinjaman: {{ auth()->user()->customer->pinjaman }}</li>
                 <li>Alamat: {{ auth()->user()->customer->alamat }}</li>
             </ul>

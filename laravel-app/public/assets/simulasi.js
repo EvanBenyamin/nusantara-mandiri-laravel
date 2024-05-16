@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (earn * angsur >= pinjaman.value && scoring() >= 6.20){
             // console.log (`Hasil Perhitungan adalah ${scoring()}`)
             var link = document.createElement('a');
-            link.href = '/'
+            link.href = '/kontak'
             link.innerText = 'Admin Kami'
             link.style.color = 'orange'
             var div = document.getElementById("simResult")

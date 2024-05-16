@@ -210,12 +210,7 @@ class UserController extends Controller
         $user -> save();
         dd($skor);
     } else {
-        dd('submit failed');
-        // $submission = new Submission;
-        // $submission->fill($data);
-        // $submission ->skor = $skor;
-        // $submission ->kelengkapan_berkas = $berkas;
-        // $submission ->save();   
+        return view('result');
     } 
 
 

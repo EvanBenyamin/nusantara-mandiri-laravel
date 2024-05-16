@@ -61,7 +61,7 @@
                             <li><a class="dropdown-item" href="/simulasi">Simulasi Cicilan</a></li>
                             <li><a class="dropdown-item" href="/pengajuan">Ajukan Pinjaman</a></li>
                             <li><a class="dropdown-item" href="#">Cabang Koperasi</a></li>
-                            <li><a class="dropdown-item" href="#">Hubungi Admin</a></li>
+                            <li><a class="dropdown-item" href="/kontak">Hubungi Kami</a></li>
                           </ul>
                         </li>
                       </ul>

@@ -137,10 +137,10 @@
           <div class="social-media">
             <ul>
               <li>
-                <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://wa.me/+6288972788793"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+                <a href="mailto:nmandiri665@gmail.com?subject=salam sukses"><i class="fa-regular fa-envelope"></i></a>
               </li>
             </ul>
           </div>

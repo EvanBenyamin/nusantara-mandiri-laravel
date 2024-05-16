@@ -31,19 +31,19 @@
             </a>
             </div>
             <div class="col-md-9 col-sm-12" style="margin-left:-6rem; padding-top:1.5rem;">
-            <a href="https://wa.me/+6281317893996" class="text-decoration-none">
-                <h5 class="h5 text-black">Contact Admin: 081317893996</h5>
+            <a href="https://wa.me/+6288972788793" class="text-decoration-none">
+                <h5 class="h5 text-black">Contact Admin: 088972788793</h5>
             </a>
             </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-3 col-sm-12 ">
-            <a href="https://wa.me/+6281317893996" style="">
+            <a href="https://wa.me/+6288972788793" style="">
                 <i class="fa-brands fa-at fa-3x text-success "></i>
             </a>
             </div>
             <div class="col-md-9 col-sm-12" style="margin-left:-6rem; padding-top:0.75rem;">
-            <a href="https://wa.me/+6281317893996" class="text-decoration-none">
+            <a href="mailto:nmandiri665@gmail.com?subject=salam sukses" class="text-decoration-none">
                 <h5 class="h5 text-black">Email: nusantaramandiri@gmail.com</h5>
             </a>
         </div>

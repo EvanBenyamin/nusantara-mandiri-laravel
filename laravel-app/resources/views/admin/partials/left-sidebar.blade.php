@@ -45,10 +45,15 @@ User Management
       <i class="fas fa-fw fa-table"></i>
       <span>Pengajuan</span></a>
 </li>
-<li class="nav-item {{$current_route=='registration'?'active':''}}">
+<li class="nav-item {{request()->is('admin/registrasi')?'active':''}}">
 <a href="/admin/registrasi" class="nav-link {{$current_route=='registration'?'active':''}}">
       <i class="fas fa-fw fa-book"></i>
       <span>Registrasi</span></a>
+</li>
+<li class="nav-item {{request()->is('admin/transaksi')?'active':''}}">
+<a href="/admin/transaksi" class="nav-link {{$current_route=='transaksi'?'active':''}}">
+      <i class="fas fa-fw fa-money-bill"></i>
+      <span>Transaksi</span></a>
 </li>
 <div class="container">
       

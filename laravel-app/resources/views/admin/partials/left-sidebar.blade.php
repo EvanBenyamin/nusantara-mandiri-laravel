@@ -28,7 +28,7 @@ $current_route=request()->route()->getName();
 
 <!-- Heading -->
 <div class="sidebar-heading">
-User Management
+Customer Management
 </div>
 
 <li class="nav-item {{$current_route=='customers'?'active':''}}">
@@ -49,12 +49,29 @@ User Management
 <a href="/admin/registrasi" class="nav-link {{$current_route=='registration'?'active':''}}">
       <i class="fas fa-fw fa-book"></i>
       <span>Registrasi</span></a>
+
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading mt-2">
+            Transaksi
+      </div>
 </li>
-<li class="nav-item {{request()->is('admin/transaksi')?'active':''}}">
-<a href="/admin/transaksi" class="nav-link {{$current_route=='transaksi'?'active':''}}">
-      <i class="fas fa-fw fa-money-bill"></i>
-      <span>Transaksi</span></a>
-</li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{request()->is('admin/transaksi')?'active':''}}">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                      aria-expanded="true" aria-controls="collapsePages">
+                      <i class="fas fa-fw fa-exchange-alt"></i>
+                      <span>Transaksi</span>
+                  </a>
+                  <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                          <h6 class="collapse-header">Transaksi:</h6>
+                          <a class="collapse-item" href="register.html">Daftar Pinjaman</a>
+                          <a class="collapse-item" href="/admin/transaksi">Tambah Pinjaman</a>
+                          <a class="collapse-item" href="forgot-password.html">Transaksi Angsuran</a>
+                          <div class="collapse-divider"></div>
+                      </div>
+                  </div>
+              </li>
 <div class="container">
       
 

@@ -1,5 +1,12 @@
-new DataTable('#example');
+document.addEventListener('DOMContentLoaded', function() {
 
-$(function () {
-    $('.selectpicker').selectpicker();
+    $(function() {
+        $('#datepicker').datepicker();
+    });
+
+
+    new DataTable('#example');
+    $(function () {
+        $('.selectpicker').selectpicker();
+    });
 });

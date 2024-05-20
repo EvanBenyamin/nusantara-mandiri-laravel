@@ -4,6 +4,7 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use app\Models\Nasabah;
 use App\Http\Controllers\Admin\{AuthController, ProfileController, UserController};
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\SubmissionController;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -28,11 +29,6 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
     Route::get('/admin/customers',[UserController::class,'customers'])->name('customers');
-    Route::get('/admin/transaksi',function(){
-        return view('admin.users.pinjaman',[
-            "title" => "Daftar Pinjaman"
-        ]);
-    });
 
     //CRUD SUBMISSION
     Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');
@@ -50,6 +46,8 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::post('admin/registrasi/{id}', [UserController::class, 'customerRegistrationPost'])->name('registration.post');
     Route::post('admin/registrasi/{id}/send', [UserController::class, 'customerRegisterationSend'])->name('registration.send');
     
+    //Pinjaman
+    Route::resource('admin/transaksi', LoanController::class);
 });
 
 

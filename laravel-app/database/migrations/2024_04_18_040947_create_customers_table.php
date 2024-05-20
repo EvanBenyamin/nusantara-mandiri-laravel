@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('employment_id');
             $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('alasan');
             $table->string('telepon');
-            $table->foreignId('employment_id');
             $table->string('pendapatan');
             $table->string('lama_angsuran');
-            $table->string('pinjaman');
+            $table->unsignedInteger('pinjaman');
             $table->string('kelengkapan_berkas');
             $table->float('skor')->nullable();
             $table->string('status_pembayaran')->default(true);

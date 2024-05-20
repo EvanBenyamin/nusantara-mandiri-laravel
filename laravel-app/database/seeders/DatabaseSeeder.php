@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Customer;
 use App\Models\Employment;
 use App\Models\Submission;
+use App\Models\loan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
+//USER
         User::create([
             'username'=>'benja',
             'customer_id'=>'1',
@@ -43,6 +44,7 @@ class DatabaseSeeder extends Seeder
             'is_admin' => '0'
         ]);
 
+//CUSTOMER
         Customer::create([
             'user_id' => '1',
             'nama' => 'Benjamin',
@@ -53,7 +55,7 @@ class DatabaseSeeder extends Seeder
             'employment_id' => '7',
             'pendapatan' => '-',
             'lama_angsuran' => '-',
-            'pinjaman' => '-',
+            'pinjaman' => '0',
             'kelengkapan_berkas' =>'-',
         
         ]);  
@@ -83,8 +85,8 @@ class DatabaseSeeder extends Seeder
             'lama_angsuran' => '2',
             'pinjaman' => '4000000',
             'kelengkapan_berkas' =>'3',
-        
         ]);  
+//SUBMISSION
         Submission::create([
             'nama' => 'Benjamin',
             'jenis_kelamin' => 'Laki-Laki',
@@ -128,9 +130,31 @@ class DatabaseSeeder extends Seeder
             'skor' => '6.742243287246'
         ]);
 
+//LOAN
+        Loan::create([
+            'customer_id' => '1',
+            'pinjaman' => '0',
+            'jumlah_angsuran' => '0',
+            'biaya_angsuran' => '0',
+            'jatuh_tempo' => '2024-05-18'
+        ]);
+        Loan::create([
+            'customer_id' => '2',
+            'pinjaman' => '8000000',
+            'jumlah_angsuran' => '4',
+            'biaya_angsuran' => '2400000',
+            'jatuh_tempo' => '2024-05-18'
+        ]);
+        Loan::create([
+            'customer_id' => '3',
+            'pinjaman' => '4000000',
+            'jumlah_angsuran' => '2',
+            'biaya_angsuran' => '21200000',
+            'jatuh_tempo' => '2024-05-18'
+        ]);
 
 
-
+//EMPLOYMENT
         Employment::create([
             'id' => '2',
             'status_kepegawaian'=> 'Kontrak'

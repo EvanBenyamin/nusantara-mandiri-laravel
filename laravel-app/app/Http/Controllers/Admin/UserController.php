@@ -2,6 +2,7 @@
  
 namespace App\Http\Controllers\Admin;
  
+use App\Models\Loan;
 use App\Models\User;
 use App\Models\Customer;
 use App\Models\Submission;
@@ -28,7 +29,7 @@ class UserController extends Controller
     public function customers (){
         return view('admin.users.nasabah',[
             "title" => "Nasabah",
-            "customer" => Customer::all()
+            "customer" => Customer::where('id','!=', 1)->get()
         ]);
     }
     public function status (User $user){
@@ -96,7 +97,7 @@ class UserController extends Controller
             'lama_angsuran' => 'required',
             'jumlah_pinjaman' => 'required',
             'username'=>'required',
-            'email'=> 'required|email:dns',
+            'email'=> 'required|email:dns|unique:users',
             'password'=>'required'
         ]);  
         // $data['password'] = Hash::make($data['password']);
@@ -208,7 +209,16 @@ class UserController extends Controller
         $user->email = $email;
         $user -> password = $password;
         $user -> save();
-        dd($skor);
+
+        $jumlah_angsuran = $request->lama_angsuran;
+        $loan = new Loan; 
+        $loan -> customer_id = $identifier->id;
+        $loan -> pinjaman = $pinjaman;
+        $loan -> jumlah_angsuran = $jumlah_angsuran;
+        $loan -> biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$jumlah_angsuran)+$pinjaman)/$jumlah_angsuran,1000);
+        $loan -> save();
+        
+        dd($loan -> biaya_angsuran);
     } else {
         return view('result');
     } 
@@ -336,6 +346,9 @@ class UserController extends Controller
 
     
         return $mpe;
+    }
+    function pembulatan($number, $multiple) {
+        return ceil($number / $multiple) * $multiple;
     }
 }    
     

@@ -22,4 +22,7 @@ class Customer extends Model
     public function employment (){
         return $this->belongsTo(Employment::class);
     }
+    public function loan (){
+        return $this->hasMany(Loan::class);
+    }
 }

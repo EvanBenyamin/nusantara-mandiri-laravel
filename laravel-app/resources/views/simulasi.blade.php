@@ -100,7 +100,7 @@
               <div class="form-check col mt-3 ">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                  KTP
+                  Surat Tanah
                 </label>
               </div>
               <div class="form-check col mt-3">

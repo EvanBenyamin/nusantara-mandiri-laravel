@@ -173,7 +173,7 @@
               <label class="form-label" for="form1">Jaminan</label>
             <select class="selectpicker col-lg-12" name="kelengkapan_berkas[]" multiple id="jaminan" 
             data-placeholder="Choose anything" multiple required value="{{ old('kelengkapan_berkas[]') }}">
-                <option>KTP</option>
+                <option>Surat Tanah</option>
                 <option>Kartu Keluarga</option>
                 <option>Ijazah</option>
                 <option>Buku Tabungan</option>

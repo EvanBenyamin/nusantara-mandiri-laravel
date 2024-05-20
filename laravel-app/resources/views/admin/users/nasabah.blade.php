@@ -59,13 +59,13 @@
 @section('body')
 <div class="row">
     <div class="container-fluid">
-        Users List
+        Daftar Nasabah
     </div>
     <div class="container table-responsive">
         <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Id.</th>
+                    <th>No.</th>
                     <th>Nama</th>
                     <th>Status Kepegawaian</th>
                     <th>No.Telepon</th>
@@ -78,7 +78,7 @@
             <tbody>
                 @foreach ($customer as $c)
                 <tr>
-                    <td>{{ $c ["id"] }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $c ["nama"] }}</td>
                     <td>{{ $c -> employment -> status_kepegawaian ?? 'Unknown'}}</td>
                     <td>{{ $c ["telepon"] }}</td>

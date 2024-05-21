@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'benja',
             'customer_id'=>'1',
+            'loan_id'=>'1',
             'email' => 'benja@gmail.com',
             'password' => bcrypt('benjaplus'),
             'is_admin' => '1'
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'ade-irma',
             'customer_id'=>'2',
+            'loan_id'=>'2',
             'email' => 'adeirma@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
@@ -39,6 +41,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'gita-herwati',
             'customer_id'=>'3',
+            'loan_id'=>'3',
             'email' => 'gitaherewati@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
@@ -70,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'pendapatan' => '4000000',
             'lama_angsuran' => '4',
             'pinjaman' => '8000000',
-            'kelengkapan_berkas' =>'2',
+            'kelengkapan_berkas' =>'Surat Tanah, Kartu Keluarga'
             
         ]);  
         Customer::create([
@@ -84,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'pendapatan' => '5500000',
             'lama_angsuran' => '2',
             'pinjaman' => '4000000',
-            'kelengkapan_berkas' =>'3',
+            'kelengkapan_berkas' =>'BPKB, Ijazah'
         ]);  
 //SUBMISSION
         Submission::create([
@@ -132,24 +135,24 @@ class DatabaseSeeder extends Seeder
 
 //LOAN
         Loan::create([
-            'customer_id' => '1',
+            'user_id' => '1',
             'pinjaman' => '0',
             'jumlah_angsuran' => '0',
             'biaya_angsuran' => '0',
             'jatuh_tempo' => '2024-05-18'
         ]);
         Loan::create([
-            'customer_id' => '2',
+            'user_id' => '2',
             'pinjaman' => '8000000',
             'jumlah_angsuran' => '4',
             'biaya_angsuran' => '2400000',
             'jatuh_tempo' => '2024-05-18'
         ]);
         Loan::create([
-            'customer_id' => '3',
+            'user_id' => '3',
             'pinjaman' => '4000000',
             'jumlah_angsuran' => '2',
-            'biaya_angsuran' => '21200000',
+            'biaya_angsuran' => '210000',
             'jatuh_tempo' => '2024-05-18'
         ]);
 

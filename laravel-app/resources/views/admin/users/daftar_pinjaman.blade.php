@@ -59,66 +59,64 @@
 @section('body')
 <div class="row">
     <div class="container-fluid">
-        Daftar Nasabah
+        <a href="transaksi/create" class="btn btn-primary">Tambah Pinjaman</a>
     </div>
+    @if(session()->has('success'))
+    <div class="alert alert-success ml-4 mt-2" role="alert">
+        {{ session('success') }}
+    </div>      
+    @endif
     <div class="container table-responsive">
         <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>Status Kepegawaian</th>
-                    <th>No.Telepon</th>
-                    <th>Pinjaman</th>
-                    <th>Kelengkapan Berkas</th>
-                    <th>Lama Angsuran</th>
-                    {{-- <th>Jatuh Tempo</th> --}}
+                    <th>Sisa Pinjaman</th>
+                    <th>Sisa Angsuran</th>
+                    <th>Jatuh Tempo</th>
+                    <th>Biaya Angsuran / Bulan</th>
                     <th>Tindakan</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($customer as $c)
+                @foreach ($loan as $l)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $c -> customer -> nama}}</td>
-                    <td>{{ $c -> customer -> employment -> status_kepegawaian ?? 'Unknown'}}</td>
-                    <td>{{ $c  -> customer -> telepon }}</td>
-                    <td>{{ $c -> customer -> pinjaman }}</td>
-                    <td>{{ $c -> customer -> kelengkapan_berkas }}</td>
-                    <td>{{ $c -> customer -> lama_angsuran }} Bulan</td>    
-                    {{-- <td>
-                        @foreach ($c->loan as $loan)
-                        {{ $loan->jatuh_tempo }}
-                        @endforeach
-                    </td>  --}}
+                    <td>{{ $l -> user -> customer -> nama }}</td>
+                    <td> Rp
+                        @php
+                         $pinjaman = $l -> pinjaman;
+                         echo number_format($pinjaman,0,'.','.'); 
+                        @endphp
+                    </td>
+                    <td>{{ $l ["jumlah_angsuran"] }} Bulan </td>
+                    <td>{{ $l -> jatuh_tempo}} </td>    
+                    <td>Rp 
+                        @php
+                        $biaya = $l -> biaya_angsuran;
+                        echo number_format($biaya,0,'.','.'); 
+                        @endphp
+                    </td>    
+                    {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}
                     <td>
-                        <form action="{{ route('destroy', $c) }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                            <button class="btn btn-danger btn-circle btn-sm"
-                             onclick="return confirm ('Hapus Data Pengajuan ini?')">
+                        <form action="{{ route('transaksi.destroy', $l) }}" method="POST" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Hapus Data Pengajuan ini?')">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
                     </form>
         
-                    <form action="{{ route('toggleReturn', $c->id) }}" method="post" class="d-inline">
+                    <form action="{{ route('toggleReturn', $l->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('patch')
-                        <button class="btn btn-warning btn-circle btn-sm"
+                        <button class="btn btn-success btn-circle btn-sm"
                          onclick="return confirm ('Kembalikan status pengajuan?')">
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-check"></i>
                         </button>
-                    </form>        
-        
-                    <form action="{{ route('registration.post', $c->id) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('POST') 
-                        <button class="btn btn-success btn-circle btn-sm mt-1"
-                         onclick="return confirm ('Lakukan Registrasi Nasabah?')">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </form>                
+                    </form>                      
                 </td>
                 </tr>
             @endforeach

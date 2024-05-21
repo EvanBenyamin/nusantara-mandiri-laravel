@@ -65,8 +65,7 @@ Customer Management
                   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
                           <h6 class="collapse-header">Transaksi:</h6>
-                          <a class="collapse-item" href="register.html">Daftar Pinjaman</a>
-                          <a class="collapse-item" href="/admin/transaksi">Tambah Pinjaman</a>
+                          <a class="collapse-item" href="/admin/transaksi">Daftar Pinjaman</a>
                           <a class="collapse-item" href="forgot-password.html">Transaksi Angsuran</a>
                           <div class="collapse-divider"></div>
                       </div>

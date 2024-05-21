@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id');
+            $table->foreignId('user_id');
             $table->unsignedInteger('pinjaman');
             $table->unsignedInteger('jumlah_angsuran');
             $table->unsignedInteger('biaya_angsuran');

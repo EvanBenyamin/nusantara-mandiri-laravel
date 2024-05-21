@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 
@@ -29,7 +30,7 @@ class UserController extends Controller
     public function customers (){
         return view('admin.users.nasabah',[
             "title" => "Nasabah",
-            "customer" => Customer::where('id','!=', 1)->get()
+            "customer" => User::where('id','!=', 1)->get()
         ]);
     }
     public function status (User $user){
@@ -207,14 +208,16 @@ class UserController extends Controller
         $user -> username = $username;
         $user -> customer_id = $identifier->id;
         $user->email = $email;
+        $user -> loan_id = $identifier->id;
         $user -> password = $password;
         $user -> save();
 
         $jumlah_angsuran = $request->lama_angsuran;
         $loan = new Loan; 
-        $loan -> customer_id = $identifier->id;
+        $loan -> user_id = $identifier->id;
         $loan -> pinjaman = $pinjaman;
         $loan -> jumlah_angsuran = $jumlah_angsuran;
+        $loan -> jatuh_tempo= Carbon::now()->addDays(30);
         $loan -> biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$jumlah_angsuran)+$pinjaman)/$jumlah_angsuran,1000);
         $loan -> save();
         

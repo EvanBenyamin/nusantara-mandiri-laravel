@@ -53,4 +53,7 @@ class User extends Authenticatable
     public function loan(){
         return $this->hasMany(Loan::class);
     }
+    public function installment(){
+        return $this -> hasMany(Installment::class);
+    }
 }

@@ -64,6 +64,14 @@
         <div class="container-fluid ">
            <h4 class="h4 mt-3">Data Pengajuan Pinjaman</h4>
         </div>
+        @if(session()->has('success'))
+        <div class="alert alert-success ml-4 mt-2" role="alert">
+            {{ session('success') }}
+        </div> 
+        @endif
+
+
+
         <div class="container table-responsive mt-3">
             <table  id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -84,14 +92,14 @@
                 <tr>
                     <td>{{ $c ["nama"] }}</td>
                     <td>{{ $c ["keperluan_meminjam"] }}</td>
-                    <td class="text-center">{{ $c ["status_kepegawaian"] }}</td>
+                    <td class="text-center">{{ $c ["status_kepegawaian"]}}</td>
                     <td>{{ $c['pendapatan'] }}</td>
                     <td>{{ $c['jumlah_pinjaman'] }}</td>
                     <td>{{ $c['lama_angsuran'] }} Bulan</td>
                     <td>{{ $c['skor']}}</td>
                     <td>{{ $c['created_at']}}</td>
                     <td>
-                    <form action="{{ route('destroy', $c) }}" method="post" class="d-inline">
+                    <form action="{{ route('destroy.submission', $c) }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
                         <button class="btn btn-danger btn-circle btn-sm"
@@ -139,7 +147,7 @@
                 <td>{{ $a['kelengkapan_berkas'] }} </td>
                 <td>{{ $a['skor'] }}</td>
                 <td>
-                <form action="{{ route('destroy', $a) }}" method="post" class="d-inline">
+                <form action="{{ route('destroy.submission', $a) }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                     <button class="btn btn-danger btn-circle btn-sm"

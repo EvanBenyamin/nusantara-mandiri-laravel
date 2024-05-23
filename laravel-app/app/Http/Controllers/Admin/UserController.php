@@ -49,11 +49,11 @@ class UserController extends Controller
 
     public function toggleStatus (Submission $submission){
         $submission->update(['status_pengajuan' => !$submission->status]);
-        return redirect ('admin/validasi')->with('success','pengajuan telah diterima');
+        return redirect ('admin/validasi')->with('success','pengajuan telah tervalidasi');
     }
     public function toggleReturn (Submission $submission){
         $submission->update(['status_pengajuan' => 0]);
-        return redirect ('admin/validasi')->with('success','pengajuan telah diterima');
+        return redirect ('admin/validasi')->with('success','validasi dibatalkan');
     }
 
     public function destroy (Submission $submission){
@@ -75,6 +75,15 @@ class UserController extends Controller
             'jumlah_pinjaman' => 'required',
             'username' => 'required'
         ]);  
+        $skor = $this->scoring($request);
+        $pendapatan = $request->pendapatan;
+        $pinjaman = $request->jumlah_pinjaman;
+        $berkas = implode(', ',$request->kelengkapan_berkas);
+        $username = $request->username;
+        $password = Hash::make($request->password);
+        $email = $request->email;
+        
+        
         dd($data);
     }  
 
@@ -208,7 +217,6 @@ class UserController extends Controller
         $user -> username = $username;
         $user -> customer_id = $identifier->id;
         $user->email = $email;
-        $user -> loan_id = $identifier->id;
         $user -> password = $password;
         $user -> save();
 
@@ -221,7 +229,7 @@ class UserController extends Controller
         $loan -> biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$jumlah_angsuran)+$pinjaman)/$jumlah_angsuran,1000);
         $loan -> save();
         
-        dd($loan -> biaya_angsuran);
+        dd("Nasabah telah terdaftar");
     } else {
         return view('result');
     } 

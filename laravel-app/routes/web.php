@@ -4,6 +4,7 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use app\Models\Nasabah;
 use App\Http\Controllers\Admin\{AuthController, ProfileController, UserController};
+use App\Http\Controllers\InstallmentController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\SubmissionController;
 use App\Models\User;
@@ -34,7 +35,7 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');
     Route::patch('/admin/validasi/{submission}/toggle', [UserController::class, 'toggleStatus'])->name('toggleStatus');
     Route::patch('/admin/validasi/{submission}/return', [UserController::class, 'toggleReturn'])->name('toggleReturn');
-    Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy');
+    Route::delete('/admin/validasi/{submission}', [UserController::class, 'destroy'])->name('destroy.submission');
 
     //CRUD CUSTOMER
     Route::get('/admin/registrasi', function () {
@@ -48,6 +49,9 @@ Route::group(['middleware'=>['admin_auth']],function(){
     
     //Pinjaman
     Route::resource('admin/transaksi', LoanController::class);
+
+    //angsuran
+    Route::resource('admin/angsuran',InstallmentController::class);
 });
 
 

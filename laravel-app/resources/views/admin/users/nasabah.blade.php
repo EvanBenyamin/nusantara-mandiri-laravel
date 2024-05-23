@@ -67,11 +67,10 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>Status Kepegawaian</th>
                     <th>No.Telepon</th>
                     <th>Pinjaman</th>
-                    <th>Kelengkapan Berkas</th>
                     <th>Lama Angsuran</th>
+                    <th>Skor</th>
                     {{-- <th>Jatuh Tempo</th> --}}
                     <th>Tindakan</th>
                 </tr>
@@ -81,18 +80,22 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $c -> customer -> nama}}</td>
-                    <td>{{ $c -> customer -> employment -> status_kepegawaian ?? 'Unknown'}}</td>
                     <td>{{ $c  -> customer -> telepon }}</td>
-                    <td>{{ $c -> customer -> pinjaman }}</td>
-                    <td>{{ $c -> customer -> kelengkapan_berkas }}</td>
+                    <td>Rp
+                        @php
+                        $pinjaman = $c -> customer -> pinjaman;
+                         echo number_format($pinjaman,'0','.','.')
+                        @endphp 
+                    </td>
                     <td>{{ $c -> customer -> lama_angsuran }} Bulan</td>    
+                    <td>{{ $c -> customer -> skor }} </td>    
                     {{-- <td>
                         @foreach ($c->loan as $loan)
                         {{ $loan->jatuh_tempo }}
                         @endforeach
                     </td>  --}}
                     <td>
-                        <form action="{{ route('destroy', $c) }}" method="post" class="d-inline">
+                        <form action="{{ route('destroy.submission', $c) }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                             <button class="btn btn-danger btn-circle btn-sm"

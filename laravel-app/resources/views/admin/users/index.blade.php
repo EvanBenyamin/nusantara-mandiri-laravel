@@ -65,7 +65,7 @@
             Users List
         </div>
         <div class="container">
-            <table class="table">
+            <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th scope="col">Id.</th>

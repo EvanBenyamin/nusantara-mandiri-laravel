@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Loan;
+use App\Models\User;
 use App\Models\Customer;
 use App\Models\Employment;
 use App\Models\Submission;
-use App\Models\loan;
+use App\Models\Installment;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,7 +24,6 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'benja',
             'customer_id'=>'1',
-            'loan_id'=>'1',
             'email' => 'benja@gmail.com',
             'password' => bcrypt('benjaplus'),
             'is_admin' => '1'
@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'ade-irma',
             'customer_id'=>'2',
-            'loan_id'=>'2',
             'email' => 'adeirma@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
@@ -41,7 +40,6 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username'=>'gita-herwati',
             'customer_id'=>'3',
-            'loan_id'=>'3',
             'email' => 'gitaherewati@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
@@ -73,7 +71,8 @@ class DatabaseSeeder extends Seeder
             'pendapatan' => '4000000',
             'lama_angsuran' => '4',
             'pinjaman' => '8000000',
-            'kelengkapan_berkas' =>'Surat Tanah, Kartu Keluarga'
+            'kelengkapan_berkas' =>'Surat Tanah, Kartu Keluarga',
+            'skor' => '6.7435342'
             
         ]);  
         Customer::create([
@@ -87,7 +86,8 @@ class DatabaseSeeder extends Seeder
             'pendapatan' => '5500000',
             'lama_angsuran' => '2',
             'pinjaman' => '4000000',
-            'kelengkapan_berkas' =>'BPKB, Ijazah'
+            'kelengkapan_berkas' =>'BPKB, Ijazah',
+            'skor' => '6.5435342'
         ]);  
 //SUBMISSION
         Submission::create([
@@ -154,6 +154,12 @@ class DatabaseSeeder extends Seeder
             'jumlah_angsuran' => '2',
             'biaya_angsuran' => '210000',
             'jatuh_tempo' => '2024-05-18'
+        ]);
+
+        Installment::create([
+            'user_id' => 2, 
+            'angsuran_ke' => 1, 
+            'pembayaran' => 240000
         ]);
 
 

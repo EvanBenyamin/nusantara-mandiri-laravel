@@ -59,7 +59,7 @@
 @section('body')
 <div class="row">
     <div class="container-fluid">
-        <a href="transaksi/create" class="btn btn-primary">Tambah Pinjaman</a>
+        <a href="angsuran/create" class="btn btn-primary">Tambah Angsuran</a>
     </div>
     @if(session()->has('success'))
     <div class="alert alert-success ml-4 mt-2" role="alert">
@@ -72,42 +72,53 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>Sisa Pinjaman</th>
+                    <th>Angsuran Ke-</th>
                     <th>Sisa Angsuran</th>
-                    <th>Jatuh Tempo</th>
-                    <th>Biaya Angsuran / Bulan</th>
+                    <th>Jumlah Angsuran / Bulan</th>
+                    <th>Bukti Bayar</th>
                     <th>Tindakan</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($loan as $l)
+                @foreach ($installment as $i)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $l -> user -> customer -> nama }}</td>
-                    <td> Rp
-                        @php
-                         $pinjaman = $l -> pinjaman;
-                         echo number_format($pinjaman,0,'.','.'); 
-                        @endphp
+                    <td>{{ $i-> user -> customer -> nama }}</td>
+                    <td>{{ $i -> angsuran_ke }}</td>
+                    <td>
+                        @foreach ($i->user->loan as $loan)
+                        {{ $loan->jumlah_angsuran }}
+                        @endforeach
                     </td>
-                    <td>{{ $l ["jumlah_angsuran"] }} Bulan </td>
-                    <td>{{ $l -> jatuh_tempo}} </td>    
                     <td>Rp 
-                        @php
-                        $biaya = $l -> biaya_angsuran;
-                        echo number_format($biaya,0,'.','.'); 
-                        @endphp
+                        @foreach ($i->user->loan as $loan)
+                       @php
+                        $pinjaman = $loan->biaya_angsuran ;
+                        echo number_format($pinjaman,0,'.','.'); 
+                       @endphp
+                        @endforeach
+
                     </td>    
+                    <td> </td>    
                     {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}
                     <td>
-                        <form action="{{ route('transaksi.destroy', $l) }}" method="POST" class="d-inline">
+                        <form action="{{ route('angsuran.destroy', $i) }}" method="POST" class="d-inline">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Hapus Data Pengajuan ini?')">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
-                    </form>               
+                    </form>
+        
+                    <form action="{{ route('toggleReturn', $i->id) }}" method="post" class="d-inline">
+                        @csrf
+                        @method('patch')
+                        <button class="btn btn-success btn-circle btn-sm"
+                         onclick="return confirm ('Kembalikan status pengajuan?')">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>                      
                 </td>
                 </tr>
             @endforeach

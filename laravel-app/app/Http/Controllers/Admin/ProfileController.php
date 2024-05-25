@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
  
-use App\Http\Controllers\Controller;
+use App\Models\Loan;
+use App\Models\Customer;
 use Illuminate\Http\Request;
- 
+use App\Http\Controllers\Controller;
+use App\Models\Submission;
+
 class ProfileController extends Controller
 {
     public function dashboard(){
         $data=[
-            'title'=>'Dashboard'
+            'title'=>'Dashboard',
+            'customer' => Customer::count() -1,
+            'loan' => Loan::sum('pinjaman'),
+            'submission' => Submission::count()
         ];
         return view('admin.dashboard',$data);
     }

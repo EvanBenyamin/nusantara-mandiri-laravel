@@ -7,10 +7,10 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: ["Kontrak", "Satpam", "Pegawai","Operator","Sales Asisten","Staff","Kepala Regu","Manajer"],
     datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      data: [2, 3, 4, 3, 2, 2, 0, 1],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#FFA500','#0000FF','#cd7f32','#b9f2ff ','#FFD700'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],

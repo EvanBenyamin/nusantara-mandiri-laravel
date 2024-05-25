@@ -62,14 +62,14 @@
 <a href="/admin/transaksi" class="fa fa-arrow-left"></a>
 <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Form Tambah Angsuran</h2>
 <div class="container hidden">
-    <form class="user mt-5" method="post" action="/admin/angsuran" >
+    <form class="user mt-5" method="post" action="/admin/angsuran" enctype="multipart/form-data" >
       @csrf
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <div class="row mb-4">
             <div class="col-6">
               <label class="form-label" for="">Username</label>
               <div data-mdb-input-init class="form-outline">
-                <input type="text" id="nama" name="username" class="form-control
+                <input type="text" id="username" name="username" class="form-control
                  @error('username') is-invalid @enderror mt-2" required value="{{ old('username')}}"/>
               </div>
               @error('username')
@@ -79,46 +79,27 @@
               @enderror
             </div>
             <div class="col-2 mt-2">
-                <label class="form-label" for="">Jumlah Angsuran</label>
+                <label class="form-label" for="">Angsuran ke-</label>
                 <div data-mdb-input-init class="form-outline">
-                    <input type="number" class="form-control" id="angsur" name="lama_angsuran"
-                    value="{{ old('jumlah_angsuran') }}" placeholder="Angsuran(bulan)" required />
+                    <input type="number" class="form-control" id="angsuran" name="angsuran_ke"
+                    value="{{ old('angsuran_ke') }}" placeholder="0" required />
                 </div>
             </div>
           </div>
           <div class="row">
           <div class="col-lg-6 md-12 mt-2">
             <div data-mdb-input-init class="form-outline">
-              <label class="form-label" for="form1">Jumlah Pinjaman</label>
-              <select id="jmlh-pinjaman" name="jumlah_pinjaman" class="form-select form-select-lg mb-1" 
-              aria-label=".form-select-lg example">
-                <option value="500000"{{ old('jumlah_pinjaman') == '500000'?'selected':''}}>Rp. 500.000</option>
-                <option value="1000000"{{ old('jumlah_pinjaman')== '1000000'?'selected':'' }}>Rp. 1.000.000</option>
-                <option value="1500000"{{ old('jumlah_pinjaman')== '1500000'?'selected':'' }}>Rp. 1.500.000</option>
-                <option value="2000000"{{ old('jumlah_pinjaman')== '2000000'?'selected':'' }}>Rp. 2.000.000</option>
-                <option value="2500000"{{ old('jumlah_pinjaman')== '2500000'?'selected':'' }}>Rp. 2.500.000</option>
-                <option value="3000000"{{ old('jumlah_pinjaman')== '3000000'?'selected':'' }}>Rp. 3.000.000</option>
-                <option value="3500000"{{ old('jumlah_pinjaman')== '3500000'?'selected':'' }}>Rp. 3.500.000</option>
-                <option value="4000000"{{ old('jumlah_pinjaman')== '4000000'?'selected':'' }}>Rp. 4.000.000</option>
-                <option value="4500000"{{ old('jumlah_pinjaman')== '4500000'?'selected':'' }}>Rp. 4.500.000</option>
-                <option value="5000000"{{ old('jumlah_pinjaman')== '5000000'?'selected':'' }}>Rp. 5.000.000</option>
-                <option value="5500000"{{ old('jumlah_pinjaman')== '5500000'?'selected':'' }}>Rp. 5.500.000</option>
-                <option value="6000000"{{ old('jumlah_pinjaman')== '6000000'?'selected':'' }}>Rp. 6.000.000</option>
-                <option value="6500000"{{ old('jumlah_pinjaman')== '6500000'?'selected':'' }}>Rp. 6.500.000</option>
-                <option value="7000000"{{ old('jumlah_pinjaman')== '7000000'?'selected':'' }}>Rp. 7.000.000</option>
-                <option value="7500000"{{ old('jumlah_pinjaman')== '7500000'?'selected':'' }}>Rp. 7.500.000</option>
-                <option value="8000000"{{ old('jumlah_pinjaman')== '8000000'?'selected':'' }}>Rp. 8.000.000</option>
-                <option value="8500000"{{ old('jumlah_pinjaman')== '8500000'?'selected':'' }}>Rp. 8.500.000</option>
-                <option value="9000000"{{ old('jumlah_pinjaman')== '9000000'?'selected':'' }}>Rp. 9.000.000</option>
-                <option value="9500000"{{ old('jumlah_pinjaman')== '9500000'?'selected':'' }}>Rp. 9.500.000</option>
-                <option value="10000000"{{ old('jumlah_pinjaman')== '10000000'?'selected':'' }}>Rp. 10.000.000</option>
-              </select>
+              <label class="form-label" for="form1">Jumlah Pembayaran</label>
+            <div data-mdb-input-init class="form-outline">
+                <input type="text" class="form-control" id="angsuran" name="angsuran"
+                value="{{ old('jumlah_pembayaran') }}" placeholder="Cth: 500000, 250000" required />
+            </div>
             </div>
         </div>
         <div class="col-lg-6 md-12 mt-2">
-        <label for="date" class="col-form-label">Jatuh Tempo</label>
-        <div class="input-group date" id="datepicker">
-            <input type="date" name="jatuh_tempo" class="form-control" required value="{{ old('jatuh_tempo')}}">
+        <label for="date" class="col-form-label">Bukti Bayar</label>
+        <div class="input-group" id="datepicker">
+            <input type="file" name="image" id="image">
             <span id="startDateSelected"></span>
         </div>
         </div>

@@ -24,7 +24,9 @@ class InstallmentController extends Controller
      */
     public function create()
     {
-        return view ('admin.users.angsuran');
+        return view ('admin.users.angsuran',[
+            'title' => 'Daftar Angsuran'
+        ]);
     }
 
     /**
@@ -32,7 +34,13 @@ class InstallmentController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request -> validate ([
+            'username' => 'required|exists:users,username',
+            'angsuran_ke' => 'required|numeric',
+            'angsuran' => 'required|numeric'
+            
+        ]);
+        dd($request->all());
     }
 
     /**

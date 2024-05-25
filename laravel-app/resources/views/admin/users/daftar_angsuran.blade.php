@@ -86,18 +86,28 @@
                     <td>{{ $i-> user -> customer -> nama }}</td>
                     <td>{{ $i -> angsuran_ke }}</td>
                     <td>
-                        @foreach ($i->user->loan as $loan)
-                        {{ $loan->jumlah_angsuran }}
-                        @endforeach
+                        @php 
+                        $latestInstallment = $i->user->latestLoan
+                        @endphp
+                        @if($latestInstallment)
+                        @php 
+                            $angsuran = $latestInstallment->jumlah_angsuran;
+                            echo $angsuran
+                        @endphp
+                        @endif
                     </td>
                     <td>Rp 
-                        @foreach ($i->user->loan as $loan)
-                       @php
-                        $pinjaman = $loan->biaya_angsuran ;
-                        echo number_format($pinjaman,0,'.','.'); 
-                       @endphp
-                        @endforeach
-
+                        @php
+                        $latestLoan = $i->user->latestLoan;
+                        @endphp
+                        @if($latestLoan)
+                        @php
+                            $pinjaman = $latestLoan->biaya_angsuran;
+                            echo number_format($pinjaman, 0, '.', '.');
+                        @endphp
+                    @else
+                        <p>No loans available</p>
+                    @endif                    
                     </td>    
                     <td> </td>    
                     {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}

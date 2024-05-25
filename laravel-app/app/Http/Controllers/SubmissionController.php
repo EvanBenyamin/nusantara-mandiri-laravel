@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Submission;
 use App\Models\Validation;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -125,8 +126,8 @@ class SubmissionController extends Controller
         $submission ->kelengkapan_berkas = $berkas;
         $submission ->save();
         return view('success',[
-            "title" => 'Pengajuan',
-            ])->with('success','data anda tersimpan') ;
+            "title" => 'Pengajuan'
+            ]) ;
     } else {
         
         return view('result',[

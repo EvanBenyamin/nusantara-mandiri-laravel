@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-9 col-sm-12" style="margin-left:-6rem; padding-top:0.75rem;">
             <a href="mailto:nmandiri665@gmail.com?subject=salam sukses" class="text-decoration-none">
-                <h5 class="h5 text-black">Email: nusantaramandiri@gmail.com</h5>
+                <h5 class="h5 text-black">Email: nmandiri665@gmail.com</h5>
             </a>
         </div>
        

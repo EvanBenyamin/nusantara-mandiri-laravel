@@ -204,6 +204,7 @@ class UserController extends Controller
         if ($pendapatan_calc*$request->lama_angsuran >= $pinjaman_calc
         && $this -> scoring($request) >= 6.35 ){
         $customer = new Customer;
+        $customer -> id = $identifier->id;
         $customer->fill($data);
         $customer ->skor = $skor;
         $customer ->kelengkapan_berkas = $berkas;
@@ -214,6 +215,7 @@ class UserController extends Controller
         $customer ->save();
 
         $user = new User;
+        $user -> id = $identifier->id;
         $user -> username = $username;
         $user -> customer_id = $identifier->id;
         $user->email = $email;
@@ -222,6 +224,7 @@ class UserController extends Controller
 
         $jumlah_angsuran = $request->lama_angsuran;
         $loan = new Loan; 
+        $loan -> id = $identifier->id;
         $loan -> user_id = $identifier->id;
         $loan -> pinjaman = $pinjaman;
         $loan -> jumlah_angsuran = $jumlah_angsuran;

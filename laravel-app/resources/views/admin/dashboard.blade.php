@@ -74,7 +74,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Jumlah Nasabah (Orang)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $customer }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -92,10 +92,14 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Jumlah Transaksi (Rupiah)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.50.000.000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"> Rp
+                                    @php 
+                                    echo number_format($loan,0,'.','.');                         
+                                    @endphp
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-coins fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -108,23 +112,18 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pengajuan Nasabah
                                 </div>
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
                                     <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                          {{ $submission }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -153,12 +152,35 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Status Kepegawaian</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-pie pt-4">
                             <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Kontrak
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Satpam   
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Pegawai
+                            </span>
+                            <span class="mr-2 mt-1">
+                                <i class="fas fa-circle" style="color: #FFA500";></i> Operator
+                            </span> <br>
+                            <span class="mr-2">
+                                <i class="fas fa-circle" style="color: #0000FF";></i> Sales Asisten
+                            </span>
+                            <span class="mr-2 mt-1">
+                                <i class="fas fa-circle" style="color: #cd7f32";></i> Staff
+                            </span>
+                            <span class="mr-2 mt-1">
+                                <i class="fas fa-circle" style="color: #b9f2ff";></i> Kepala Regu
+                            </span>
                         </div>
                         <hr>
                         Styling for the donut chart can be found in the

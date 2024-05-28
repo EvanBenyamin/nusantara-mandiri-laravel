@@ -72,7 +72,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>Sisa Pinjaman</th>
+                    <th>Jumlah Pinjaman</th>
                     <th>Sisa Angsuran</th>
                     <th>Jatuh Tempo</th>
                     <th>Biaya Angsuran / Bulan</th>

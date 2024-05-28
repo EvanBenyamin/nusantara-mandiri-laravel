@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Installment;
 use App\Models\Loan;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Psy\VersionUpdater\Installer;
 
 class InstallmentController extends Controller
 {
@@ -34,13 +36,24 @@ class InstallmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate ([
+        $data = $request -> validate ([
             'username' => 'required|exists:users,username',
             'angsuran_ke' => 'required|numeric',
-            'angsuran' => 'required|numeric'
-            
+            'angsuran' => 'required',
         ]);
-        dd($request->all());
+        $username = $request->username;
+        $identifier = User::where('username',$username)->firstOrFail();
+        $loan = Loan::where('user_id',$identifier->id)->firstOrFail();
+        $installment = new Installment();
+        $installment->fill($data);
+        $installment -> pembayaran = $request->angsuran;
+        $installment->user_id = $identifier -> id;
+
+        $loan -> jumlah_angsuran -= 1;
+        $loan -> save();
+
+        $installment->save();
+        dd('success');
     }
 
     /**
@@ -70,9 +83,10 @@ class InstallmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Installment $installment)
+    public function destroy(string $id)
     {
-        $installment->delete();
+        Installment::destroy($id);
+        // $installment->delete();
     
         return redirect()->back()->with('success', 'Loan deleted successfully.');
 

@@ -92,7 +92,7 @@
               <label class="form-label" for="form1">Jumlah Pembayaran</label>
             <div data-mdb-input-init class="form-outline">
                 <input type="text" class="form-control" id="angsuran" name="angsuran"
-                value="{{ old('jumlah_pembayaran') }}" placeholder="Cth: 500000, 250000" required />
+                value="{{ old('angsuran') }}" placeholder="Cth: 500000, 250000" required />
             </div>
             </div>
         </div>

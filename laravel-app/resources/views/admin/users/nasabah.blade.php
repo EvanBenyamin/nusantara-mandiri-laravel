@@ -87,7 +87,12 @@
                          echo number_format($pinjaman,'0','.','.')
                         @endphp 
                     </td>
-                    <td>{{ $c -> customer -> lama_angsuran }} Bulan</td>    
+                    <td>
+                        @foreach ($c->loan as $loan)
+                        {{ $loan-> jumlah_angsuran }}
+                        @endforeach
+                    Bulan
+                    </td>    
                     <td>{{ $c -> customer -> skor }} </td>    
                     {{-- <td>
                         @foreach ($c->loan as $loan)

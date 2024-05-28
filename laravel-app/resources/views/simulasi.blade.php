@@ -44,7 +44,7 @@
                     <option value="3"> Rp 3.000.000 - 4.000.000 </option>
                     <option value="4"> Rp 4.000.000 - 5.000.000</option>
                     <option value="5"> Rp 5.000.000 - 6.000.000 </option>
-                    <option value="6"> Rp 7.500.000 - 8.000.000 </option>
+                    <option value="6"> Rp 7.000.000 - 8.000.000 </option>
                     <option value="7"> Rp 8.000.000 - 9.000.000 </option>
                     <option value="8"> Rp 9.000.000 - 10.000.000 </option>
                     <option value="9"> > Rp 10.000.000 </option>

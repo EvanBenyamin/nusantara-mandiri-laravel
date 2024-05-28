@@ -112,7 +112,7 @@
                     <td> </td>    
                     {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}
                     <td>
-                        <form action="{{ route('angsuran.destroy', $i) }}" method="POST" class="d-inline">
+                        <form action="/admin/angsuran/{{$i->id}}" method="POST" class="d-inline">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Hapus Data Pengajuan ini?')">

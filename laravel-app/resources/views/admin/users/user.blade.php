@@ -55,82 +55,38 @@
                         </li>
     </ul>
 </nav>
+<!-- /.content-header -->
 @endsection
-@section('body')
-<div class="row">
-    <div class="container-fluid">
-        Daftar Nasabah
-    </div>
-    @if(session()->has('success'))
-    <div class="alert alert-success ml-4 mt-2" role="alert">
-        {{ session('success') }}
-    </div>  
-    @endif
 
-    <div class="container table-responsive">
-        <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama</th>
-                    <th>No.Telepon</th>
-                    <th>Pinjaman</th>
-                    <th>Lama Angsuran</th>
-                    <th>Skor</th>
-                    {{-- <th>Jatuh Tempo</th> --}}
-                    <th>Tindakan</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($customer as $c)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $c -> customer -> nama}}</td>
-                    <td>{{ $c  -> customer -> telepon }}</td>
-                    <td>Rp
-                        @php
-                        $pinjaman = $c -> customer -> pinjaman;
-                         echo number_format($pinjaman,'0','.','.')
-                        @endphp 
-                    </td>
-                    <td>
-                        @php 
-                        $latestLoan = $c->latestLoan
-                        @endphp
-                        @if($latestLoan)
-                        @php 
-                            $angsuran = $latestLoan->jumlah_angsuran;
-                            echo $angsuran
-                        @endphp
-                        @endif
-                    Bulan
-                    </td>    
-                    <td>{{ $c -> customer -> skor }} </td>    
-                    {{-- <td>
-                        @foreach ($c->loan as $loan)
-                        {{ $loan->jatuh_tempo }}
-                        @endforeach
-                    </td>  --}}
-                    <td>
+@section('body')
+<a href="/admin/customers" class="fa fa-arrow-left"></a>
+    <!-- Main row -->
+    <div class="row">
+        <div class="container-fluid">
+            Profil Nasabah
+        </div>
+        <div class="container ml-3">
+            <div class="row">
+            <h2 class="h2 mt-3">{{ $user -> username }}</h2>
+            </div>
+            <ul class="list-unstyled ml-3">
+                <li class="mt-5">Nama: {{ $user -> customer -> nama }}</li>
+                <li class="mt-2">Alamat: {{ $user -> customer -> alamat }}</li>
+                <li class="mt-2">No. Telepon: 0{{ $user -> customer -> telepon }}</li>
+                <li class="mt-2">Email: {{ $user -> email }}</li>
+                <li class="mt-2">Status Kepegawaian: {{ $user -> customer -> employment -> status_kepegawaian }}</li>
+                <li class="mt-2">Pendapatan per Bulan: Rp 
+                    @php
+                    $pinjaman = $user -> customer -> pinjaman;
+                     echo number_format($pinjaman,'0','.','.')
+                    @endphp 
+                </li>
+                <li class="mt-2">Keperluan Meminjam: {{ $user -> customer -> alasan }}</li>
+                <li class="mt-2">Berkas Jaminan: {{ $user -> customer -> kelengkapan_berkas }}</li>
+
+            </ul>
+        </div>
         
-                    <form action="{{ route('customer.view', $c->username) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('post')
-                        <button class="btn btn-primary btn-circle btn-sm">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </form>                       
-                    <form action="{{ route('customer.view', $c->username) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('post')
-                        <button class="btn btn-warning btn-circle btn-sm">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                    </form>                       
-                </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </div> 
-</div>
-@endsection
+    </div>
+    <!-- /.row (main row) -->
+    @endsection

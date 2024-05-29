@@ -46,7 +46,7 @@ class LoanController extends Controller
         $lama_angsuran = $request -> lama_angsuran;
         $biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$lama_angsuran)+$pinjaman)/$lama_angsuran,1000);
         $identifier = User::where('username',$username)->firstOrFail();
-        if ($identifier->loan->first()->jumlah_angsuran == 0){
+        if ($identifier->loan->last()->jumlah_angsuran == 0){
        $loan = new Loan;
        $loan -> user_id = $identifier->id;
        $loan -> pinjaman = $pinjaman;

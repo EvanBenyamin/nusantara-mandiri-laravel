@@ -76,6 +76,7 @@
                     {{-- <th>Sisa Angsuran</th> --}}
                     <th>Jumlah Angsuran / Bulan</th>
                     <th>Bukti Bayar</th>
+                    <th>Tanggal Angsur</th>
                     <th>Tindakan</th>
                 </tr>
             </thead>
@@ -109,7 +110,9 @@
                         <p>No loans available</p>
                     @endif                    
                     </td>    
-                    <td> </td>    
+                    <td> </td>
+                    <td>{{ $i -> created_at }}</td>
+
                     {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}
                     <td>
                         <form action="/admin/angsuran/{{$i->id}}" method="POST" class="d-inline">

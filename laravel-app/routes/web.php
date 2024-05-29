@@ -46,7 +46,9 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::post('admin/registrasi', [UserController::class, 'customerRegistration'])->name('registration');
     Route::post('admin/registrasi/{id}', [UserController::class, 'customerRegistrationPost'])->name('registration.post');
     Route::post('admin/registrasi/{id}/send', [UserController::class, 'customerRegisterationSend'])->name('registration.send');
+    Route::post('admin/customers/{username}',[CustomerController::class,'view'])->name('customer.view');
     
+
     //Pinjaman
     Route::resource('admin/transaksi', LoanController::class);
 

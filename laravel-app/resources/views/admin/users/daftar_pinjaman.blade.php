@@ -66,6 +66,11 @@
         {{ session('success') }}
     </div>      
     @endif
+    @if(session()->has('error'))
+    <div class="alert alert-danger ml-4 mt-2" role="alert">
+        {{ session('error') }}
+    </div>      
+    @endif
     <div class="container table-responsive">
         <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -90,7 +95,17 @@
                          echo number_format($pinjaman,0,'.','.'); 
                         @endphp
                     </td>
-                    <td>{{ $l ["jumlah_angsuran"] }} Bulan </td>
+                    <td> 
+                        @if($l->jumlah_angsuran > 0)
+                        @php
+                        echo $l->jumlah_angsuran;
+                        echo ' Bulan'; 
+                        @endphp
+                        @else
+                        {{ 'Lunas' }}
+                        @endif
+                        </td>
+                        
                     <td>{{ $l -> jatuh_tempo}} </td>    
                     <td>Rp 
                         @php

@@ -46,6 +46,7 @@ class LoanController extends Controller
         $lama_angsuran = $request -> lama_angsuran;
         $biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$lama_angsuran)+$pinjaman)/$lama_angsuran,1000);
         $identifier = User::where('username',$username)->firstOrFail();
+        if ($identifier->loan->first()->jumlah_angsuran == 0){
        $loan = new Loan;
        $loan -> user_id = $identifier->id;
        $loan -> pinjaman = $pinjaman;
@@ -57,8 +58,10 @@ class LoanController extends Controller
        $customer = $loan -> user -> customer ;
        $customer -> skor += 0.05;
        $customer -> save();
-
-        return redirect('/admin/transaksi')->with('success','data pinjaman berhasil di tambah');
+        return redirect('/admin/transaksi')->with('success','data pinjaman berhasil di tambah!');
+        } else {
+        return redirect('/admin/transaksi')->with('error','User tidak dapat melakukan pinjaman, pastikan angsuran sebelumnya telah lunas!');
+        }
     }
 
     /**

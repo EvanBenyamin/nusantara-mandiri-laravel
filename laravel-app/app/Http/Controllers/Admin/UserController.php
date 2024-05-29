@@ -224,7 +224,7 @@ class UserController extends Controller
 
         $jumlah_angsuran = $request->lama_angsuran;
         $loan = new Loan; 
-        $loan -> id = $identifier->id;
+        // $loan -> id = $identifier->id;
         $loan -> user_id = $identifier->id;
         $loan -> pinjaman = $pinjaman;
         $loan -> jumlah_angsuran = $jumlah_angsuran;
@@ -232,7 +232,7 @@ class UserController extends Controller
         $loan -> biaya_angsuran = $this -> pembulatan((($pinjaman*0.03*$jumlah_angsuran)+$pinjaman)/$jumlah_angsuran,1000);
         $loan -> save();
         
-        dd("Nasabah telah terdaftar");
+        return redirect('/admin/customers')->with('success','Data Nasabah berhasil Ditambah!');
     } else {
         return view('result');
     } 

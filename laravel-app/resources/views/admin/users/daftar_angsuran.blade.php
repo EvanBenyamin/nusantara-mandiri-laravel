@@ -73,7 +73,7 @@
                     <th>No.</th>
                     <th>Nama</th>
                     <th>Angsuran Ke-</th>
-                    <th>Sisa Angsuran</th>
+                    {{-- <th>Sisa Angsuran</th> --}}
                     <th>Jumlah Angsuran / Bulan</th>
                     <th>Bukti Bayar</th>
                     <th>Tindakan</th>
@@ -85,7 +85,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $i-> user -> customer -> nama }}</td>
                     <td>{{ $i -> angsuran_ke }}</td>
-                    <td>
+                    {{-- <td>
                         @php 
                         $latestInstallment = $i->user->latestLoan
                         @endphp
@@ -95,7 +95,7 @@
                             echo $angsuran
                         @endphp
                         @endif
-                    </td>
+                    </td> --}}
                     <td>Rp 
                         @php
                         $latestLoan = $i->user->latestLoan;

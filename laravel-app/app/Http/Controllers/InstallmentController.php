@@ -53,7 +53,7 @@ class InstallmentController extends Controller
         $loan -> save();
 
         $installment->save();
-        dd('success');
+        return redirect('admin/angsuran')->with('success','Angsuran Berhasil Ditambah');
     }
 
     /**

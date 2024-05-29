@@ -61,6 +61,12 @@
     <div class="container-fluid">
         Daftar Nasabah
     </div>
+    @if(session()->has('success'))
+    <div class="alert alert-success ml-4 mt-2" role="alert">
+        {{ session('success') }}
+    </div>  
+    @endif
+
     <div class="container table-responsive">
         <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -88,9 +94,15 @@
                         @endphp 
                     </td>
                     <td>
-                        @foreach ($c->loan as $loan)
-                        {{ $loan-> jumlah_angsuran }}
-                        @endforeach
+                        @php 
+                        $latestLoan = $c->latestLoan
+                        @endphp
+                        @if($latestLoan)
+                        @php 
+                            $angsuran = $latestLoan->jumlah_angsuran;
+                            echo $angsuran
+                        @endphp
+                        @endif
                     Bulan
                     </td>    
                     <td>{{ $c -> customer -> skor }} </td>    

@@ -120,7 +120,7 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </form>                       
-                    <form action="{{ route('customer.view', $c->username) }}" method="post" class="d-inline">
+                    <form action="{{ route('customer.edit', $c->username) }}" method="post" class="d-inline">
                         @csrf
                         @method('post')
                         <button class="btn btn-warning btn-circle btn-sm">

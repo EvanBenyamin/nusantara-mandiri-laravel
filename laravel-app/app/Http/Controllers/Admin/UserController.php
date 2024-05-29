@@ -83,7 +83,6 @@ class UserController extends Controller
         $password = Hash::make($request->password);
         $email = $request->email;
         
-        
         dd($data);
     }  
 
@@ -234,7 +233,7 @@ class UserController extends Controller
         
         return redirect('/admin/customers')->with('success','Data Nasabah berhasil Ditambah!');
     } else {
-        return view('result');
+        return view('/admin/customers')->with('error','data gagal ditambahkan, periksa kembali data yang dikirim');
     } 
 
 

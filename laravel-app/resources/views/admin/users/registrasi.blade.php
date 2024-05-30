@@ -60,7 +60,7 @@
 <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Formulir Registrasi Customer</h2>
 
 <div class="container hidden">
-    <form class="user mt-5" action="{{ route('registration.send',$submission->id) }}" method="post">
+    <form class="user mt-5" action="{{ route('registration.send',$submission->id) }}" method="post" enctype="multipart/form-data">
       @csrf
       @method('POST') 
           <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -225,7 +225,7 @@
                               <option value="Buku Nikah">Buku Nikah</option>
                           </select>
                         </div>
-                    <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Formulir Registrasi Customer</h2>
+                    <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Registrasi User</h2>
                     <div class="row mb-4">
                         <div class="col-6">
                         <label class="form-label" for="">Username</label>
@@ -251,6 +251,12 @@
                         <label class="form-label" for="">Password</label>
                         <div data-mdb-input-init class="form-outline">
                             <input type="text" id="password" name="password" class="form-control mt-1" required value="{{ old('nama') }}"/>
+                        </div> 
+                      </div>     
+                            <div class="col-6">
+                              <label for="image" class="form-label">Foto Nasabah</label>
+                              <input class="form-control form-control-lg" name="image" id="image" type="file">
+                            </div>
                         </div>
                     </div>
                         <!-- Submit button -->

@@ -65,27 +65,39 @@
         <div class="container-fluid">
             Profil Nasabah
         </div>
-        <div class="container ml-3">
-            <div class="row">
+    </div>
+    <div class="container ml-3">    
+    <div class="row">
+            <div class="col-3">
             <h2 class="h2 mt-3">{{ $user -> username }}</h2>
+            @if($user->image)
+            <img src="{{ asset('storage/' . $user->image) }}"
+            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
+            @else 
+            <img src="{{ asset('admin_assets/img/undraw_profile.svg')}}"
+            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
+            @endif
             </div>
+        <div class="col-8 mt-3 ml-5">
             <ul class="list-unstyled ml-3">
-                <li class="mt-5">Nama: {{ $user -> customer -> nama }}</li>
-                <li class="mt-2">Alamat: {{ $user -> customer -> alamat }}</li>
-                <li class="mt-2">No. Telepon: 0{{ $user -> customer -> telepon }}</li>
-                <li class="mt-2">Email: {{ $user -> email }}</li>
-                <li class="mt-2">Status Kepegawaian: {{ $user -> customer -> employment -> status_kepegawaian }}</li>
-                <li class="mt-2">Pendapatan per Bulan: Rp 
+                <li class="mt-5 text-lg">Nama: {{ $user -> customer -> nama }}</li>
+                <li class="mt-3 text-lg">Alamat: {{ $user -> customer -> alamat }}</li>
+                <li class="mt-3 text-lg">No. Telepon: 0{{ $user -> customer -> telepon }}</li>
+                <li class="mt-3 text-lg">Email: {{ $user -> email }}</li>
+                <li class="mt-3 text-lg">Status Kepegawaian: {{ $user -> customer -> employment -> status_kepegawaian }}</li>
+                <li class="mt-3 text-lg">Pendapatan per Bulan: Rp 
                     @php
-                    $pinjaman = $user -> customer -> pinjaman;
-                     echo number_format($pinjaman,'0','.','.')
+                    $pendapatan = $user -> customer -> pendapatan;
+                     echo $pendapatan
                     @endphp 
                 </li>
-                <li class="mt-2">Keperluan Meminjam: {{ $user -> customer -> alasan }}</li>
-                <li class="mt-2">Berkas Jaminan: {{ $user -> customer -> kelengkapan_berkas }}</li>
+                <li class="mt-3 text-lg">Keperluan Meminjam: {{ $user -> customer -> alasan }}</li>
+                <li class="mt-3 text-lg">Berkas Jaminan: {{ $user -> customer -> kelengkapan_berkas }}</li>
 
             </ul>
         </div>
+    </div>
+    </div>
         
     </div>
     <!-- /.row (main row) -->

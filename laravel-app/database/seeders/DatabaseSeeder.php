@@ -132,6 +132,20 @@ class DatabaseSeeder extends Seeder
             'kelengkapan_berkas' => 'KTP, Kartu Keluarga',
             'skor' => '6.742243287246'
         ]);
+        Submission::create([
+            'nama' => 'Layla Gold',
+            'jenis_kelamin' => 'Perempuan',
+            'alamat' => 'Jl.Goldlane XII No. 7 Kabupaten LandofDawn',
+            'email' => 'layla@gmail.com',
+            'keperluan_meminjam' => 'Rekreasi',
+            'telepon' => '86328374923',
+            'status_kepegawaian' => '5',
+            'pendapatan' => '4000000 - 5000000',
+            'lama_angsuran' => '4',
+            'jumlah_pinjaman' => '5000000',
+            'kelengkapan_berkas' => 'Ijazah, Asuransi',
+            'skor' => '6.642243287246'
+        ]);
 
 //LOAN
         Loan::create([

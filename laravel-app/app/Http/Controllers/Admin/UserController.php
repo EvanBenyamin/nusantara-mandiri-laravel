@@ -105,6 +105,7 @@ class UserController extends Controller
             'pendapatan' => 'required',
             'lama_angsuran' => 'required',
             'jumlah_pinjaman' => 'required',
+            'image' => 'image|file|max:4000',
             'username'=>'required',
             'email'=> 'required|email:dns|unique:users',
             'password'=>'required'
@@ -219,6 +220,9 @@ class UserController extends Controller
         $user -> customer_id = $identifier->id;
         $user->email = $email;
         $user -> password = $password;
+        if ($request->file('image')){
+            $user->image = $request->file('image')->store('post-images');
+        }
         $user -> save();
 
         $jumlah_angsuran = $request->lama_angsuran;

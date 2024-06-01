@@ -60,6 +60,8 @@ Route::group(['middleware'=>['admin_auth']],function(){
 
     //angsuran
     Route::resource('admin/angsuran',InstallmentController::class);
+    Route::post('admin/pembayaran/store/{id}', [CustomerController::class, 'storePayment'])->name('payment.post');
+    Route::post('admin/pembayaran/reject/{id}',[CustomerController::class,'rejectPayment'])->name('payment.reject');
 });
 
 

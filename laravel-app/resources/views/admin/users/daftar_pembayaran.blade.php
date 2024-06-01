@@ -80,6 +80,7 @@
                     <th>Waktu Pembayaran</th>
                     <th>Jumlah Pembayaran</th>
                     <th>Bukti Pembayaran</th>
+                    <th>Tindakan</th>
                 </tr>
             </thead>
             <tbody>
@@ -99,11 +100,29 @@
                 <td>
                     @if($p->image)
                     <img src="{{ asset('storage/' . $p->image) }}"
-                    style="width: 240px; height:220px;" class="mt-3">
+                    style="width: 200px; height:250px;" class="mt-3">
                     @else 
                     echo 'Tidak Ada Bukti Bayar!';
                     @endif
                     </div>
+                </td>
+                <td>
+                <form action="{{ route('payment.reject',$p->id) }}" method="post" class="d-inline">
+                        @method('POST')
+                        @csrf
+                    <input type="hidden" name="payment_id" value="{{ $p->id }}">
+                    <button class="btn btn-danger btn-circle btn-sm"
+                     onclick="return confirm ('Tolak Data Pengajuan ini?')">
+                        <i class="fas fa-ban"></i>
+                    </button>
+                </form>
+                <form action="{{ route('payment.post', $p->id) }}" method="post" class="d-inline">
+                    @csrf
+                    <input type="hidden" name="payment_id" value="{{ $p->id }}">
+                    <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="return confirm('Apakah data pembayaran ini valid?')">
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
                 </td>
             </tr>
                 @endforeach

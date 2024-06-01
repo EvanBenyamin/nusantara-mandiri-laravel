@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Installment;
+use App\Models\Loan;
 use App\Models\Payment;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -100,6 +103,43 @@ class CustomerController extends Controller
             "title" => "Daftar Pembayaran",
             "payments" => $payments
         ]);
-
     }
+    public function storePayment(Request $request, $id)
+    {
+        $data = $request->validate([
+            'payment_id' => 'required|integer|exists:payments,id',
+        ]);
+        $payment = Payment::findOrFail($data['payment_id']);
+        $paymentUser = $payment->user_id;
+        $loan = Loan::where('user_id',$paymentUser)->firstOrFail();
+
+        $angsur = new Installment;
+        $angsur -> user_id = $paymentUser;
+        $angsur -> angsuran_ke = $payment->angsuran_ke;
+        $angsur -> pembayaran = $payment->pembayaran;
+        $angsur -> image = $payment -> image;
+        $angsur -> save();
+
+        $payment->status = 1;
+        $payment -> save();
+
+        $loan->jatuh_tempo = Carbon::parse($loan->jatuh_tempo)-> addDays(30);
+        $loan -> jumlah_angsuran -= 1;
+        $loan -> save();
+
+        return redirect('admin/angsuran')->with('success','Angsuran berhasil ditambahkan!');
+    }
+    public function rejectPayment(Request $request, $id){
+
+        $data = $request->validate([
+            'payment_id' => 'required|integer|exists:payments,id',
+        ]);
+        $payment = Payment::findOrFail($data['payment_id']);
+        $paymentUser = $payment->user_id;
+        $payment -> status = 0;
+        $payment -> save();
+
+        return redirect('admin/pembayaran')->with('success','Data Pembayaran Berhasil ditolak!');
+    }
+
 }

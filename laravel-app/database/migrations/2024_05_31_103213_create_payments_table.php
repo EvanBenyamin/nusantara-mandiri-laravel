@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('angsuran_ke');
             $table->unsignedInteger('pembayaran');
             $table->string('image')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

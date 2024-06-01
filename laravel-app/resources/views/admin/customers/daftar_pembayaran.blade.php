@@ -78,6 +78,7 @@
                     <th>Waktu Pembayaran</th>
                     <th>Jumlah Pembayaran</th>
                     <th>Bukti Pembayaran</th>
+                    <th>Status Pembayaran</th>
                 </tr>
             </thead>
             <tbody>
@@ -95,11 +96,35 @@
                 <td>
                     @if($p->image)
                     <img src="{{ asset('storage/' . $p->image) }}"
-                    style="width: 240px; height:220px;" class="mt-3">
+                    style="width: 200px; height:250px;" class="mt-3">
                     @else 
                     echo 'Tidak Ada Bukti Bayar!';
                     @endif
                     </div>
+                </td>
+                <td>
+                    @if(is_null($p->status))
+                    <a class="btn btn-warning btn-icon-split tabindex="-1 role="button" aria-disabled="true">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span class="text">Pending</span>
+                    </a>
+                    @elseif($p->status == 0)
+                    <a class="btn btn-danger btn-icon-split tabindex="-1 role="button" aria-disabled="true">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                        <span class="text">Ditolak</span>
+                    </a>
+                    @else 
+                    <a class="btn btn-success btn-icon-split tabindex="-1 role="button" aria-disabled="true">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="text">Diterima</span>
+                    </a>
+                    @endif
                 </td>
             </tr>
                 @endforeach

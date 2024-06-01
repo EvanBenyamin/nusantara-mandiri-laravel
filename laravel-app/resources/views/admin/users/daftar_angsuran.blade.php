@@ -110,7 +110,15 @@
                         <p>No loans available</p>
                     @endif                    
                     </td>    
-                    <td> </td>
+                    <td> 
+                        @if($i->image)
+                        <img src="{{ asset('storage/' . $i->image) }}"
+                        style="width: 200px; height:250px;" class="mt-3">
+                        @else 
+                        <span style="color: red"> Tidak Ada Bukti Bayar ! </span>
+                        @endif
+                        </div>
+                    </td>
                     <td>{{ $i -> created_at }}</td>
 
                     {{-- <td>{{ $l -> user -> customer -> status_pemabayaran = 1? 'lancar' : 'macet' }}</td> --}}

@@ -20,8 +20,10 @@ class ProfileController extends Controller
         return view('admin.dashboard',$data);
     }
     public function customer(){
+        $user = auth()->user()->id;
         $data=[
-            'title'=>'Dashboard'
+            'title'=>'Dashboard',
+            'loan' => Loan::where('user_id',$user)->get()
         ];
         return view('admin.customers.customer',$data);
     }

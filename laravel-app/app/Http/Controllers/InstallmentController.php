@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Installment;
 use App\Models\Loan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Psy\VersionUpdater\Installer;
 
@@ -50,6 +51,7 @@ class InstallmentController extends Controller
         $installment->user_id = $identifier -> id;
 
         $loan -> jumlah_angsuran -= 1;
+        $loan->jatuh_tempo = Carbon::parse($loan->jatuh_tempo)-> addDays(30);
         $loan -> save();
 
         $installment->save();

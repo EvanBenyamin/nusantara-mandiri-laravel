@@ -62,20 +62,24 @@
         <div class="container-fluid">
             Dashboard
         </div>
-        <div class="row">
-
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-6 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Jumlah Nasabah (Orang)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Jumlah Pinjaman Terakhir </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    Rp 
+                                    @php
+                                    $pinjaman = auth()->user()->latestLoan->pinjaman;
+                                    echo number_format($pinjaman,0,'.','.');
+                                    @endphp
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                <i class="fas fa-money-bill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -83,22 +87,100 @@
             </div>
 
             <!-- Earnings (Annual) Card Example -->
-            <div class="col-xl-6 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Jumlah Transaksi (Rupiah)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.50.000.000</div>
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Sisa Angsuran (Bulan)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"> 
+                                    @if (auth()->user()->latestLoan->jumlah_angsuran > 0)
+                                    {{ auth()->user()->latestLoan->jumlah_angsuran}}
+                                    @else
+                                    {{ 'Lunas' }}
+                                    @endif
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <!-- Tasks Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Banyak Pinjaman</div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            {{ $loan->count() }}
+                                            Kali
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container table-responsive">
+                <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Data Pinjaman Terakhir</h2>
+                <table id="data-user" class="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Jumlah Pinjaman</th>
+                            <th>Sisa Angsuran</th>
+                            <th>Jatuh Tempo</th>
+                            <th>Biaya Angsuran / Bulan</th>
+                            <th>Status Pinjaman</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <td>Rp
+                        @php
+                        $loan = auth()->user()->latestLoan->pinjaman;
+                        echo number_format($loan,0,'.','.')
+                        @endphp
+                    </td>
+                    <td>
+                        @if(auth()->user()->latestLoan->jumlah_angsuran > 0)
+                        @php
+                        echo auth()->user()->latestLoan->jumlah_angsuran;
+                        echo ' Bulan'; 
+                        @endphp
+                        @else
+                        {{ 'Lunas' }}
+                        @endif
+                    </td>
+                    <td>{{ auth()->user()->latestLoan->jatuh_tempo }}</td>
+                    <td>Rp 
+                        @php
+                        $biaya = auth()->user()->latestLoan->biaya_angsuran;
+                        echo number_format($biaya,0,'.','.')
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        use Carbon\Carbon;
+                        $currentDate = Carbon::now();
+                        @endphp
+                        @if (auth()->user()->latestLoan->jatuh_tempo < $currentDate && 
+                            auth()->user()->latestLoan->jumlah_angsuran > 0) 
+                            <span style="color: red;">Macet</span>
+                        @else
+                        <span class="text-success">Lancar</span>
+                        @endif
+                    </td>
+
 @endsection

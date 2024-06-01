@@ -55,49 +55,55 @@
                         </li>
     </ul>
 </nav>
-<!-- /.content-header -->
 @endsection
-
 @section('body')
-    <!-- Main row -->
-    <div class="row">
-        <div class="container-fluid">
-            Profil Nasabah
-        </div>
-    </div>
-    <div class="container ml-3">    
-    <div class="row">
-            <div class="col-3">
-            <h2 class="h2 mt-3">{{ auth()->user()-> username }}</h2>
-            @if(auth()->user()->image)
-            <img src="{{ asset('storage/' . auth()->user()->image) }}"
-            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
-            @else 
-            <img src="{{ asset('admin_assets/img/undraw_profile.svg')}}"
-            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
-            @endif
-            </div>
-        <div class="col-8 mt-3 ml-5">
-            <ul class="list-unstyled ml-3">
-                <li class="mt-5 text-lg">Nama: {{ auth()->user() -> customer -> nama }}</li>
-                <li class="mt-3 text-lg">Alamat: {{ auth()->user() -> customer -> alamat }}</li>
-                <li class="mt-3 text-lg">No. Telepon: 0{{ auth()->user() -> customer -> telepon }}</li>
-                <li class="mt-3 text-lg">Email: {{ auth()->user() -> email }}</li>
-                <li class="mt-3 text-lg">Status Kepegawaian: {{ auth()->user() -> customer -> employment -> status_kepegawaian }}</li>
-                <li class="mt-3 text-lg">Pendapatan per Bulan: Rp 
-                    @php
-                    $pendapatan = auth()->user() -> customer -> pendapatan;
-                     echo $pendapatan
-                    @endphp 
-                </li>
-                <li class="mt-3 text-lg">Keperluan Meminjam: {{ auth()->user() -> customer -> alasan }}</li>
-                <li class="mt-3 text-lg">Berkas Jaminan: {{ auth()->user() -> customer -> kelengkapan_berkas }}</li>
+<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Data Pembayaran {{ auth()->user()->customer->nama }}</h2>
+<div class="row">
+    @if(session()->has('success'))
+    <div class="alert alert-success ml-4 mt-2" role="alert">
+        {{ session('success') }}
+    </div>      
+    @endif
+    @if(session()->has('error'))
+    <div class="alert alert-danger ml-4 mt-2" role="alert">
+        {{ session('error') }}
+    </div>      
+    @endif
+    <div class="container table-responsive">
+        <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Angsuran ke-</th>
+                    <th>Waktu Pembayaran</th>
+                    <th>Jumlah Pembayaran</th>
+                    <th>Bukti Pembayaran</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($payments as $p)
+            <tr>
+                <td>{{ $loop -> iteration }}</td>
+                <td>{{ $p -> angsuran_ke }}</td>
+                <td>{{ $p->created_at }}</td>
+                <td>Rp
+                    @php 
+                    $payment = $p->pembayaran;
+                    echo number_format($payment,0,'.','.');
+                    @endphp
+                </td>
+                <td>
+                    @if($p->image)
+                    <img src="{{ asset('storage/' . $p->image) }}"
+                    style="width: 240px; height:220px;" class="mt-3">
+                    @else 
+                    echo 'Tidak Ada Bukti Bayar!';
+                    @endif
+                    </div>
+                </td>
+            </tr>
+                @endforeach
+        </div>  
+</div>
 
-            </ul>
-        </div>
-    </div>
-    </div>
-        
-    </div>
-    <!-- /.row (main row) -->
-    @endsection
+@endsection

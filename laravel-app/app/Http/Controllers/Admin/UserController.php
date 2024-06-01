@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
@@ -59,6 +60,12 @@ class UserController extends Controller
     public function destroy (Submission $submission){
         Submission::destroy($submission->id);
         return redirect ('admin/validasi')->with('success','submission telah dihapus');
+    }
+
+    public function paymentSubmission(){
+        return view('admin.users.daftar_pembayaran',[
+            "payments" => Payment::all()
+        ]);
     }
     
     public function customerRegistration(Request $request){

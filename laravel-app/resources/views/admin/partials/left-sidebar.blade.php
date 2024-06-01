@@ -67,6 +67,7 @@ Customer Management
                           <h6 class="collapse-header">Transaksi:</h6>
                           <a class="collapse-item" href="/admin/transaksi">Daftar Pinjaman</a>
                           <a class="collapse-item" href="/admin/angsuran">Transaksi Angsuran</a>
+                          <a class="collapse-item" href="/admin/pembayaran">Daftar Pembayaran </a>
                           <div class="collapse-divider"></div>
                       </div>
                   </div>

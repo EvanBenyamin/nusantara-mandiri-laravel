@@ -21,6 +21,10 @@ class AdminAuth
                     switch ($request->route()->getName()) {
                         case 'customer':
                         case 'user.status':
+                        case 'user.reOrder':
+                        case 'user.bayar':
+                        case 'user.store':
+                        case 'user.payments':
                         //MUST LIST CUSTOMER'S PAGE ABOVE
                             return $next($request);
                         default:

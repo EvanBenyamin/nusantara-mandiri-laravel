@@ -1,5 +1,7 @@
 @extends('admin.customers.main-layout')
- 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content-header')
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <!-- Sidebar Toggle (Topbar) -->
@@ -55,49 +57,64 @@
                         </li>
     </ul>
 </nav>
-<!-- /.content-header -->
 @endsection
-
 @section('body')
-    <!-- Main row -->
-    <div class="row">
-        <div class="container-fluid">
-            Profil Nasabah
-        </div>
-    </div>
-    <div class="container ml-3">    
-    <div class="row">
-            <div class="col-3">
-            <h2 class="h2 mt-3">{{ auth()->user()-> username }}</h2>
-            @if(auth()->user()->image)
-            <img src="{{ asset('storage/' . auth()->user()->image) }}"
-            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
-            @else 
-            <img src="{{ asset('admin_assets/img/undraw_profile.svg')}}"
-            style="width: 240px; border-radius: 100%; height:220px;" class="mt-3">
-            @endif
+<a href="/admin/transaksi" class="fa fa-arrow-left"></a>
+<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Form Pembayaran</h2>
+<div class="container hidden">
+    <form class="user mt-5" method="post" action="{{ route ('user.store')}}" enctype="multipart/form-data" >
+      @csrf
+      @method('POST')
+      @if(session()->has('success'))
+      <div class="alert alert-success ml-4 mt-2" role="alert">
+          {{ session('success') }}
+      </div>      
+      @endif
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col-6">
+              <label class="form-label" for="">Username</label>
+              <div data-mdb-input-init class="form-outline">
+                <input type="text" id="username" name="username" class="form-control
+                 @error('username') is-invalid @enderror mt-2" required value="{{ auth()->user()->username }}"/>
+              </div>
+              @error('username')
+              <div class="alert alert-danger">
+                {{ $message }}
+              </div>    
+              @enderror
             </div>
-        <div class="col-8 mt-3 ml-5">
-            <ul class="list-unstyled ml-3">
-                <li class="mt-5 text-lg">Nama: {{ auth()->user() -> customer -> nama }}</li>
-                <li class="mt-3 text-lg">Alamat: {{ auth()->user() -> customer -> alamat }}</li>
-                <li class="mt-3 text-lg">No. Telepon: 0{{ auth()->user() -> customer -> telepon }}</li>
-                <li class="mt-3 text-lg">Email: {{ auth()->user() -> email }}</li>
-                <li class="mt-3 text-lg">Status Kepegawaian: {{ auth()->user() -> customer -> employment -> status_kepegawaian }}</li>
-                <li class="mt-3 text-lg">Pendapatan per Bulan: Rp 
-                    @php
-                    $pendapatan = auth()->user() -> customer -> pendapatan;
-                     echo $pendapatan
-                    @endphp 
-                </li>
-                <li class="mt-3 text-lg">Keperluan Meminjam: {{ auth()->user() -> customer -> alasan }}</li>
-                <li class="mt-3 text-lg">Berkas Jaminan: {{ auth()->user() -> customer -> kelengkapan_berkas }}</li>
-
-            </ul>
+            <div class="col-2 mt-2">
+                <label class="form-label" for="">Angsuran ke-</label>
+                <div data-mdb-input-init class="form-outline">
+                    <input type="number" class="form-control" id="angsuran" name="angsuran_ke"
+                    value="{{ old('angsuran_ke') }}" placeholder="1" required />
+                </div>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-lg-6 md-12 mt-2">
+            <div data-mdb-input-init class="form-outline">
+              <label class="form-label" for="form1">Jumlah Pembayaran</label>
+            <div data-mdb-input-init class="form-outline">
+                <input type="text" class="form-control" id="pembayaran" name="pembayaran"
+                value="{{ auth()->user()->latestLoan->biaya_angsuran }}" placeholder="Cth: 500000, 250000" required />
+            </div>
+            </div>
         </div>
-    </div>
-    </div>
-        
-    </div>
-    <!-- /.row (main row) -->
-    @endsection
+        <div class="col-lg-6 md-12 mt-2">
+        <label for="date" class="col-form-label">Bukti Bayar</label>
+        <div class="input-group" id="datepicker">
+            <input type="file" name="image" id="image">
+            <span id="startDateSelected"></span>
+        </div>
+        </div>
+            <div class="row">
+                <div class="col-12">
+                        <!-- Submit button -->
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Ajukan Pembayaran</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+@endsection

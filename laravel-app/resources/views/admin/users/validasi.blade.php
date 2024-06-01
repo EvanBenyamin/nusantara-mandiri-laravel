@@ -96,7 +96,17 @@
                     <td>{{ $c['pendapatan'] }}</td>
                     <td>{{ $c['jumlah_pinjaman'] }}</td>
                     <td>{{ $c['lama_angsuran'] }} Bulan</td>
-                    <td>{{ $c['skor']}}</td>
+                    <td>
+                        @php 
+                        $skor = $c->skor;
+                        @endphp
+                        @if ($skor < 6.5)
+                        <span style="color: red;">{{ $c->skor }}</span>
+                        @else 
+                        <span style="color: green;">{{ $c->skor }}</span>
+                        @endif
+                    </td>
+                    </td>
                     <td>{{ $c['created_at']}}</td>
                     <td>
                     <form action="{{ route('destroy.submission', $c) }}" method="post" class="d-inline">
@@ -145,7 +155,16 @@
                 <td>{{ $a['jumlah_pinjaman'] }}</td>
                 <td>{{ $a['lama_angsuran'] }} Bulan</td>
                 <td>{{ $a['kelengkapan_berkas'] }} </td>
-                <td>{{ $a['skor'] }}</td>
+                <td>
+                    @php 
+                    $skor = $a->skor;
+                    @endphp
+                    @if ($skor < 6.5)
+                    <span style="color: red;">{{ $a->skor }}</span>
+                    @else 
+                    <span style="color: #00ff00;">{{ $a->skor }}</span>
+                    @endif
+                </td>
                 <td>
                 <form action="{{ route('destroy.submission', $a) }}" method="post" class="d-inline">
                         @method('delete')

@@ -41,13 +41,13 @@
             <!-- End of Main Content -->
  
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            {{-- <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright © Koperasi Nusantara Mandiri 2024</span>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
             <!-- End of Footer -->
  
         </div>
@@ -82,20 +82,27 @@
     </div>
  
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('admin_assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
- 
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin_assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
- 
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin_assets/js/sb-admin-2.min.js')}}"></script>
- 
-    <!-- Page level plugins -->
-    <script src="{{asset('admin_assets/vendor/chart.js/Chart.min.js')}}"></script>
- 
-    <!-- Page level custom scripts -->
+        <!-- Bootstrap core JavaScript-->
+        <script src="{{asset('admin_assets/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+     
+        <!-- Core plugin JavaScript-->
+        <script src="{{asset('admin_assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+     
+        <!-- Custom scripts for all pages-->
+        <script src="{{asset('admin_assets/js/sb-admin-2.min.js')}}"></script>
+     
+        <!-- Page level plugins -->
+        <script src="{{asset('admin_assets/vendor/chart.js/Chart.min.js')}}"></script>
+     
     <script src="{{asset('admin_assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin_assets/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="/assets/script.js"></script>
 </body>
 </html>

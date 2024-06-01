@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\{AuthController, ProfileController, UserControlle
 use App\Http\Controllers\InstallmentController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\SubmissionController;
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -24,12 +25,16 @@ Route::group(['middleware'=>['admin_auth']],function(){
 
     //VIEW Route -CUSTOMER
     Route::get('customer/status',[UserController::class,'status'])->name('user.status');
+    Route::get('customer/pembayaran',[CustomerController::class,'payment'])->name('user.bayar');
+    Route::post('customer/pembayaran/store',[CustomerController::class,'store'])->name('user.store');
+    Route::get('customer/transaksi',[Customercontroller::class,'viewPayment'])->name('user.payments');
 
 
     //VIEW Route -ADMIN
     Route::get('/admin/users',[UserController::class,'index'])->name('users.index');
     Route::get('/admin/users',[UserController::class,'users'])->name('users.list');
     Route::get('/admin/customers',[UserController::class,'customers'])->name('customers');
+    Route::get('/admin/pembayaran',[UserController::class,'paymentSubmission'])->name('paymentData');
 
     //CRUD SUBMISSION
     Route::get('/admin/validasi',[UserController::class,'validasi'])->name('validasi');

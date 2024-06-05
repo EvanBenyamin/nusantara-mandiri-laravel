@@ -48,8 +48,8 @@ Manajemen User
           <i class="fas fa-fw fa-table"></i>
           <span>Daftar Pembayaran</span></a>
     </li>
-<li class="nav-item {{$current_route=='user.reOrder'?'active':''}} ">
-<a href="{{route('user.status')}}" class="nav-link {{$current_route=='user.status'?'active':''}}">
+<li class="nav-item {{$current_route=='reOrder'?'active':''}} ">
+<a href="{{route('reOrder')}}" class="nav-link {{$current_route=='user.status'?'active':''}}">
       <i class="fas fa-fw fa-registered"></i>
       <span>ReOrder</span></a>
 </li>

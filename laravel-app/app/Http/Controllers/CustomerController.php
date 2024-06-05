@@ -142,4 +142,17 @@ class CustomerController extends Controller
         return redirect('admin/pembayaran')->with('success','Data Pembayaran Berhasil ditolak!');
     }
 
+    public function reOrder (){
+        return view('admin.customers.reorder');
+    }
+
+    public function reOrderStore(Request $request,$id){
+        
+        $request-> validate([
+            'lama_angsuran' => 'required',
+            'jumlah_pinjaman' => 'required'
+        ]);
+        dd($request->all());
+    }
+
 }

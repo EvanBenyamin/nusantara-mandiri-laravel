@@ -27,7 +27,9 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('customer/status',[UserController::class,'status'])->name('user.status');
     Route::get('customer/pembayaran',[CustomerController::class,'payment'])->name('user.bayar');
     Route::post('customer/pembayaran/store',[CustomerController::class,'store'])->name('user.store');
-    Route::get('customer/transaksi',[Customercontroller::class,'viewPayment'])->name('user.payments');
+    Route::get('customer/transaksi',[CustomerController::class,'viewPayment'])->name('user.payments');
+    Route::get('customer/reorder',[CustomerController::class,'reOrder'])->name('reOrder');
+    Route::post('customer/reorder/{username}',[CustomerController::class,'reOrderStore'])->name('reOrderStore');
 
 
     //VIEW Route -ADMIN

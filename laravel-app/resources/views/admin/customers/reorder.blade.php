@@ -60,19 +60,14 @@
 @endsection
 @section('body')
 <a href="/admin/transaksi" class="fa fa-arrow-left"></a>
-<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Form Pembayaran</h2>
+<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Form Pengajuan ReOrder</h2>
 <div class="container hidden">
-    <form class="user mt-5" method="post" action="{{ route ('user.store')}}" enctype="multipart/form-data" >
+<form class="user mt-5" method="post" action="{{ route('reOrderStore',auth()->user()->username), }}" >
       @csrf
       @method('POST')
-      @if(session()->has('success'))
-      <div class="alert alert-success ml-4 mt-2" role="alert">
-          {{ session('success') }}
-      </div>      
-      @endif
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <div class="row mb-4">
-              <div data-mdb-input-init class="form-outline visually-hidden">
+            <div data-mdb-input-init class="form-outline visually-hidden">
                 <input type="text" id="username" name="username" class="form-control
                  @error('username') is-invalid @enderror mt-2" required value="{{ auth()->user()->username }}"/>
               </div>
@@ -81,35 +76,46 @@
                 {{ $message }}
               </div>    
               @enderror
-            <div class="col-2 mt-2">
-                <label class="form-label" for="">Angsuran ke-</label>
+              <div class="col-lg-6 md-12 mt-2">
                 <div data-mdb-input-init class="form-outline">
-                    <input type="number" class="form-control" id="angsuran" name="angsuran_ke"
-                    value="{{ old('angsuran_ke') }}" placeholder="1" required />
+                  <label class="form-label" for="form1">Jumlah Pinjaman</label>
+                  <select id="jmlh-pinjaman" name="jumlah_pinjaman" class="form-select form-select-lg mb-1" 
+                  aria-label=".form-select-lg example">
+                    <option value="500000"{{ old('jumlah_pinjaman') == '500000'?'selected':''}}>Rp. 500.000</option>
+                    <option value="1000000"{{ old('jumlah_pinjaman')== '1000000'?'selected':'' }}>Rp. 1.000.000</option>
+                    <option value="1500000"{{ old('jumlah_pinjaman')== '1500000'?'selected':'' }}>Rp. 1.500.000</option>
+                    <option value="2000000"{{ old('jumlah_pinjaman')== '2000000'?'selected':'' }}>Rp. 2.000.000</option>
+                    <option value="2500000"{{ old('jumlah_pinjaman')== '2500000'?'selected':'' }}>Rp. 2.500.000</option>
+                    <option value="3000000"{{ old('jumlah_pinjaman')== '3000000'?'selected':'' }}>Rp. 3.000.000</option>
+                    <option value="3500000"{{ old('jumlah_pinjaman')== '3500000'?'selected':'' }}>Rp. 3.500.000</option>
+                    <option value="4000000"{{ old('jumlah_pinjaman')== '4000000'?'selected':'' }}>Rp. 4.000.000</option>
+                    <option value="4500000"{{ old('jumlah_pinjaman')== '4500000'?'selected':'' }}>Rp. 4.500.000</option>
+                    <option value="5000000"{{ old('jumlah_pinjaman')== '5000000'?'selected':'' }}>Rp. 5.000.000</option>
+                    <option value="5500000"{{ old('jumlah_pinjaman')== '5500000'?'selected':'' }}>Rp. 5.500.000</option>
+                    <option value="6000000"{{ old('jumlah_pinjaman')== '6000000'?'selected':'' }}>Rp. 6.000.000</option>
+                    <option value="6500000"{{ old('jumlah_pinjaman')== '6500000'?'selected':'' }}>Rp. 6.500.000</option>
+                    <option value="7000000"{{ old('jumlah_pinjaman')== '7000000'?'selected':'' }}>Rp. 7.000.000</option>
+                    <option value="7500000"{{ old('jumlah_pinjaman')== '7500000'?'selected':'' }}>Rp. 7.500.000</option>
+                    <option value="8000000"{{ old('jumlah_pinjaman')== '8000000'?'selected':'' }}>Rp. 8.000.000</option>
+                    <option value="8500000"{{ old('jumlah_pinjaman')== '8500000'?'selected':'' }}>Rp. 8.500.000</option>
+                    <option value="9000000"{{ old('jumlah_pinjaman')== '9000000'?'selected':'' }}>Rp. 9.000.000</option>
+                    <option value="9500000"{{ old('jumlah_pinjaman')== '9500000'?'selected':'' }}>Rp. 9.500.000</option>
+                    <option value="10000000"{{ old('jumlah_pinjaman')== '10000000'?'selected':'' }}>Rp. 10.000.000</option>
+                  </select>
+                </div>
+            </div>
+            <div class="col-2 mt-2 ml-5">
+                <label class="form-label" for="">Jumlah Angsuran</label>
+                <div data-mdb-input-init class="form-outline">
+                    <input type="number" class="form-control" id="angsur" name="lama_angsuran"
+                    value="{{ old('jumlah_angsuran') }}" placeholder="Angsuran(bulan)" required />
                 </div>
             </div>
           </div>
-          <div class="row">
-          <div class="col-lg-6 md-12 mt-2">
-            <div data-mdb-input-init class="form-outline">
-              <label class="form-label" for="form1">Jumlah Pembayaran</label>
-            <div data-mdb-input-init class="form-outline">
-                <input type="text" class="form-control" id="pembayaran" name="pembayaran"
-                value="{{ auth()->user()->latestLoan->biaya_angsuran }}" placeholder="Cth: 500000, 250000" required />
-            </div>
-            </div>
-        </div>
-        <div class="col-lg-4 md-12 mt-2">
-        <label for="date" class="col-form-label">Bukti Bayar</label>
-        <div class="input-group" id="datepicker">
-            <input type="file" name="image" id="image">
-            <span id="startDateSelected"></span>
-        </div>
-        </div>
             <div class="row">
                 <div class="col-12">
                         <!-- Submit button -->
-                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Ajukan Pembayaran</button>
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Ajukan Pinjaman</button>
                     </div>
                 </div>
                 </form>

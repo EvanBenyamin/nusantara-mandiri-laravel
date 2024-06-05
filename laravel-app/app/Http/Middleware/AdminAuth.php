@@ -25,6 +25,8 @@ class AdminAuth
                         case 'user.bayar':
                         case 'user.store':
                         case 'user.payments':
+                        case 'reOrder':
+                        case 'reOrderStore':
                         //MUST LIST CUSTOMER'S PAGE ABOVE
                             return $next($request);
                         default:

@@ -64,7 +64,7 @@ class UserController extends Controller
 
     public function paymentSubmission(){
         return view('admin.users.daftar_pembayaran',[
-            "payments" => Payment::all()
+            "payments" => Payment::orderBy('created_at','desc')->get()
         ]);
     }
     

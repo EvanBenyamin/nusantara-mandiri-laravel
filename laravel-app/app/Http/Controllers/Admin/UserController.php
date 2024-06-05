@@ -90,7 +90,8 @@ class UserController extends Controller
         $password = Hash::make($request->password);
         $email = $request->email;
         
-        dd($data);
+
+        dd($request->all());
     }  
 
     public function customerRegistrationPost($id){

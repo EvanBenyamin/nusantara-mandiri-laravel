@@ -111,8 +111,9 @@ class CustomerController extends Controller
         ]);
         $payment = Payment::findOrFail($data['payment_id']);
         $paymentUser = $payment->user_id;
-        $loan = Loan::where('user_id',$paymentUser)->firstOrFail();
 
+        $loan = Loan::where('user_id',$paymentUser)->latest()->first();
+        
         $angsur = new Installment;
         $angsur -> user_id = $paymentUser;
         $angsur -> angsuran_ke = $payment->angsuran_ke;

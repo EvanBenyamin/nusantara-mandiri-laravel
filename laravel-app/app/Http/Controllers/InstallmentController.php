@@ -42,6 +42,8 @@ class InstallmentController extends Controller
             'angsuran_ke' => 'required|numeric',
             'angsuran' => 'required',
         ]);
+
+        
         $username = $request->username;
         $identifier = User::where('username',$username)->firstOrFail();
         $loan = Loan::where('user_id',$identifier->id)->firstOrFail();

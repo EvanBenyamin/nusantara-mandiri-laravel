@@ -251,9 +251,15 @@
                         <div data-mdb-input-init class="form-outline">
                             <input type="text" id="password" name="password" class="form-control mt-1" required value="{{ old('nama') }}"/>
                         </div>
+                      </div>
+                        <div class="col-6">
+                          <label for="image" class="form-label">Foto Nasabah</label>
+                          <input class="form-control form-control-lg" name="image" id="image" type="file">
+                        </div>
+                    </div>
                     </div>
                         <!-- Submit button -->
-                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Ajukan Pinjaman</button>
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Registrasi Customer</button>
                     </div>
                 </form>
             </div>

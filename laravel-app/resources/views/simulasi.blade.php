@@ -39,7 +39,7 @@
             <label class="form-label" for="form1">Pendapatan per Bulan</label>
               <div data-mdb-input-init class="form-outline">
                 <select id="pendapatan" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                    <option selected value = "1"> < Rp. 2.000.000</option>
+                    <option selected value = "1"> < Rp 2.000.000</option>
                     <option value="2"> Rp 2.000.000 - 3.000.000 </option>
                     <option value="3"> Rp 3.000.000 - 4.000.000 </option>
                     <option value="4"> Rp 4.000.000 - 5.000.000</option>
@@ -70,26 +70,26 @@
                 <div data-mdb-input-init class="form-outline">
                   <label class="form-label" for="form1">Jumlah Pinjaman</label>
                   <select id="jmlh-pinjaman" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                    <option value="1">Rp. 500.000</option>
-                    <option value="1">Rp. 1.000.000</option>
-                    <option value="2">Rp. 1.500.000</option>
-                    <option value="2">Rp. 2.000.000</option>
-                    <option value="3">Rp. 2.500.000</option>
-                    <option value="3">Rp. 3.000.000</option>
-                    <option value="4">Rp. 3.500.000</option>
-                    <option value="4">Rp. 4.000.000</option>
-                    <option value="5">Rp. 4.500.000</option>
-                    <option value="5">Rp. 5.000.000</option>
-                    <option value="6">Rp. 5.500.000</option>
-                    <option value="6">Rp. 6.000.000</option>
-                    <option value="7">Rp. 6.500.000</option>
-                    <option value="7">Rp. 7.000.000</option>
-                    <option value="8">Rp. 7.500.000</option>
-                    <option value="8">Rp. 8.000.000</option>
-                    <option value="9">Rp. 8.500.000</option>
-                    <option value="9">Rp. 9.000.000</option>
-                    <option value="10">Rp. 9.500.000</option>
-                    <option value="10">Rp. 10.000.000</option>
+                    <option value="1">Rp 500.000</option>
+                    <option value="1">Rp 1.000.000</option>
+                    <option value="2">Rp 1.500.000</option>
+                    <option value="2">Rp 2.000.000</option>
+                    <option value="3">Rp 2.500.000</option>
+                    <option value="3">Rp 3.000.000</option>
+                    <option value="4">Rp 3.500.000</option>
+                    <option value="4">Rp 4.000.000</option>
+                    <option value="5">Rp 4.500.000</option>
+                    <option value="5">Rp 5.000.000</option>
+                    <option value="6">Rp 5.500.000</option>
+                    <option value="6">Rp 6.000.000</option>
+                    <option value="7">Rp 6.500.000</option>
+                    <option value="7">Rp 7.000.000</option>
+                    <option value="8">Rp 7.500.000</option>
+                    <option value="8">Rp 8.000.000</option>
+                    <option value="9">Rp 8.500.000</option>
+                    <option value="9">Rp 9.000.000</option>
+                    <option value="10">Rp 9.500.000</option>
+                    <option value="10">Rp 10.000.000</option>
                   </select>
                 </div>
               </div>
@@ -154,26 +154,26 @@
         <label class="form-label mb-1" for="">Pilih Plafond</label>
         <div data-mdb-input-init class="form-outline">
             <select id="plafond" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                <option value="500000">Rp. 500.000</option>
-                <option value="1000000">Rp. 1.000.000</option>
-                <option value="1500000">Rp. 1.500.000</option>
-                <option value="2000000">Rp. 2.000.000</option>
-                <option value="2500000">Rp. 2.500.000</option>
-                <option value="3000000">Rp. 3.000.000</option>
-                <option value="3500000">Rp. 3.500.000</option>
-                <option value="4000000">Rp. 4.000.000</option>
-                <option value="4500000">Rp. 4.500.000</option>
-                <option value="5000000">Rp. 5.000.000</option>
-                <option value="5500000">Rp. 5.500.000</option>
-                <option value="6000000">Rp. 6.000.000</option>
-                <option value="6500000">Rp. 6.500.000</option>
-                <option value="7000000">Rp. 7.000.000</option>
-                <option value="7500000">Rp. 7.500.000</option>
-                <option value="8000000">Rp. 8.000.000</option>
-                <option value="8500000">Rp. 8.500.000</option>
-                <option value="9000000">Rp. 9.000.000</option>
-                <option value="9500000">Rp. 9.500.000</option>
-                <option value="10000000">Rp. 10.000.000</option>
+                <option value="500000">Rp 500.000</option>
+                <option value="1000000">Rp 1.000.000</option>
+                <option value="1500000">Rp 1.500.000</option>
+                <option value="2000000">Rp 2.000.000</option>
+                <option value="2500000">Rp 2.500.000</option>
+                <option value="3000000">Rp 3.000.000</option>
+                <option value="3500000">Rp 3.500.000</option>
+                <option value="4000000">Rp 4.000.000</option>
+                <option value="4500000">Rp 4.500.000</option>
+                <option value="5000000">Rp 5.000.000</option>
+                <option value="5500000">Rp 5.500.000</option>
+                <option value="6000000">Rp 6.000.000</option>
+                <option value="6500000">Rp 6.500.000</option>
+                <option value="7000000">Rp 7.000.000</option>
+                <option value="7500000">Rp 7.500.000</option>
+                <option value="8000000">Rp 8.000.000</option>
+                <option value="8500000">Rp 8.500.000</option>
+                <option value="9000000">Rp 9.000.000</option>
+                <option value="9500000">Rp 9.500.000</option>
+                <option value="10000000">Rp 10.000.000</option>
             </select>
         </div>
         <div data-mdb-input-init class="form-outline mt-3">

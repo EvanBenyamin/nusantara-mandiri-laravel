@@ -41,14 +41,15 @@ class InstallmentController extends Controller
             'username' => 'required|exists:users,username',
             'angsuran_ke' => 'required|numeric',
             'angsuran' => 'required',
+            'image' => 'image|file|max:4000'
         ]);
 
-        
         $username = $request->username;
         $identifier = User::where('username',$username)->firstOrFail();
-        $loan = Loan::where('user_id',$identifier->id)->firstOrFail();
+        $loan = Loan::where('user_id',$identifier->id)->latest()->first();
         $installment = new Installment();
         $installment->fill($data);
+        $installment->image = $request->file('image')->store('post-images');
         $installment -> pembayaran = $request->angsuran;
         $installment->user_id = $identifier -> id;
 

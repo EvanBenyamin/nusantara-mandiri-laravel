@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Loan;
 use App\Models\Payment;
+use App\Models\Reorder;
 use App\Models\Customer;
 use App\Models\Installment;
 use Illuminate\Notifications\Notifiable;
@@ -64,5 +65,8 @@ class User extends Authenticatable
     }
     public function payment(){
         return $this -> hasMany(Payment::class);
+    }
+    public function reorder(){
+        return $this -> hasMany(Reorder::class);
     }
 }

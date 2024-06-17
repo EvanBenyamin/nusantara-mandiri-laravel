@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Loan;
+use App\Models\Reorder;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -101,5 +102,19 @@ class LoanController extends Controller
 
     function pembulatan($number, $multiple) {
         return ceil($number / $multiple) * $multiple;
+    }
+
+    public function reorders(){
+        return view('admin.users.daftar_reorder',[
+            "title" => "List Reorder",
+            "reorder" => Reorder::orderBy('created_at','desc')->get()
+        ]);
+    }
+    public function acceptReorder($id){
+        $reorder = Reorder::findOrFail($id);
+        return view('admin.users.pinjaman',[
+            "title" => "Tambah Pinjaman",
+            "reorder" => $reorder 
+        ]);
     }
 }

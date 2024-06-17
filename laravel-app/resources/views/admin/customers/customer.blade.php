@@ -86,7 +86,6 @@
                 </div>
             </div>
 
-            <!-- Earnings (Annual) Card Example -->
             <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
@@ -136,6 +135,16 @@
             </div>
             <div class="container table-responsive">
                 <h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Data Pinjaman Terakhir</h2>
+                @if(session()->has('success'))
+                <div class="alert alert-success ml-4 mt-2" role="alert">
+                    {{ session('success') }}
+                </div>      
+                @endif
+                @if(session()->has('error'))
+                <div class="alert alert-danger ml-4 mt-2" role="alert">
+                    {{ session('error') }}
+                </div>      
+                @endif
                 <table id="data-user" class="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>

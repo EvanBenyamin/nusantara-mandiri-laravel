@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Installment;
 use App\Models\Loan;
 use App\Models\Payment;
+use App\Models\Reorder;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -90,7 +91,7 @@ class CustomerController extends Controller
         if ($request->file('image')){
             $payment->image = $request->file('image')->store('post-images');
             $payment -> save();
-            return redirect('/customer/pembayaran')->with('success','Pembayaran Anda telah diterima dan akan diverifikasi oleh admin!');
+            return redirect('/customer/transaksi')->with('success','Pembayaran Anda telah diterima dan akan diverifikasi oleh admin!');
         } else {
             return redirect('/customer/pembayaran')->with('error','Pembayaran harus disertai bukti bayar!');
         }     
@@ -150,10 +151,22 @@ class CustomerController extends Controller
     public function reOrderStore(Request $request,$id){
         
         $request-> validate([
+            'jumlah_pinjaman' => 'required',
             'lama_angsuran' => 'required',
-            'jumlah_pinjaman' => 'required'
+            'username' => 'required',
         ]);
-        dd($request->all());
-    }
+        $user = auth()->user()->id;
+        $user_loan = Loan::where('user_id',$user)->latest()->first();
 
+        if($user_loan->jumlah_angsuran = 0 ){
+            $reorder = new Reorder();
+            $reorder -> user_id = $user;
+            $reorder -> jumlah_pinjaman = $request->jumlah_pinjaman;
+            $reorder -> lama_angsuran = $request -> lama_angsuran;
+            $reorder -> save();
+            return redirect('/customer/pembayaran')->with('success','Pengajuan anda telah disimpan, dan akan diverifikasi oleh admin!');
+        } else {
+            return redirect('/customer/dashboard')->with('error','Anda harus melunaskan angsuran anda terlebih dahulu');
+        }
+    }
 }

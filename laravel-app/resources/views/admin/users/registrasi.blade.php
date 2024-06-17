@@ -189,26 +189,26 @@
                                 <label class="form-label" for="form1">Jumlah Pinjaman</label>
                                 <select id="jmlh-pinjaman" name="jumlah_pinjaman" class="form-select form-select-lg mb-1" 
                                 aria-label=".form-select-lg example value="{{ old('pinjaman') }}"">
-                                  <option value="500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '500000' ? 'selected' : '' }}>Rp. 500.000</option>
-                                  <option value="1000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp. 1.000.000</option>
-                                  <option value="1500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1500000' ? 'selected' : '' }}>Rp. 1.500.000</option>
-                                  <option value="2000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2000000' ? 'selected' : '' }}>Rp. 2.000.000</option>
-                                  <option value="2500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2500000' ? 'selected' : '' }}>Rp. 2.500.000</option>
-                                  <option value="3000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3000000' ? 'selected' : '' }}>Rp. 3.000.000</option>
-                                  <option value="3500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3500000' ? 'selected' : '' }}>Rp. 3.500.000</option>
-                                  <option value="4000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4000000' ? 'selected' : '' }}>Rp. 4.000.000</option>
-                                  <option value="4500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4500000' ? 'selected' : '' }}>Rp. 4.500.000</option>
-                                  <option value="5000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5000000' ? 'selected' : '' }}>Rp. 5.000.000</option>
-                                  <option value="5500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5500000' ? 'selected' : '' }}>Rp. 5.500.000</option>
-                                  <option value="6000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6000000' ? 'selected' : '' }}>Rp. 6.000.000</option>
-                                  <option value="6500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6500000' ? 'selected' : '' }}>Rp. 6.500.000</option>
-                                  <option value="7000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7000000' ? 'selected' : '' }}>Rp. 7.000.000</option>
-                                  <option value="7500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7500000' ? 'selected' : '' }}>Rp. 7.500.000</option>
-                                  <option value="8000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8000000' ? 'selected' : '' }}>Rp. 8.000.000</option>
-                                  <option value="8500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8500000' ? 'selected' : '' }}>Rp. 8.500.000</option>
-                                  <option value="9000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9000000' ? 'selected' : '' }}>Rp. 9.000.000</option>
-                                  <option value="9500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9500000' ? 'selected' : '' }}>Rp. 9.500.000</option>
-                                  <option value="10000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp. 10.000.000</option>
+                                  <option value="500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '500000' ? 'selected' : '' }}>Rp 500.000</option>
+                                  <option value="1000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp 1.000.000</option>
+                                  <option value="1500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1500000' ? 'selected' : '' }}>Rp 1.500.000</option>
+                                  <option value="2000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2000000' ? 'selected' : '' }}>Rp 2.000.000</option>
+                                  <option value="2500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '2500000' ? 'selected' : '' }}>Rp 2.500.000</option>
+                                  <option value="3000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3000000' ? 'selected' : '' }}>Rp 3.000.000</option>
+                                  <option value="3500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '3500000' ? 'selected' : '' }}>Rp 3.500.000</option>
+                                  <option value="4000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4000000' ? 'selected' : '' }}>Rp 4.000.000</option>
+                                  <option value="4500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '4500000' ? 'selected' : '' }}>Rp 4.500.000</option>
+                                  <option value="5000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5000000' ? 'selected' : '' }}>Rp 5.000.000</option>
+                                  <option value="5500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '5500000' ? 'selected' : '' }}>Rp 5.500.000</option>
+                                  <option value="6000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6000000' ? 'selected' : '' }}>Rp 6.000.000</option>
+                                  <option value="6500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '6500000' ? 'selected' : '' }}>Rp 6.500.000</option>
+                                  <option value="7000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7000000' ? 'selected' : '' }}>Rp 7.000.000</option>
+                                  <option value="7500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '7500000' ? 'selected' : '' }}>Rp 7.500.000</option>
+                                  <option value="8000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8000000' ? 'selected' : '' }}>Rp 8.000.000</option>
+                                  <option value="8500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '8500000' ? 'selected' : '' }}>Rp 8.500.000</option>
+                                  <option value="9000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9000000' ? 'selected' : '' }}>Rp 9.000.000</option>
+                                  <option value="9500000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '9500000' ? 'selected' : '' }}>Rp 9.500.000</option>
+                                  <option value="10000000"{{ old('pinjaman', $submission->jumlah_pinjaman) == '1000000' ? 'selected' : '' }}>Rp 10.000.000</option>
                                 </select>
                               </div>
                             </div>

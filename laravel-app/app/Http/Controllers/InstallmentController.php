@@ -18,7 +18,7 @@ class InstallmentController extends Controller
     {
         return view ('admin.users.daftar_angsuran',[
             "title" => "Angsuran",
-            "installment" => Installment::where('id','!=','0')->get()
+            "installment" => Installment::orderBy('created_at','desc')->get()
         ]);
     }
 

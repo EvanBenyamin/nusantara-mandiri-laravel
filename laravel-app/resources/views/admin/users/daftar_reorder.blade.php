@@ -1,7 +1,5 @@
 @extends('admin.main-layout')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
 @section('content-header')
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <!-- Sidebar Toggle (Topbar) -->
@@ -59,56 +57,64 @@
 </nav>
 @endsection
 @section('body')
-<a href="/admin/transaksi" class="fa fa-arrow-left"></a>
-<h2 class="text-center" style="margin-top:2rem; font-family: 'Quicksand', sans-serif;">Form Tambah Angsuran</h2>
-<div class="container hidden">
-    <form class="user mt-5" method="post" action="/admin/angsuran" enctype="multipart/form-data" >
-      @csrf
-          <!-- 2 column grid layout with text inputs for the first and last names -->
-          <div class="row mb-4">
-            <div class="col-6">
-              <label class="form-label" for="">Username</label>
-              <div data-mdb-input-init class="form-outline">
-                <input type="text" id="username" name="username" class="form-control
-                 @error('username') is-invalid @enderror mt-2" required value="{{ old('username')}}"/>
-              </div>
-              @error('username')
-              <div class="alert alert-danger">
-                {{ $message }}
-              </div>    
-              @enderror
-            </div>
-            <div class="col-2 mt-2">
-                <label class="form-label" for="">Angsuran ke-</label>
-                <div data-mdb-input-init class="form-outline">
-                    <input type="number" class="form-control" id="angsuran" name="angsuran_ke"
-                    value="{{ old('angsuran_ke') }}" placeholder="0" required />
-                </div>
-            </div>
-          </div>
-          <div class="row">
-          <div class="col-lg-6 md-12 mt-2">
-            <div data-mdb-input-init class="form-outline">
-              <label class="form-label" for="form1">Jumlah Pembayaran</label>
-            <div data-mdb-input-init class="form-outline">
-                <input type="text" class="form-control" id="angsuran" name="angsuran"
-                value="{{ old('angsuran') }}" placeholder="Cth: 500000, 250000" required />
-            </div>
-            </div>
-        </div>
-        <div class="col-lg-6 md-12 mt-2">
-        <label for="date" class="col-form-label">Bukti Bayar</label>
-        <div class="input-group" id="datepicker">
-            <input type="file" name="image" id="image">
-            <span id="startDateSelected"></span>
-        </div>
-        </div>
-            <div class="row">
-                <div class="col-12">
-                        <!-- Submit button -->
-                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block mt-4 ">Tambah Angsuran</button>
-                    </div>
-                </div>
-                </form>
-            </div>
+<div class="row">
+    <div class="container-fluid">
+        <a href="transaksi/create" class="btn btn-primary">Tambah Pinjaman</a>
+    </div>
+    @if(session()->has('success'))
+    <div class="alert alert-success ml-4 mt-2" role="alert">
+        {{ session('success') }}
+    </div>      
+    @endif
+    @if(session()->has('error'))
+    <div class="alert alert-danger ml-4 mt-2" role="alert">
+        {{ session('error') }}
+    </div>      
+    @endif
+    <div class="container table-responsive">
+        <table id="example" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama</th>
+                    <th>Jumlah Pinjaman</th>
+                    <th>Lama Angsuran</th>
+                    <th>Tindakan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reorder as $r)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $r-> user -> customer -> nama }}</td>
+                    <td>
+                        @php
+                        $pinjaman = $r->jumlah_pinjaman;
+                        echo number_format($pinjaman,0,'.','.');
+                        @endphp
+                    </td>
+                    <td>{{ $r->lama_angsuran }} Bulan</td>
+                    <td>
+                        <form action="{{ route('payment.reject',$r->id) }}" method="post" class="d-inline">
+                                @method('POST')
+                                @csrf
+                            <input type="hidden" name="payment_id" value="{{ $r->id }}">
+                            <button class="btn btn-danger btn-circle btn-sm"
+                             onclick="return confirm ('Tolak Data Pengajuan ini?')">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </form>
+                        <form action="{{ route('acceptReorder', $r->id) }}" method="post" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="payment_id" value="{{ $r->id }}">
+                            <button type="submit" class="btn btn-success btn-circle btn-sm" onclick="return confirm('Apakah data pembayaran ini valid?')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </div> 
+</div>
 @endsection

@@ -30,17 +30,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'username'=>'ade-irma',
+            'username'=>'asep',
             'customer_id'=>'2',
-            'email' => 'adeirma@gmail.com',
+            'email' => 'asep@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
         ]);
 
         User::create([
-            'username'=>'gita-herwati',
+            'username'=>'wahyu',
             'customer_id'=>'3',
-            'email' => 'gitaherewati@gmail.com',
+            'email' => 'wahyu@gmail.com',
             'password' => ('12345'),
             'is_admin' => '0'
         ]);
@@ -62,8 +62,8 @@ class DatabaseSeeder extends Seeder
         ]);  
         Customer::create([
             'user_id' => '2',
-            'nama' => 'Ade Irma',
-            'jenis_kelamin' => 'Perempuan',
+            'nama' => 'asep',
+            'jenis_kelamin' => 'Laki-laki',
             'alamat' => 'jl.Irmanatasawari II blok P.3',
             'alasan' => 'Rumah',
             'telepon' => '856123781232',
@@ -72,13 +72,13 @@ class DatabaseSeeder extends Seeder
             'lama_angsuran' => '4',
             'pinjaman' => '8000000',
             'kelengkapan_berkas' =>'Surat Tanah, Kartu Keluarga',
-            'skor' => '6.7435342'
+            'skor' => '6.743534281232'
             
         ]);  
         Customer::create([
             'user_id' => '3',
-            'nama' => 'Gita Herwati',
-            'jenis_kelamin' => 'Perempuan',
+            'nama' => 'wahyu',
+            'jenis_kelamin' => 'Laki-laki',
             'alamat' => 'jl.Herwatimulya No.7',
             'alasan' => 'Usaha',
             'telepon' => '8571209232',
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'lama_angsuran' => '2',
             'pinjaman' => '4000000',
             'kelengkapan_berkas' =>'BPKB, Ijazah',
-            'skor' => '6.5435342'
+            'skor' => '6.543534281232'
         ]);  
 //SUBMISSION
         Submission::create([
@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
             'skor' => '6.742243287246'
         ]);
         Submission::create([
-            'nama' => 'Layla Gold',
+            'nama' => 'Siti Sayekti',
             'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Jl.Goldlane XII No. 7 Kabupaten LandofDawn',
             'email' => 'layla@gmail.com',
@@ -166,7 +166,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => '3',
             'pinjaman' => '4000000',
             'jumlah_angsuran' => '2',
-            'biaya_angsuran' => '210000',
+            'biaya_angsuran' => '2120000',
             'jatuh_tempo' => '2024-05-18'
         ]);
 

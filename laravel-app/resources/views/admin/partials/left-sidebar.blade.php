@@ -68,6 +68,7 @@ Customer Management
                           <a class="collapse-item" href="/admin/transaksi">Daftar Pinjaman</a>
                           <a class="collapse-item" href="/admin/angsuran">Transaksi Angsuran</a>
                           <a class="collapse-item" href="/admin/pembayaran">Daftar Pembayaran </a>
+                          <a class="collapse-item" href="/admin/reorder">Pengajuan Reorder</a>
                           <div class="collapse-divider"></div>
                       </div>
                   </div>

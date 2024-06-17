@@ -59,6 +59,9 @@ Route::group(['middleware'=>['admin_auth']],function(){
 
     //Pinjaman
     Route::resource('admin/transaksi', LoanController::class);
+    Route::get('/admin/reorder',[LoanController::class,'reorders'])->name('reorder');
+    Route::post('/admin/reorder/{id}',[LoanController::class,'acceptReorder'])->name('acceptReorder');
+
 
     //angsuran
     Route::resource('admin/angsuran',InstallmentController::class);

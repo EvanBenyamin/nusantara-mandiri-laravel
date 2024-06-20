@@ -153,7 +153,7 @@
                                 <div data-mdb-input-init class="form-outline">
                                   <select id="pendapatan" name="pendapatan" class="form-select form-select-lg mb-1" 
                                   aria-label=".form-select-lg example" value="{{ old('pendapatan') }}">
-                                    <option selected value = "<2000000"{{ old('pendapatan', $submission->pendapatan) == '<2000000' ? 'selected' : '' }}>< Rp. 2.000.000</option>
+                                    <option selected value = "<2000000"{{ old('pendapatan', $submission->pendapatan) == '<2000000' ? 'selected' : '' }}>< Rp 2.000.000</option>
                                     <option value="2000000 - 3000000"{{ old('pendapatan', $submission->pendapatan) == '2000000 - 3000000' ? 'selected' : '' }}> Rp 2.000.000 - 3.000.000 </option>
                                     <option value="3000000 - 4000000"{{ old('pendapatan', $submission->pendapatan) == '3000000 - 4000000' ? 'selected' : ''}}> Rp 3.000.000 - 4.000.000 </option>
                                     <option value="4000000 - 5000000"{{ old('pendapatan', $submission->pendapatan) == '4000000 - 5000000' ? 'selected' : ''}}> Rp 4.000.000 - 5.000.000</option>

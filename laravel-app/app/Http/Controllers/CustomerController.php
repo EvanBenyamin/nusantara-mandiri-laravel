@@ -52,6 +52,7 @@ class CustomerController extends Controller
             'id_kepegawaian' => 'required',
             'pendapatan' => 'required',
             'username'=>'required',
+            'email' => 'required'
             // 'kelengkapan_berkas'=>'required'
         ]);
         if ($request->username == $user->username){
@@ -66,7 +67,8 @@ class CustomerController extends Controller
 
         $user_data = User::find($user->id);
         $user_data -> username = $request->username;
-        $user->save();
+        $user_data -> email = $request->email;
+        $user_data->save();
         return redirect('/admin/customers')->with('success','Data Nasabah berhasil Diubah!');
         } else {
             return redirect('/admin/customers')->with('error','username tidak boleh diganti!');

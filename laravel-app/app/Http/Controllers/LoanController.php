@@ -26,7 +26,7 @@ class LoanController extends Controller
      */
     public function create()
     {
-        return view ('admin.users.pinjaman',[
+        return view ('admin.users.tambah_pinjaman',[
             "title" => "Tambah Pinjaman"
         ]);
     }

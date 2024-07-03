@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="row mt-2">
-              <div class="col-6 mt-2" >jaminan</div>
+              <div class="col-6 mt-2" >Jaminan</div>
               </div>
               <div class="row">
               <div class="form-check col mt-3 ">

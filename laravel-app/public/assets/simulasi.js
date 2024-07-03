@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.innerText = 'Selamat, Anda layak melakukan pinjaman! silahkan lakukan  '
             div.appendChild(link);
         } else if (earn * angsur >= pinjaman.value && scoring() >= 6.20){
-            // console.log (`Hasil Perhitungan adalah ${scoring()}`)
+            console.log (`Hasil Perhitungan adalah ${scoring()}`)
             var link = document.createElement('a');
             link.href = '/kontak'
             link.innerText = 'Admin Kami'
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.appendChild(link);
         } else {
             // console.log(earn+angsur)
-            // console.log (`Hasil Perhitungan adalah ${scoring()}`)
+            console.log (`Hasil Perhitungan MPE adalah ${scoring()}`)
             var div = document.getElementById("simResult")
             div.style.color = 'red'
             div.innerText = 'Maaf, Anda belum layak melakukan pinjaman  '
@@ -68,9 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
             let angsur = parseFloat(angsurDrop.value) 
             var simulasi = Math.ceil(((plafond*0.03*angsur) + plafond)/angsur)
 
-            let neatSimulasi = neatnumber(simulasi);
+            let rupiah = simulasi.toLocaleString();
+            rupiah = rupiah.replace(/,/g, '.');
+            // console.log(rupiah)
            
-            document.getElementById("result").innerText = "Cicilan Anda sebanyak: Rp " +neatSimulasi+ "/Bulan";
+            document.getElementById("result").innerText = "Cicilan Anda sebanyak: Rp " +rupiah+ "/Bulan";
 	});
 
         function neatnumber(number) {

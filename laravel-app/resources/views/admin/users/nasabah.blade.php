@@ -73,7 +73,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>No.Telepon</th>
+                    <th>No Telepon</th>
                     <th>Pinjaman</th>
                     <th>Lama Angsuran</th>
                     <th>Skor</th>

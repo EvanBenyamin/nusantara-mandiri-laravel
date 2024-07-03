@@ -160,7 +160,7 @@ class CustomerController extends Controller
         $user = auth()->user()->id;
         $user_loan = Loan::where('user_id',$user)->latest()->first();
 
-        if($user_loan->jumlah_angsuran = 0 ){
+        if($user_loan->jumlah_angsuran <= 1 ){
             $reorder = new Reorder();
             $reorder -> user_id = $user;
             $reorder -> jumlah_pinjaman = $request->jumlah_pinjaman;
